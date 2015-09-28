@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<!-- basedir -->
+	<basedir path="data" />
+	<!-- sounds -->
+	<!-- songs -->
+	<!-- images -->
+	<image key="elf" file="elf.png" />
+	<image key="floor" file="floor.png" />
+	<image key="wall" file="wall.png" />
+	<image key="spider" file="spider.png" />
+	<!-- sheets -->
+	<!-- fonts -->
+</resources>

@@ -1,0 +1,54 @@
+DONE	create project
+DONE	add dependecies
+DONE	view first state helloworld with marteengine+slick
+DONE	create game state and game world, add first elf as entity
+DONE	make entity move in grid of 32x32
+DONE	import world generator for old project
+DONE	add collision
+DONE 	center player in a not collidable zone
+DONE	add static enemy
+DONE 	add wandering enemy
+DONE	stats turn passed
+DONE	show player health
+DONE	face left/right
+DONE	working camera 
+DONE	tween for moving
+DONE	display only tiles and enemy near player
+DONE	first commit with git, version 0.1
+---------------------------------------------
+
+line of sight 
+light effect using line of sight (only on near in sight tiles)
+combat
+
+
+a breve:
+add messages
+add all old monsters
+add all different behaviours
+add potions
+add invisibility scroll
+add torch
+
+
+
+lighting
+	http://www.alcove-games.com/opengl-es-2-tutorials/lightmap-shader-fire-effect-glsl/
+	http://www.java-gaming.org/topics/efficient-terraria-like-2d-lighting/36668/view/topicseen.html
+	
+appiccare il fuoco!
+tematizzare i livelli
+boss fight?
+introdurre una memoria per i posti che i mostri hanno già visitato (vedi esempio heatmap), così da avere un comportamento semi-random
+	usare inoltre una sorta di "detect" del rumore che fanno le altre creature ? 
+dungeon generation
+	nest:
+		https://groups.google.com/forum/#!topic/rec.games.roguelike.development/TFYnGXDCU78
+		
+Idea per stile:
+	http://zimra.fr/wp-content/gallery/fanart-commission/testchrome.jpg
+		fonte: http://forums.tigsource.com/index.php?topic=44518.0
+
+luci dinamiche
+i vari personaggi proiettano un'ombra
+	http://www.rockpapershotgun.com/images/15/mar/villhead.jpg

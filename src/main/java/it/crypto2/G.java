@@ -2,6 +2,7 @@ package it.crypto2;
 
 import org.newdawn.slick.geom.Vector2f;
 
+import it.crypto2.game.GameWorld;
 import it.crypto2.world.entities.PlayerEntity;
 
 // Globals
@@ -34,10 +35,22 @@ public final class G {
 
 	public static final String SPIDER = "spider";
 
+	public static final String STYGIANBIRD = "stygianBird";
+
+	public static final String ABERRATION = "aberration";
+
+	public static final String POTION = "potion";
+
+	public static final String TORCH = "torch";
+
 	public static boolean PLAYER_MOVED = false;
 
 	public static PlayerEntity playerEntity = null;
 
+	public static final int MAX_SIGHT = 8;
+
 	public static int sight = 5;
+
+	public static GameWorld world;
 
 }

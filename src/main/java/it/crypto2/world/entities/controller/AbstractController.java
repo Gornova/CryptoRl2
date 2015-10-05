@@ -1,6 +1,7 @@
 package it.crypto2.world.entities.controller;
 
 import it.crypto2.G;
+import it.crypto2.world.entities.GameEntity;
 import it.marteEngine.World;
 import it.marteEngine.entity.Entity;
 import it.marteEngine.tween.Ease;
@@ -8,7 +9,7 @@ import it.marteEngine.tween.LinearMotion;
 
 public abstract class AbstractController implements Controller {
 
-	protected Entity c;
+	protected GameEntity c;
 	protected World world;
 	// private Collider collider;
 
@@ -28,7 +29,7 @@ public abstract class AbstractController implements Controller {
 		LEFT, RIGHT, UP, DOWN, NONE
 	}
 
-	public AbstractController(Entity c) {
+	public AbstractController(GameEntity c) {
 		this.c = c;
 	}
 
@@ -115,6 +116,11 @@ public abstract class AbstractController implements Controller {
 	// getWorld().playerCanSee(x, y);
 	// }
 
+	// public boolean canSeePlayer(float x, float y) {
+	// PlayerEntity player = G.playerEntity;
+	// return player.canSee((int) x, (int) y);
+	// }
+
 	public void updateTween(int delta) {
 		if (!moveRight && !moveLeft && !moveUp && !moveDown) {
 			return;
@@ -149,4 +155,10 @@ public abstract class AbstractController implements Controller {
 			}
 		}
 	}
+
+	// under 25%
+	public boolean lowHealth() {
+		return (c.hp <= (c.maxHp * 25 / 100));
+	}
+
 }

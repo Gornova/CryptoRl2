@@ -16,19 +16,37 @@ DONE	tween for moving
 DONE	display only tiles and enemy near player
 DONE	first commit with git, version 0.1
 ---------------------------------------------
-
-line of sight 
-light effect using line of sight (only on near in sight tiles)
-combat
+DONE	add stygian bird, first implementation of attackOnSightController
+DONE	line of sight 
+DONE	light effect using line of sight (only on near in sight tiles)
+DONE	add Aberration
+DONE 	combat
+DONE	add potions
+DONE	game over state
+DONE	win state
+DONE	add all old monsters
+DONE	add messages
+DONE	potion message
+DONE	combat message
+DONE	add torch
+DONE	version 0.2
+---------------------------------------------
+TODO 	BUG		enemies too much near player on generation
 
 
 a breve:
-add messages
-add all old monsters
-add all different behaviours
-add potions
+
 add invisibility scroll
-add torch
+
+menuState
+win condition => finish 5 levels
+game over => star over
+
+----------
+
+FUTURE	run on low health controller for stygianBird
+BUG		pathfinding not working ?
+add all different behaviours
 
 
 

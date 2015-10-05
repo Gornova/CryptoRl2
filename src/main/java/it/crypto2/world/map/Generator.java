@@ -242,7 +242,7 @@ public class Generator {
 	public GameWorld generate(GameWorld world) {
 		double percentage = 0.75;
 		int creatures = 0;
-		int maximumCreatures = 1;
+		int maximumCreatures = 5;
 		int items = 0;
 		int maximumItems = 8;
 		double cper = 0.15;
@@ -267,15 +267,20 @@ public class Generator {
 							Entity monster = EntityFactory.buildRandomMonster(world, i, j);
 							world.add(monster);
 							// world.set(i, j, TileFactory.buildFloor(i, j));
+						} else if (rnd.nextDouble() < pper
+								&& items < maximumItems /**
+														 * && !nearItem(world,
+														 * i, j)
+														 **/
+						) {
+							items++;
+							world.add(EntityFactory.buildRandomItem(world, i, j));
+							world.setItem(i, j);
 						}
-						// else if (rnd.nextDouble() < pper && items <
-						// maximumItems && !nearItem(world, i, j)) {
-						// items++;
-						// world.add(ItemFactory.buildRandomItem(i, j));
-						// }
 
 					} else if (map.get(i, j) == G.W) {
 						world.add(TileFactory.buildWall(i, j, world));
+						world.setWall(i, j);
 					}
 				} else {
 					// world.add(TileFactory.buildWall(i, j));

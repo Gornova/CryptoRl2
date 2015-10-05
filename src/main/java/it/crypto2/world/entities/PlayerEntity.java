@@ -1,21 +1,21 @@
 package it.crypto2.world.entities;
 
+import org.apache.commons.lang3.tuple.MutablePair;
+import org.apache.commons.lang3.tuple.Pair;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.geom.Circle;
 
 import it.crypto2.G;
 import it.marteEngine.ME;
+import it.marteEngine.entity.Entity;
 
 public class PlayerEntity extends GameEntity {
 
 	public boolean attacking = false;
-
-	public int hp = 50;
-	public int maxHp = 50;
-	public int atk = 5;
 
 	public boolean faceRight = true;
 
@@ -41,7 +41,6 @@ public class PlayerEntity extends GameEntity {
 
 		addType("player", SOLID);
 		depth = 5;
-
 	}
 
 	private void defineControls() {
@@ -65,6 +64,40 @@ public class PlayerEntity extends GameEntity {
 			setGraphic(imgLeft);
 		}
 		super.render(container, g);
+
+		if (ME.debugEnabled) {
+			PlayerEntity target = G.playerEntity;
+			int tx = (int) (target.x + G.TILE_SIZE / 2);
+			int ty = (int) (target.y + G.TILE_SIZE / 2);
+			Circle circle = new Circle(tx, ty, G.sight * G.TILE_SIZE);
+			g.draw(circle);
+		}
+	}
+
+	@Override
+	public void collisionResponse(Entity other) {
+		if (other instanceof EnemyEntity) {
+			combat(new MutablePair<GameEntity, GameEntity>(this, (GameEntity) other));
+			System.out.println("combat!");
+		}
+		if (other instanceof Potion) {
+			((Potion) other).cure(this);
+			G.world.remove(other);
+		}
+		if (other instanceof Torch) {
+			G.world.remove(other);
+			((Torch) other).extend(this);
+		}
+	}
+
+	public Pair<GameEntity, GameEntity> combat(Pair<GameEntity, GameEntity> input) {
+		G.world.addMessage(input.getLeft().name + " attack " + input.getRight().name);
+
+		input.getLeft()
+				.damage(input.getRight().atk > input.getLeft().dfk ? input.getRight().atk - input.getLeft().dfk : 0);
+		input.getRight()
+				.damage(input.getLeft().atk > input.getRight().dfk ? input.getLeft().atk - input.getRight().dfk : 0);
+		return input;
 	}
 
 }

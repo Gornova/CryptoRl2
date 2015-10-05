@@ -9,6 +9,10 @@
 	<image key="floor" file="floor.png" />
 	<image key="wall" file="wall.png" />
 	<image key="spider" file="spider.png" />
+	<image key="stygianBird" file="stygian-bird.png" />
+	<image key="aberration" file="aberration.png" />
+	<image key="potion" file="potion.png" />
+	<image key="torch" file="torch.png" />
 	<!-- sheets -->
 	<!-- fonts -->
 </resources>

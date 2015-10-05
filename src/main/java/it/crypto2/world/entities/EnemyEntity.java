@@ -23,7 +23,7 @@ public class EnemyEntity extends GameEntity {
 		// define collision box and type
 		setHitBox(0, 0, G.WIDTH, G.HEIGHT);
 
-		addType(name);
+		addType(name, SOLID);
 		depth = 20;
 	}
 
@@ -36,7 +36,7 @@ public class EnemyEntity extends GameEntity {
 	@Override
 	public void render(GameContainer container, Graphics g) throws SlickException {
 		// render entity only near player
-		if (canSee((int) x, (int) y)) {
+		if (canSeePlayer()) {
 			super.render(container, g);
 		}
 	}

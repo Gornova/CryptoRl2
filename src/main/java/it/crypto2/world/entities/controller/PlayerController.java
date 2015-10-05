@@ -1,13 +1,14 @@
 package it.crypto2.world.entities.controller;
 
 import it.crypto2.G;
+import it.crypto2.world.entities.GameEntity;
 import it.crypto2.world.entities.PlayerEntity;
 import it.marteEngine.ME;
 import it.marteEngine.entity.Entity;
 
 public class PlayerController extends AbstractController {
 
-	public PlayerController(Entity c) {
+	public PlayerController(GameEntity c) {
 		super(c);
 	}
 

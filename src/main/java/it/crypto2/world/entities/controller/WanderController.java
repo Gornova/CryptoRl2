@@ -5,14 +5,14 @@ import java.util.List;
 import java.util.Random;
 
 import it.crypto2.G;
-import it.marteEngine.entity.Entity;
+import it.crypto2.world.entities.GameEntity;
 
 // just wandering around 
 public class WanderController extends AbstractController {
 
 	private Random rnd = new Random();
 
-	public WanderController(Entity c) {
+	public WanderController(GameEntity c) {
 		super(c);
 	}
 

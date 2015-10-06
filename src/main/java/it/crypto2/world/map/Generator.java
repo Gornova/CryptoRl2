@@ -8,7 +8,6 @@ import org.newdawn.slick.geom.Vector2f;
 
 import it.crypto2.G;
 import it.crypto2.game.GameWorld;
-import it.crypto2.world.entities.EnemyEntity;
 import it.crypto2.world.entities.EntityFactory;
 import it.crypto2.world.entities.PlayerEntity;
 import it.marteEngine.World;
@@ -27,6 +26,8 @@ public class Generator {
 	private int h;
 	private Point playerStartingPoint = null;
 	private Point startLocation;
+	private boolean[][] monsters;
+	private boolean[][] item;
 
 	public Point getPlayerStartingPoint() {
 		return playerStartingPoint;
@@ -36,6 +37,9 @@ public class Generator {
 		map = new GameMap(w, h);
 		this.w = w;
 		this.h = h;
+		monsters = new boolean[w][h];
+		item = new boolean[w][h];
+
 	}
 
 	public void set(Point location, int t) {
@@ -266,16 +270,13 @@ public class Generator {
 							creatures++;
 							Entity monster = EntityFactory.buildRandomMonster(world, i, j);
 							world.add(monster);
+							monsters[i][j] = true;
 							// world.set(i, j, TileFactory.buildFloor(i, j));
-						} else if (rnd.nextDouble() < pper
-								&& items < maximumItems /**
-														 * && !nearItem(world,
-														 * i, j)
-														 **/
-						) {
+						} else if (rnd.nextDouble() < pper && items < maximumItems && !nearItem(world, i, j)) {
 							items++;
 							world.add(EntityFactory.buildRandomItem(world, i, j));
 							world.setItem(i, j);
+							item[i][j] = true;
 						}
 
 					} else if (map.get(i, j) == G.W) {
@@ -303,6 +304,19 @@ public class Generator {
 		return world;
 	}
 
+	private boolean nearItem(GameWorld world, int i, int j) {
+		for (int x = 0; x < w; x++) {
+			for (int y = 0; y < h; y++) {
+				if (item[x][y]) {
+					if (near(i, j, x, y, 5)) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+
 	// private boolean nearItem(WorldInterface world, int i, int j) {
 	// if (world.getElements() == null) {
 	// return false;
@@ -318,20 +332,22 @@ public class Generator {
 	// }
 	//
 	private boolean nearCreature(World world, int i, int j) {
-		for (Entity e : world.getEntities()) {
-			if (e instanceof EnemyEntity) {
-				if (near(i, j, e, 5 * G.TILE_SIZE)) {
-					return true;
+		for (int x = 0; x < w; x++) {
+			for (int y = 0; y < h; y++) {
+				if (monsters[x][y]) {
+					if (near(i, j, x, y, 5)) {
+						return true;
+					}
 				}
 			}
 		}
 		return false;
 	}
 
-	private boolean near(int i, int j, Entity ge, int v) {
+	private boolean near(int i, int j, int x, int y, int v) {
 		Vector2f p = new Vector2f(i, j);
-		int d = (int) (Math.abs(p.x - ge.x) + Math.abs(p.y - ge.y));
-		if (d < v) {
+		Vector2f o = new Vector2f(x, y);
+		if (Math.abs((p.distance(o))) < v) {
 			return true;
 		}
 		return false;

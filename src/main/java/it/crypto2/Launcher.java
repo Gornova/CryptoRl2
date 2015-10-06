@@ -8,14 +8,16 @@ import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
-import it.crypto2.game.GameWorld;
 import it.crypto2.game.GameOverWorld;
+import it.crypto2.game.GameWorld;
+import it.crypto2.game.MenuWorld;
 import it.crypto2.game.WinWorld;
 import it.marteEngine.ME;
 import it.marteEngine.ResourceManager;
 
 public class Launcher extends StateBasedGame {
 
+	public static final int MENU_STATE = 0;
 	public static final int GAME_STATE = 1;
 	public static final int GAME_OVER_STATE = 2;
 	public static final int WIN_STATE = 3;
@@ -32,6 +34,7 @@ public class Launcher extends StateBasedGame {
 			e.printStackTrace();
 		}
 		// add states
+		addState(new MenuWorld(MENU_STATE, container));
 		addState(new GameWorld(GAME_STATE, container));
 		addState(new GameOverWorld(GAME_OVER_STATE, container));
 		addState(new WinWorld(WIN_STATE, container));

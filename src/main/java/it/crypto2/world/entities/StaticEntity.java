@@ -6,11 +6,14 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
 import it.crypto2.G;
+import it.marteEngine.ResourceManager;
 import it.marteEngine.World;
 
 public class StaticEntity extends GameEntity {
 
 	public boolean attacking = false;
+
+	private Image gray;
 
 	public StaticEntity(float x, float y, Image img, World world) {
 		super(x, y);
@@ -22,6 +25,8 @@ public class StaticEntity extends GameEntity {
 		setHitBox(0, 0, G.WIDTH, G.HEIGHT);
 		this.world = world;
 		depth = 0;
+
+		gray = ResourceManager.getImage(G.gray);
 	}
 
 	@Override
@@ -29,16 +34,11 @@ public class StaticEntity extends GameEntity {
 		// render entity only near player
 		if (canSeePlayer()) {
 			super.render(container, g);
+		} else if (alreadySeenByPlayer((int) x / G.TILE_SIZE, (int) y / G.TILE_SIZE)) {
+			// g.setColor(Color.red);
+			super.render(container, g);
+			g.drawImage(gray, x, y);
 		}
 	}
-
-	// private boolean nearPlayer() {
-	// Entity e = G.playerEntity;
-	// int d = (int) (Math.abs(x - e.x) + Math.abs(y - e.y));
-	// if (d < G.TILE_SIZE * 8) {
-	// return true;
-	// }
-	// return false;
-	// }
 
 }

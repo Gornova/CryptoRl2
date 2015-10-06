@@ -31,16 +31,19 @@ DONE	combat message
 DONE	add torch
 DONE	version 0.2
 ---------------------------------------------
-TODO 	BUG		enemies too much near player on generation
+DONE 	BUG		enemies too much near player on generation
+TODO 	menuState
+DONE 	win condition => finish 5 levels
+DONE 	game over => star over
+DONE	already saw tiles in gray
+DONE	version 0.3
+---------------------------------------------
 
 
 a breve:
 
 add invisibility scroll
 
-menuState
-win condition => finish 5 levels
-game over => star over
 
 ----------
 

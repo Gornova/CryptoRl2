@@ -56,10 +56,12 @@ public class GameEntity extends Entity {
 				return false;
 			}
 			if (G.world.isFloor(point.x, point.y) || G.world.isItem(point.x, point.y)) {
+				G.world.setSaw((int) point.x, (int) point.y);
 				continue;
 			}
 			if (!wallFound && G.world.isWall(point.x, point.y)) {
 				wallFound = true;
+				G.world.setSaw((int) point.x, (int) point.y);
 			} else if (wallFound && G.world.isWall(point.x, point.y)) {
 				return false;
 			}
@@ -71,13 +73,13 @@ public class GameEntity extends Entity {
 	public GameEntity damage(int value) {
 		this.hp -= value;
 		if (hp <= 0) {
-			setDead();
+			setDead(true);
 		}
 		return this;
 	}
 
-	private void setDead() {
-		this.dead = true;
+	public void setDead(boolean v) {
+		this.dead = v;
 	}
 
 	@Override
@@ -86,6 +88,10 @@ public class GameEntity extends Entity {
 		if (isDead()) {
 			G.world.remove(this);
 		}
+	}
+
+	protected boolean alreadySeenByPlayer(int tx, int ty) {
+		return G.world.alreadySeenByPlayer(tx, ty);
 	}
 
 }

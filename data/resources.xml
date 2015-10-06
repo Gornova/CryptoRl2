@@ -13,6 +13,8 @@
 	<image key="aberration" file="aberration.png" />
 	<image key="potion" file="potion.png" />
 	<image key="torch" file="torch.png" />
+	<image key="logo" file="logo.png" />
+	<image key="gray" file="gray.png" />
 	<!-- sheets -->
 	<!-- fonts -->
 </resources>

@@ -34,14 +34,27 @@ public class GameWorld extends World implements TileBasedMap {
 	private int widthInTiles;
 	private int heightInTiles;
 	private boolean[][] item;
+	private boolean[][] saw;
 
 	public GameWorld(int id, GameContainer container) {
 		super(id, container);
-
 		// init world
 		widthInTiles = container.getWidth() / G.TILE_SIZE;
 		heightInTiles = container.getHeight() / G.TILE_SIZE;
-		initWorld(widthInTiles, heightInTiles);
+	}
+
+	private void initWorld(int w, int h) {
+		floor = new boolean[w][h];
+		walls = new boolean[w][h];
+		item = new boolean[w][h];
+		saw = new boolean[w][h];
+		clear();
+		Generator g = new Generator(w, h);
+		g.generate(this);
+		// set world limit
+		setWidth(w * G.TILE_SIZE * 10);
+		setHeight(h * G.TILE_SIZE * 10);
+
 		// init gui
 		gui = new Gui(this);
 		// set camera
@@ -53,17 +66,6 @@ public class GameWorld extends World implements TileBasedMap {
 		pathFinder = new AStarPathFinder(this, 100, false);
 
 		gui.addMessage("Welcome to CryptoRl 2 !");
-	}
-
-	private void initWorld(int w, int h) {
-		floor = new boolean[w][h];
-		walls = new boolean[w][h];
-		item = new boolean[w][h];
-		Generator g = new Generator(w, h);
-		g.generate(this);
-		// set world limit
-		setWidth(w * G.TILE_SIZE * 10);
-		setHeight(h * G.TILE_SIZE * 10);
 	}
 
 	@Override
@@ -85,6 +87,13 @@ public class GameWorld extends World implements TileBasedMap {
 		super.render(container, stateBasedGame, g);
 		// render gui
 		gui.render(container, stateBasedGame, g);
+	}
+
+	@Override
+	public void enter(GameContainer container, StateBasedGame game) throws SlickException {
+		super.enter(container, game);
+
+		initWorld(widthInTiles, heightInTiles);
 	}
 
 	public void setFloor(int i, int j) {
@@ -157,6 +166,14 @@ public class GameWorld extends World implements TileBasedMap {
 	public void addMessage(String m) {
 		gui.addMessage(m);
 
+	}
+
+	public boolean alreadySeenByPlayer(int x, int y) {
+		return saw[x][y];
+	}
+
+	public void setSaw(int x, int y) {
+		saw[x][y] = true;
 	}
 
 }

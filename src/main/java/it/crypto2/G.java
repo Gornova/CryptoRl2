@@ -49,6 +49,10 @@ public final class G {
 
 	public static final int MAX_SIGHT = 8;
 
+	public static final String LOGO = "logo";
+
+	public static final String gray = "gray";
+
 	public static int sight = 5;
 
 	public static GameWorld world;

@@ -3,6 +3,7 @@ package it.crypto2.world.entities;
 import java.awt.Point;
 
 import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Circle;
 import org.newdawn.slick.geom.Vector2f;
@@ -39,6 +40,7 @@ public class GameEntity extends Entity {
 
 	public boolean canSeePlayer() {
 		PlayerEntity target = G.playerEntity;
+
 		int tx = (int) (target.x + G.TILE_SIZE / 2);
 		int ty = (int) (target.y + G.TILE_SIZE / 2);
 		c = new Circle(tx, ty, G.sight);
@@ -87,6 +89,13 @@ public class GameEntity extends Entity {
 		super.update(container, delta);
 		if (isDead()) {
 			G.world.remove(this);
+		}
+	}
+
+	@Override
+	public void render(GameContainer container, Graphics g) throws SlickException {
+		if (canSeePlayer()) {
+			super.render(container, g);
 		}
 	}
 

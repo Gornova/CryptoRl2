@@ -15,6 +15,10 @@
 	<image key="torch" file="torch.png" />
 	<image key="logo" file="logo.png" />
 	<image key="gray" file="gray.png" />
+	<image key="exit" file="exit.png" />
+	<image key="hpbar" file="hpbar.png" />
+	<image key="invisibilityScroll" file="invisibilityScroll.png" />
+	
 	<!-- sheets -->
 	<!-- fonts -->
 </resources>

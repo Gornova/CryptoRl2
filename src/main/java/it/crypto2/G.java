@@ -53,8 +53,22 @@ public final class G {
 
 	public static final String gray = "gray";
 
+	public static final String EXIT = "exit";
+
+	public static final int MAX_LEVEL = 2;
+
 	public static int sight = 5;
 
 	public static GameWorld world;
+
+	public static int currentLevel = 1;
+
+	public static final String HPBAR = "hpbar";
+
+	public static final String INVISIBILITY_SCROLL = "invisibilityScroll";
+
+	public static final int INVISIBILITY_TIME = 10;
+
+	public static int INVISIBILITY_TIMER = 0;
 
 }

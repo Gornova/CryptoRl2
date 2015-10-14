@@ -1,9 +1,6 @@
 package it.crypto2.world.entities;
 
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
 
 import it.crypto2.G;
 
@@ -25,13 +22,6 @@ public class Potion extends GameEntity {
 
 		addType(name, SOLID);
 		depth = 20;
-	}
-
-	@Override
-	public void render(GameContainer container, Graphics g) throws SlickException {
-		if (canSeePlayer()) {
-			super.render(container, g);
-		}
 	}
 
 	public void cure(GameEntity ge) {

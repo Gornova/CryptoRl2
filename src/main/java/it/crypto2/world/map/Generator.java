@@ -28,6 +28,7 @@ public class Generator {
 	private Point startLocation;
 	private boolean[][] monsters;
 	private boolean[][] item;
+	private boolean[][] floor;
 
 	public Point getPlayerStartingPoint() {
 		return playerStartingPoint;
@@ -37,6 +38,7 @@ public class Generator {
 		map = new GameMap(w, h);
 		this.w = w;
 		this.h = h;
+		floor = new boolean[w][h];
 		monsters = new boolean[w][h];
 		item = new boolean[w][h];
 
@@ -261,6 +263,7 @@ public class Generator {
 						c++;
 						world.add(TileFactory.buildFloor(i, j, world));
 						world.setFloor(i, j);
+						floor[i][j] = true;
 						if (c == 2) {
 							playerStartingPoint = new Point(i, j);
 							G.playerEntity = (PlayerEntity) EntityFactory.buildPlayer(world, i, j);
@@ -282,6 +285,7 @@ public class Generator {
 					} else if (map.get(i, j) == G.W) {
 						world.add(TileFactory.buildWall(i, j, world));
 						world.setWall(i, j);
+						floor[i][j] = false;
 					}
 				} else {
 					// world.add(TileFactory.buildWall(i, j));
@@ -292,7 +296,12 @@ public class Generator {
 		// build starting point for player
 
 		// place exit
-		// Point p = world.getRandomPoint(10);
+		Point p = getRandomPoint();
+		while (p == null) {
+			p = getRandomPoint();
+		}
+		world.add(EntityFactory.buildExit(world, p.x, p.y));
+
 		// GameElement exit = TileFactory.buildExit((int) p.getX(), (int)
 		// p.getY());
 		// world.set((int) p.getX(), (int) p.getY(), exit);
@@ -302,6 +311,34 @@ public class Generator {
 		// world.getElements().remove(player);
 
 		return world;
+	}
+
+	private Point getRandomPoint() {
+		// get randompoint using floor
+		int f = 0;
+		for (int i = 0; i < w; i++) {
+			for (int j = 0; j < h; j++) {
+				if (floor[i][j])
+					f++;
+			}
+
+		}
+		// in f number of free floor
+		Random rnd = new Random();
+		int s = rnd.nextInt(f);
+		int k = 0;
+		for (int i = 0; i < w; i++) {
+			for (int j = 0; j < h; j++) {
+				if (floor[i][j]) {
+					k++;
+				}
+				if (k == s) {
+					return new Point(i, j);
+				}
+			}
+
+		}
+		return null;
 	}
 
 	private boolean nearItem(GameWorld world, int i, int j) {

@@ -21,7 +21,7 @@ public class AttackOnSightController extends WanderController {
 
 	public void update(int delta) {
 		if (G.PLAYER_MOVED) {
-			if (canSee(c.x, c.y)) {
+			if (canSee(c.x, c.y) && !G.playerEntity.invisible) {
 				System.out.println("I can see player");
 				Line l = new Line((int) G.playerEntity.x / 32, (int) G.playerEntity.y / 32, (int) c.x / 32,
 						(int) c.y / 32);

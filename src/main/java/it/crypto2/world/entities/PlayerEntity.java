@@ -2,6 +2,7 @@ package it.crypto2.world.entities;
 
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.apache.commons.lang3.tuple.Pair;
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -21,6 +22,8 @@ public class PlayerEntity extends GameEntity {
 
 	private Image imgLeft;
 	private Image imgRight;
+
+	public boolean invisible = false;
 
 	public PlayerEntity(float x, float y, Image img) {
 		super(x, y);
@@ -64,6 +67,9 @@ public class PlayerEntity extends GameEntity {
 			setGraphic(imgLeft);
 		}
 		super.render(container, g);
+		if (invisible) {
+			currentImage.drawFlash(x, y, currentImage.getWidth(), currentImage.getHeight(), Color.gray);
+		}
 
 		if (ME.debugEnabled) {
 			PlayerEntity target = G.playerEntity;

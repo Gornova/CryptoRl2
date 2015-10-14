@@ -3,11 +3,12 @@ package it.crypto2.world.entities;
 import org.newdawn.slick.Image;
 
 import it.crypto2.G;
+import it.marteEngine.entity.Entity;
 
-public class Torch extends GameEntity {
+public class Exit extends GameEntity {
 
-	public Torch(int x, int y, Image img, String name) {
-		super(x, y);
+	public Exit(int i, int j, Image img, String name) {
+		super(i, j);
 
 		// set id
 		this.name = name;
@@ -22,13 +23,11 @@ public class Torch extends GameEntity {
 		depth = 20;
 	}
 
-	public void extend(GameEntity ge) {
-		if (G.sight + 3 < G.MAX_SIGHT) {
-			G.sight += 3;
-		} else {
-			G.sight = G.MAX_SIGHT;
+	@Override
+	public void collisionResponse(Entity other) {
+		if (other instanceof PlayerEntity) {
+			G.world.nextLevel();
 		}
-
 	}
 
 }

@@ -1,7 +1,6 @@
 package it.crypto2.world.entities;
 
 import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
@@ -10,6 +9,7 @@ import it.crypto2.G;
 public class EnemyEntity extends GameEntity {
 
 	public boolean attacking = false;
+	public String description = "";
 
 	public EnemyEntity(float x, float y, Image img, String name) {
 		super(x, y);
@@ -31,14 +31,6 @@ public class EnemyEntity extends GameEntity {
 	public void update(GameContainer container, int delta) throws SlickException {
 		super.update(container, delta);
 		controller.update(delta);
-	}
-
-	@Override
-	public void render(GameContainer container, Graphics g) throws SlickException {
-		// render entity only near player
-		if (canSeePlayer()) {
-			super.render(container, g);
-		}
 	}
 
 	public void moveLeft() {

@@ -38,16 +38,41 @@ DONE 	game over => star over
 DONE	already saw tiles in gray
 DONE	version 0.3
 ---------------------------------------------
+DONE	menu info and link to website
+DONE	exit sprite
+DONE	exit on dungeon generation
+DONE	BUG	fixed display exit bug
+DONE	handle exit and next level
+DONE	go back from win state to menu
+DONE	sprite for health bar
+DONE	add invisibility scroll
+DONE	improved fog of war
+DONE	add a small box when mouse is on over a monster / item, not only name, but with some info: http://weirdfellows.com/wp-content/uploads/2014/10/possessionshot3.png
+DONE	version 0.4
+---------------------------------------------
 
+BUG		enemies can enter on top of items
+BUG		infobox have problems with camera translations
+add infobox current health of creature
+balance enemies and encounters
+avoid too much items near
+better messages http://agingminotaur.blogspot.de/2014/11/thinking-out-loud.html
+	=> far parlare gli avversari sul loro stato, emozioni, su cosa fanno, per far entrare il giocatore in contatto col tutto
 
-a breve:
-
-add invisibility scroll
 
 
 ----------
-
+dungeon traits
+	darker
+	brighter
+	lava
+	lot of water
+	one type of monster
+	monster rage => each monster attack each other
+inventory ?
 FUTURE	run on low health controller for stygianBird
+statemachine or behaviour tree?
+level selection like in FTL ?
 BUG		pathfinding not working ?
 add all different behaviours
 
@@ -73,3 +98,157 @@ Idea per stile:
 luci dinamiche
 i vari personaggi proiettano un'ombra
 	http://www.rockpapershotgun.com/images/15/mar/villhead.jpg
+	
+	
+-----------------------------------------------
+--------------------	da vecchio TODO cryptoRL:
+
+
+bug hero stats must be persisted between states
+release
+
+
+
+add behaviour change on condition =< usare state machine, usando easyflow ?
+
+	
+add pathfinding => ready, but who will use it ? 
+
+exploration percentuage
+ranged combat with bow ?
+
+TODO removed mouse info due bug on scrolling
+BUG do nothing => se premo spazio non subisco danni da lava
+
+
+fix map is free logic: is free when there is no wall, but also when there is no creature or items
+better separation for collision handling
+weapons: player sword, wolf bite
+messages in combat using weapons
+goblin: attack player
+
+
+-------------idee da ancora piu vecchio
+
+
+
+Il concept:
+	il giocatore é un elfo, della casa Tulje, perso in una gigantesca caverna.
+	gli elfi adorano Veon
+	deve trovare la strada per ritornare a Kelmera, la sua casa => per fare questo deve attraversare 
+		la caverna
+	la società elfica é divisa in più casati, spesso in lotta tra di loro
+		SPUNTO: altri elfi che vagano e attaccano il pg ?
+	gli yuan-ti sono nemici degli elfi
+		spunto: gli yuan-ti si muovono più velocemente in acqua o vicino all'acqua, hanno scurovisione
+	ci sono funghi per nutrirsi ( e curarsi )
+		al posto delle pozioni curative
+	alcuni enormi funghi emettono luce e cristalli
+		SPUNTO: rendono visibile sempre alle altre creature i loro dintorni
+		SPUNTO: giocatore può raccogliore i cristalli per avere una luce che poi riesce a droppare?
+	
+		 
+	 
+
+
+
+
+
+
+
+
+
+--------------------------------------IDEAS BELOW-
+player can attack from distance using f. then move to select target
+an enemy that attack you from distance, use line
+drop item from quickslots, press d and number to drop
+add scroll of darkness: put some space in full darkness for X turn. Creature(even player) cannot see anything
+add poisoned mouse: on attack a small chance to get player poisoned, for 15 turns lose 1 hp
+add crate item: open, find another random item
+a static enemy that cures everything in range (5 squares), "Health spores"
+a static enemy that poison everything in range (5 squares), "Poison square"
+dungeon generation traits
+	- low light: half player radius
+	- normal light: normal player radius
+	- monster madness: +50% monsters
+	- unpotion: no potions available
+
+
+
+add gravedigger with following behaviour: wander, search for dead body, avoid contact with player
+
+add stamina to every creature. With stamina 0 creature must stop and wait. 
+	Stamina regenerate 10 stamina for turn
+	Player have on start 40 stamina
+add items to enhance stamina (fungus)
+add abilities. Each of them have a cost in stamina see (). Abilities are in three tiers:
+	tier 1: basic ability, enhance creature attack, senses, etc..
+	tier 2: advanced ability,  do something creature cannot do
+	tier 3: change reality
+	TIER 1:
+		attack (1): default ability for every creature
+		dash (20): move of 5 tiles in any perperdicular direction, stop if anything on line
+		hide into darkness (40): creature become invisible to everyone for 10 turns, if attacks
+			exit from invisibility
+		100 senses (40): enhance vision radius of double for 5 turns
+	TIER 2:
+		story of blades (40): attack in any tile around every enemy
+		invulnerability (40): creature become invulnerable for 10 turns, cannot move or attack
+		
+	TIER 3:
+		mirror images (40): creature create duplicate of itself (fake creatures with 1 hp, no special
+			abilities) that behave like creature
+		turn stone to dust (80): creature turn stone into dust, destroy wall on touch for 10 turns
+
+test dell'algoritmo su http://stackoverflow.com/questions/11459752/maze-generation-prim-algorithm-not-all-cells-are-traversed
+	http://gamasutra.com/blogs/AAdonaac/20150903/252889/Procedural_Dungeon_Generation_Algorithm.php
+valutare se aggiungere una sorta di "fantasma" alla spelunky, per forzare il giocatore verso l'uscita
+aggiungere un mostro che ne evoca un altro ?
+	spunto: evocare qualcosa un demone, ecc.. potenzialmente molto forte. Il giocatore lo lascia fare per avere dei vantaggi ?
+mostro che può diventare un'alleato perché capisce quanto ilgiocatore é forte ?
+assolutamente aggiungere mostro che attacca dalla distanza
+assicurarsi che le item che usa il giocatore non si sovrappongano come glyphs o come effetto => una item, un effetto unico
+aggiungere con una partecenuale casuale mosri leggermente più forti o più deboli di quelli presenti
+	estensione: aggiungerli con tratti particolari. Es. rissoso => attacca a vista, pauroso => cerca la fuga prima, 
+aggiungere le fazioni per i mostri
+	aggiungere la scelta del bersaglio in base alla propria fazione
+		il giocatore non é sempre l'unico ad essere attaccato
+		beneficio: si trovano cadaveri, item, il tutto sembra più dinamico
+potion of confusion: mette i bersagli nella modalià "wander" per X turni
+utilizzare il potenziale tattico del terreno: es. mostro che si muove solo nell'acqua ? 
+boss monster: sorveglia l'uscita, non si allontana, manda in giro i suoi sgherri per cercare il giocatore (a caso, sarebbe figo con quadtree!) e quando uno sgherro vede il giocatore
+	dice "it's here boss!" ed il boss si muove verso quel punto!
+un mostro che ti spara dalla distanza con unraggio che ti blocca? tipo beholder ?
+aggiungere mostri che rigenerano 
+
+pensare ad un sistema di ferite:
+	si parte sani
+	si possono avere al massimo 4 ferite
+	ogni ferita é causata da un livello di danni che si deve subire
+		es. prima ferita 10 danni
+			seconda ferita 15 danni
+			e così via
+			
+secret area 
+	ovvero zone normali, ma con muri che "scompaiono" quando il giocatore vi é accanto
+		
+		
+ragionare: 
+	-i mostri sono diversi ad ogni giro, generati casualmente pure loro basandosi
+		su template ?
+
+add items to enhance basic characteristics
+do a blog post about random walk generation and options
+attacco di di un mostro ragno che lancia una ragnatela e ti blocca sul posto per X turni ?
+
+
+
+
+
+add a small box when mouse is on over a monster / item, not only name, 
+but with some info: http://weirdfellows.com/wp-content/uploads/2014/10/possessionshot3.png
+	
+ranged combat with bow ?
+
+
+

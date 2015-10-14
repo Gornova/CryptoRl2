@@ -1,5 +1,6 @@
 package it.crypto2.world.entities;
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -35,9 +36,9 @@ public class StaticEntity extends GameEntity {
 		if (canSeePlayer()) {
 			super.render(container, g);
 		} else if (alreadySeenByPlayer((int) x / G.TILE_SIZE, (int) y / G.TILE_SIZE)) {
-			// g.setColor(Color.red);
-			super.render(container, g);
-			g.drawImage(gray, x, y);
+			// super.render(container, g);
+			currentImage.drawFlash(x, y, currentImage.getWidth(), currentImage.getHeight(), Color.darkGray);
+			// g.drawImage(gray, x, y);
 		}
 	}
 

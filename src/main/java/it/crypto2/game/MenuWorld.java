@@ -37,6 +37,8 @@ public class MenuWorld extends World {
 		g.drawString("START", start.getX() + 50, start.getY());
 		g.draw(exit);
 		g.drawString("EXIT", exit.getX() + 50, exit.getY());
+
+		g.drawString("Random tower of games - 2015 - http://randomtower.blogspot.it", 250, 730);
 	}
 
 	@Override

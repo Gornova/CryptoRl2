@@ -35,6 +35,8 @@ public class GameWorld extends World implements TileBasedMap {
 	private int heightInTiles;
 	private boolean[][] item;
 	private boolean[][] saw;
+	private boolean win;
+	private boolean nextLevel;
 
 	public GameWorld(int id, GameContainer container) {
 		super(id, container);
@@ -70,8 +72,29 @@ public class GameWorld extends World implements TileBasedMap {
 
 	@Override
 	public void update(GameContainer container, StateBasedGame game, int delta) throws SlickException {
+		if (win) {
+			// win!
+			game.enterState(Launcher.WIN_STATE);
+			win = false;
+			return;
+		}
+		if (nextLevel) {
+			nextLevel = false;
+			G.currentLevel++;
+			initWorld(widthInTiles, heightInTiles);
+			return;
+		}
 		super.update(container, game, delta);
 		if (G.PLAYER_MOVED) {
+			if (G.playerEntity.invisible) {
+				if (G.INVISIBILITY_TIMER > 0) {
+					G.INVISIBILITY_TIMER -= 1;
+				} else {
+					G.playerEntity.invisible = false;
+					System.out.println("player is now visible!");
+				}
+
+			}
 			turn++;
 			gui.update(container, game, delta);
 		}
@@ -174,6 +197,15 @@ public class GameWorld extends World implements TileBasedMap {
 
 	public void setSaw(int x, int y) {
 		saw[x][y] = true;
+	}
+
+	public void nextLevel() {
+		if (G.currentLevel >= G.MAX_LEVEL) {
+			win = true;
+			return;
+		} else {
+			nextLevel = true;
+		}
 	}
 
 }

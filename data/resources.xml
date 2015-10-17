@@ -17,8 +17,8 @@
 	<image key="gray" file="gray.png" />
 	<image key="exit" file="exit.png" />
 	<image key="hpbar" file="hpbar.png" />
-	<image key="invisibilityScroll" file="invisibilityScroll.png" />
-	
+	<image key="invisibility scroll" file="invisibilityScroll.png" />
+	<image key="shadow" file="shadow.png" />
 	<!-- sheets -->
 	<!-- fonts -->
 </resources>

@@ -28,6 +28,7 @@ public class Torch extends GameEntity {
 		} else {
 			G.sight = G.MAX_SIGHT;
 		}
+		G.world.addMessage("Player take a torch and darkness fade away (+3 sight) ");
 
 	}
 

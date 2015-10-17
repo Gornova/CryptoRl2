@@ -296,9 +296,12 @@ public class Generator {
 		// build starting point for player
 
 		// place exit
-		Point p = getRandomPoint();
+		Point p = null;
 		while (p == null) {
 			p = getRandomPoint();
+			if (nearPlayer(p.x, p.y)) {
+				p = null;
+			}
 		}
 		world.add(EntityFactory.buildExit(world, p.x, p.y));
 
@@ -311,6 +314,10 @@ public class Generator {
 		// world.getElements().remove(player);
 
 		return world;
+	}
+
+	private boolean nearPlayer(int x, int y) {
+		return near(playerStartingPoint.x, playerStartingPoint.y, x, y, 10);
 	}
 
 	private Point getRandomPoint() {
@@ -345,7 +352,7 @@ public class Generator {
 		for (int x = 0; x < w; x++) {
 			for (int y = 0; y < h; y++) {
 				if (item[x][y]) {
-					if (near(i, j, x, y, 5)) {
+					if (near(i, j, x, y, 10)) {
 						return true;
 					}
 				}
@@ -372,7 +379,7 @@ public class Generator {
 		for (int x = 0; x < w; x++) {
 			for (int y = 0; y < h; y++) {
 				if (monsters[x][y]) {
-					if (near(i, j, x, y, 5)) {
+					if (near(i, j, x, y, 10)) {
 						return true;
 					}
 				}

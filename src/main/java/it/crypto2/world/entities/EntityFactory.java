@@ -28,7 +28,7 @@ public class EntityFactory {
 
 	public static Entity buildSpider(World world, int x, int y) {
 		EnemyEntity e = new EnemyEntity(x * G.TILE_SIZE, y * G.TILE_SIZE, ResourceManager.getImage(G.SPIDER), G.SPIDER);
-		e.description = "spiders are one of the most common animals in subterrain world. Could attack if provoked";
+		e.description = "spiders are one of the most common animals in subterrain world. Spiders attack only if provoked";
 		e.hp = 15;
 		e.maxHp = 15;
 		e.atk = 5;
@@ -42,9 +42,9 @@ public class EntityFactory {
 	public static Entity buildStygianBird(World world, int x, int y) {
 		EnemyEntity e = new EnemyEntity(x * G.TILE_SIZE, y * G.TILE_SIZE, ResourceManager.getImage(G.STYGIANBIRD),
 				G.STYGIANBIRD);
-		e.description = "stygian bird are small birds with no eyes. It is weak and cowardly";
+		e.description = "stygian birds are small birds with no eyes. They are weak and cowardly";
 		e.hp = 8;
-		e.maxHp = 40;
+		e.maxHp = 8;
 		e.atk = 10;
 
 		Controller c = new WanderController(e);
@@ -56,7 +56,7 @@ public class EntityFactory {
 	public static Entity buildAberration(World world, int x, int y) {
 		EnemyEntity e = new EnemyEntity(x * G.TILE_SIZE, y * G.TILE_SIZE, ResourceManager.getImage(G.ABERRATION),
 				G.ABERRATION);
-		e.description = "aberration is a monster that corrupt and consume everything. It is colossal and very dangerous";
+		e.description = "aberration are monsters that corrupts and consumes everything. They are colossal and always hungry";
 		e.hp = 50;
 		e.maxHp = 50;
 		e.atk = 5;
@@ -84,11 +84,23 @@ public class EntityFactory {
 
 	public static Entity buildPotion(World world, int x, int y) {
 		Potion e = new Potion(x * G.TILE_SIZE, y * G.TILE_SIZE, ResourceManager.getImage(G.POTION), G.POTION);
+		e.item = true;
+		e.description = "potions are always useful to recovery from wounds";
 		return e;
 	}
 
 	public static Entity buildTorch(World world, int x, int y) {
 		Torch e = new Torch(x * G.TILE_SIZE, y * G.TILE_SIZE, ResourceManager.getImage(G.TORCH), G.TORCH);
+		e.item = true;
+		e.description = "torchs are most useful items in a world of darkness";
+		return e;
+	}
+
+	private static Entity buildInvisibilityScroll(World world, int x, int y) {
+		InvisibilityScroll e = new InvisibilityScroll(x * G.TILE_SIZE, y * G.TILE_SIZE,
+				ResourceManager.getImage(G.INVISIBILITY_SCROLL), G.INVISIBILITY_SCROLL);
+		e.item = true;
+		e.description = "invisibily scrolls are powerful magic artifact used to vanish from powerful enemies";
 		return e;
 	}
 
@@ -99,17 +111,11 @@ public class EntityFactory {
 			return buildPotion(world, x, y);
 		case 1:
 			return buildTorch(world, x, y);
-		case 21:
+		case 2:
 			return buildInvisibilityScroll(world, x, y);
 		default:
 			return buildPotion(world, x, y);
 		}
-	}
-
-	private static Entity buildInvisibilityScroll(World world, int x, int y) {
-		InvisibilityScroll e = new InvisibilityScroll(x * G.TILE_SIZE, y * G.TILE_SIZE,
-				ResourceManager.getImage(G.INVISIBILITY_SCROLL), G.INVISIBILITY_SCROLL);
-		return e;
 	}
 
 	public static Entity buildExit(GameWorld world, int x, int y) {

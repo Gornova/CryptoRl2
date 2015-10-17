@@ -50,18 +50,59 @@ DONE	improved fog of war
 DONE	add a small box when mouse is on over a monster / item, not only name, but with some info: http://weirdfellows.com/wp-content/uploads/2014/10/possessionshot3.png
 DONE	version 0.4
 ---------------------------------------------
+DONE	add infobox current health of creature
+DONE	BUG		when hit potion and alreay be at full health, healt bars go away
+DONE	BUG		player can see on one wall
+DONE	BUG		fix turn counter
+DONE	BUG		fixed line of sight with raycasting
+DONE	BUG		infobox have problems with camera translations
+DONE	BUG		enemies can enter on top of items
+DONE	avoid too much items near
+DONE	info box also for items
+DONE	avoid exit too near by player
+DONE 	effects on attack/damage
+DONE	improved messages
+DONE	added a shadow for monsters and player
+DONE	version 0.5
+---------------------------------------------
 
-BUG		enemies can enter on top of items
-BUG		infobox have problems with camera translations
-add infobox current health of creature
+exploration percentuage label on top right
+	= (sawTiles *100 / total floor tiles)
+current level on top right
+
+add space as wait command for player
+small skull when killed enemy ? => persistent game element, like "dead body"
+put controls schema in main menu
 balance enemies and encounters
-avoid too much items near
-better messages http://agingminotaur.blogspot.de/2014/11/thinking-out-loud.html
-	=> far parlare gli avversari sul loro stato, emozioni, su cosa fanno, per far entrare il giocatore in contatto col tutto
-
+water and lava tiles
+	lava => damage on passage
+	water => aberration cannot pass it
+traps for monsters and player ?
+	damage only
+	block for x turns
+	
 
 
 ----------
+guardare
+	http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-825-techniques-in-artificial-intelligence-sma-5504-fall-2002/lecture-notes/Lecture1Final.pdf
+	
+	e
+	
+	http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-034-artificial-intelligence-fall-2010/
+per i behaviour system
+	http://www.java-gaming.org/topics/decision-making-in-strategy-game/36378/view.html
+damange systems with success and so on ?
+distance attacks
+	for player
+	for enemies
+		specific enemies? distance attack for spider for example?
+		for another enemy ?
+guadare qui:
+	http://www.java-gaming.org/topics/implementing-ai-state-stack/35739/view.html
+better pathfinding:
+	http://www0.cs.ucl.ac.uk/staff/D.Silver/web/Applications_files/coop-path-AIWisdom.pdf
+		idea: preserve a cell for movement so other can't use it
 dungeon traits
 	darker
 	brighter
@@ -69,12 +110,17 @@ dungeon traits
 	lot of water
 	one type of monster
 	monster rage => each monster attack each other
+	regeneration for monsters
 inventory ?
 FUTURE	run on low health controller for stygianBird
 statemachine or behaviour tree?
 level selection like in FTL ?
 BUG		pathfinding not working ?
 add all different behaviours
+
+better messages http://agingminotaur.blogspot.de/2014/11/thinking-out-loud.html
+	=> far parlare gli avversari sul loro stato, emozioni, su cosa fanno, per far entrare il giocatore in contatto col tutto
+		=> per ora c'è solo la abberration che dice qualcosa verso il giocatore
 
 
 
@@ -104,17 +150,9 @@ i vari personaggi proiettano un'ombra
 --------------------	da vecchio TODO cryptoRL:
 
 
-bug hero stats must be persisted between states
-release
-
-
-
-add behaviour change on condition =< usare state machine, usando easyflow ?
-
 	
 add pathfinding => ready, but who will use it ? 
 
-exploration percentuage
 ranged combat with bow ?
 
 TODO removed mouse info due bug on scrolling

@@ -12,6 +12,7 @@ import org.newdawn.slick.geom.Circle;
 
 import it.crypto2.G;
 import it.marteEngine.ME;
+import it.marteEngine.ResourceManager;
 import it.marteEngine.entity.Entity;
 
 public class PlayerEntity extends GameEntity {
@@ -66,6 +67,7 @@ public class PlayerEntity extends GameEntity {
 		} else {
 			setGraphic(imgLeft);
 		}
+		g.drawImage(ResourceManager.getImage(G.SHADOW), x, y);
 		super.render(container, g);
 		if (invisible) {
 			currentImage.drawFlash(x, y, currentImage.getWidth(), currentImage.getHeight(), Color.gray);
@@ -84,7 +86,6 @@ public class PlayerEntity extends GameEntity {
 	public void collisionResponse(Entity other) {
 		if (other instanceof EnemyEntity) {
 			combat(new MutablePair<GameEntity, GameEntity>(this, (GameEntity) other));
-			System.out.println("combat!");
 		}
 		if (other instanceof Potion) {
 			((Potion) other).cure(this);

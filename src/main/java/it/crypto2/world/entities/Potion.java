@@ -28,9 +28,9 @@ public class Potion extends GameEntity {
 		if (ge.hp + CURE_HP < ge.maxHp) {
 			ge.hp += CURE_HP;
 		} else {
-			ge.hp = maxHp;
+			ge.hp = ge.maxHp;
 		}
-		G.world.addMessage("You feel a lot better!");
+		G.world.addMessage("Player drink potion and feel a lot better (+" + CURE_HP + " hp)");
 
 	}
 

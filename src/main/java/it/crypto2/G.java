@@ -65,10 +65,14 @@ public final class G {
 
 	public static final String HPBAR = "hpbar";
 
-	public static final String INVISIBILITY_SCROLL = "invisibilityScroll";
+	public static final String INVISIBILITY_SCROLL = "invisibility scroll";
 
 	public static final int INVISIBILITY_TIME = 10;
 
+	public static final String SHADOW = "shadow";
+
 	public static int INVISIBILITY_TIMER = 0;
+
+	public static int turn = 1;
 
 }

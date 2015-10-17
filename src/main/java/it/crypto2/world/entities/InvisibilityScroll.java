@@ -30,6 +30,7 @@ public class InvisibilityScroll extends GameEntity {
 			System.out.println("player is now invisible for " + G.INVISIBILITY_TIME);
 			G.INVISIBILITY_TIMER = G.INVISIBILITY_TIME;
 			G.world.remove(this);
+			G.world.addMessage("Player fades away (invisible for 10 turns)");
 		}
 	}
 

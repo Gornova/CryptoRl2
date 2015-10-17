@@ -13,6 +13,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import it.crypto2.G;
 import it.crypto2.world.entities.EnemyEntity;
+import it.crypto2.world.entities.GameEntity;
 import it.marteEngine.Camera;
 import it.marteEngine.ResourceManager;
 import it.marteEngine.entity.Entity;
@@ -27,6 +28,8 @@ public class Gui {
 
 	private Color infoDark;
 
+	private int fh = -1;
+
 	public Gui(GameWorld gameWorld) {
 		this.world = gameWorld;
 		this.barImg = ResourceManager.getImage(G.HPBAR);
@@ -37,9 +40,10 @@ public class Gui {
 	}
 
 	public void render(GameContainer container, StateBasedGame stateBasedGame, Graphics g) throws SlickException {
-		int h = container.getHeight();
-		int w = container.getWidth();
-		g.drawString("Turn : " + world.turn, h - 10, 10);
+		if (fh == -1) {
+			fh = g.getFont().getHeight("hi");
+		}
+		g.drawString("Turn : " + G.turn, container.getHeight() - 10, 10);
 
 		drawHP(g, container.getHeight());
 
@@ -53,39 +57,45 @@ public class Gui {
 		int my = container.getInput().getAbsoluteMouseY();
 
 		Camera camera = world.camera;
-		EnemyEntity e = (EnemyEntity) findEnemy(mx - camera.cameraX, my - camera.cameraY);
+		GameEntity e = (GameEntity) findEnemyOrItem(mx + camera.cameraX, my + camera.cameraY);
 		if (e != null && e.canSeePlayer()) {
 
 			// move info box
 			float ix = e.x + e.width;
 			float iy = e.y + e.height;
 			info.setLocation(ix, iy);
-			info.setWidth(300);
+			info.setWidth(400);
 			info.setHeight(100);
 			g.setColor(infoDark);
 			g.fill(info);
 			g.setColor(Color.white);
-			g.drawString(e.name, ix + 5, iy + 5);
+			String status = "";
+			if (e.item) {
+				status = e.name;
+			} else {
+				status = e.name + " " + e.hp + "/" + e.maxHp;
+			}
+			g.drawString(status, ix + 5, iy + 5);
+			iy += fh;
 			int v = e.description.length() / 40; // 40 characters = one line
 			for (int i = 0; i <= v; i++) {
 				int sx = i * 40;
 				int ex = i * 40 + 40;
 				ex = ex > e.description.length() ? e.description.length() : ex;
-				g.drawString(e.description.substring(sx, ex), ix + 5,
-						iy + i * g.getFont().getHeight(e.description) + 5);
+				g.drawString(e.description.substring(sx, ex), ix + 5, iy + i * fh + 5);
 			}
 
 		}
 
 	}
 
-	private Entity findEnemy(float f, float g) {
+	private GameEntity findEnemyOrItem(float f, float g) {
 		Rectangle rect;
 		for (Entity entity : world.getEntities()) {
-			if (entity instanceof EnemyEntity) {
+			if (entity instanceof EnemyEntity || (entity instanceof GameEntity && ((GameEntity) entity).item)) {
 				rect = new Rectangle(entity.x, entity.y, entity.width, entity.height);
 				if (rect.contains(f, g)) {
-					return entity;
+					return (GameEntity) entity;
 				}
 			}
 		}
@@ -93,7 +103,7 @@ public class Gui {
 	}
 
 	private void drawMessages(GameContainer container, Graphics g) {
-		int mx = container.getWidth() / 2 - 100;
+		int mx = 250;
 		int my = 0;
 		int dy = 20;
 		for (int i = 0; i < 3; i++) {
@@ -105,7 +115,6 @@ public class Gui {
 	}
 
 	private void drawHP(Graphics g, int cheight) {
-		// g.drawString("HP " + G.playerEntity.hp, 10, h - 30);
 		// every bar is 10 hp
 		int bx = 10;
 		int by = cheight - 20;
@@ -125,14 +134,9 @@ public class Gui {
 	}
 
 	public void update(GameContainer container, StateBasedGame game, int delta) {
-		// timer += delta;
-		// if (timer >= TIME) {
-		// timer = 0;
 		if (!messages.isEmpty()) {
 			messages.remove(messages.size() - 1);
 		}
-		// }
-
 	}
 
 }

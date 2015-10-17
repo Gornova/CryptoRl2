@@ -23,7 +23,6 @@ import it.marteEngine.World;
 
 public class GameWorld extends World implements TileBasedMap {
 
-	int turn = 1;
 	private Gui gui;
 
 	// is floor array for quick check
@@ -76,6 +75,8 @@ public class GameWorld extends World implements TileBasedMap {
 			// win!
 			game.enterState(Launcher.WIN_STATE);
 			win = false;
+			G.currentLevel = 0;
+			G.turn = 1;
 			return;
 		}
 		if (nextLevel) {
@@ -95,7 +96,7 @@ public class GameWorld extends World implements TileBasedMap {
 				}
 
 			}
-			turn++;
+			G.turn++;
 			gui.update(container, game, delta);
 		}
 		G.PLAYER_MOVED = false;

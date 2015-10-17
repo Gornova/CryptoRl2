@@ -84,7 +84,7 @@ public abstract class AbstractController implements Controller {
 		if (tx < 0 || tx >= world.getWidth() || ty < 0 || ty >= world.getHeight()) {
 			return false;
 		}
-		return c.collide(Entity.SOLID, tx, ty) == null ? true : false;
+		return c.collide(Entity.SOLID, tx, ty) == null && c.collideWith(G.playerEntity, tx, ty) == null ? true : false;
 	}
 
 	protected void makeMove(DIR dir) {
@@ -125,24 +125,43 @@ public abstract class AbstractController implements Controller {
 		if (!moveRight && !moveLeft && !moveUp && !moveDown) {
 			return;
 		}
+		float tx = 0;
+		float ty = 0;
+
 		if (motion != null) {
 			return;
 		}
 		if (moveRight) {
-			motion = new LinearMotion(c.x, c.y, c.x + G.speed.x, c.y, TIME, Ease.QUAD_IN);
+			tx = c.x + G.speed.x;
+			ty = c.y;
+			if (canMove(tx, ty)) {
+				motion = new LinearMotion(c.x, c.y, tx, ty, TIME, Ease.QUAD_IN);
+			}
 			moveRight = false;
 		}
 		if (moveLeft) {
-			motion = new LinearMotion(c.x, c.y, c.x - G.speed.x, c.y, TIME, Ease.QUAD_IN);
+			tx = c.x - G.speed.x;
+			ty = c.y;
+			if (canMove(tx, ty)) {
+				motion = new LinearMotion(c.x, c.y, tx, c.y, TIME, Ease.QUAD_IN);
+			}
 			moveLeft = false;
 		}
 		if (moveUp) {
-			motion = new LinearMotion(c.x, c.y, c.x, c.y - G.speed.y, TIME, Ease.QUAD_IN);
+			tx = c.x;
+			ty = c.y - G.speed.y;
+			if (canMove(tx, ty)) {
+				motion = new LinearMotion(c.x, c.y, tx, ty, TIME, Ease.QUAD_IN);
+			}
 			moveUp = false;
 		}
 		if (moveDown) {
+			tx = c.x;
+			ty = c.y + G.speed.y;
+			if (canMove(tx, ty)) {
+				motion = new LinearMotion(c.x, c.y, tx, ty, TIME, Ease.QUAD_IN);
+			}
 			moveDown = false;
-			motion = new LinearMotion(c.x, c.y, c.x, c.y + G.speed.y, TIME, Ease.QUAD_IN);
 		}
 	}
 

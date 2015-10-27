@@ -75,7 +75,10 @@ DONE	trap for player: block for x turns
 DONE	BUG		fix display bos info position
 DONE	version 0.6
 ---------------------------------------------
-
+DONE	add	README
+DONE	first public release
+DONE	version 0.7
+---------------------------------------------
 
 water and lava tiles
 	lava => damage on passage
@@ -121,7 +124,7 @@ add all different behaviours
 
 better messages http://agingminotaur.blogspot.de/2014/11/thinking-out-loud.html
 	=> far parlare gli avversari sul loro stato, emozioni, su cosa fanno, per far entrare il giocatore in contatto col tutto
-		=> per ora c'è solo la abberration che dice qualcosa verso il giocatore
+		=> per ora c'ï¿½ solo la abberration che dice qualcosa verso il giocatore
 
 
 
@@ -172,19 +175,19 @@ goblin: attack player
 
 
 Il concept:
-	il giocatore é un elfo, della casa Tulje, perso in una gigantesca caverna.
+	il giocatore ï¿½ un elfo, della casa Tulje, perso in una gigantesca caverna.
 	gli elfi adorano Veon
 	deve trovare la strada per ritornare a Kelmera, la sua casa => per fare questo deve attraversare 
 		la caverna
-	la società elfica é divisa in più casati, spesso in lotta tra di loro
+	la societï¿½ elfica ï¿½ divisa in piï¿½ casati, spesso in lotta tra di loro
 		SPUNTO: altri elfi che vagano e attaccano il pg ?
 	gli yuan-ti sono nemici degli elfi
-		spunto: gli yuan-ti si muovono più velocemente in acqua o vicino all'acqua, hanno scurovisione
+		spunto: gli yuan-ti si muovono piï¿½ velocemente in acqua o vicino all'acqua, hanno scurovisione
 	ci sono funghi per nutrirsi ( e curarsi )
 		al posto delle pozioni curative
 	alcuni enormi funghi emettono luce e cristalli
 		SPUNTO: rendono visibile sempre alle altre creature i loro dintorni
-		SPUNTO: giocatore può raccogliore i cristalli per avere una luce che poi riesce a droppare?
+		SPUNTO: giocatore puï¿½ raccogliore i cristalli per avere una luce che poi riesce a droppare?
 	
 		 
 	 
@@ -244,16 +247,16 @@ test dell'algoritmo su http://stackoverflow.com/questions/11459752/maze-generati
 valutare se aggiungere una sorta di "fantasma" alla spelunky, per forzare il giocatore verso l'uscita
 aggiungere un mostro che ne evoca un altro ?
 	spunto: evocare qualcosa un demone, ecc.. potenzialmente molto forte. Il giocatore lo lascia fare per avere dei vantaggi ?
-mostro che può diventare un'alleato perché capisce quanto ilgiocatore é forte ?
+mostro che puï¿½ diventare un'alleato perchï¿½ capisce quanto ilgiocatore ï¿½ forte ?
 assolutamente aggiungere mostro che attacca dalla distanza
 assicurarsi che le item che usa il giocatore non si sovrappongano come glyphs o come effetto => una item, un effetto unico
-aggiungere con una partecenuale casuale mosri leggermente più forti o più deboli di quelli presenti
+aggiungere con una partecenuale casuale mosri leggermente piï¿½ forti o piï¿½ deboli di quelli presenti
 	estensione: aggiungerli con tratti particolari. Es. rissoso => attacca a vista, pauroso => cerca la fuga prima, 
 aggiungere le fazioni per i mostri
 	aggiungere la scelta del bersaglio in base alla propria fazione
-		il giocatore non é sempre l'unico ad essere attaccato
-		beneficio: si trovano cadaveri, item, il tutto sembra più dinamico
-potion of confusion: mette i bersagli nella modalià "wander" per X turni
+		il giocatore non ï¿½ sempre l'unico ad essere attaccato
+		beneficio: si trovano cadaveri, item, il tutto sembra piï¿½ dinamico
+potion of confusion: mette i bersagli nella modaliï¿½ "wander" per X turni
 utilizzare il potenziale tattico del terreno: es. mostro che si muove solo nell'acqua ? 
 boss monster: sorveglia l'uscita, non si allontana, manda in giro i suoi sgherri per cercare il giocatore (a caso, sarebbe figo con quadtree!) e quando uno sgherro vede il giocatore
 	dice "it's here boss!" ed il boss si muove verso quel punto!
@@ -263,13 +266,13 @@ aggiungere mostri che rigenerano
 pensare ad un sistema di ferite:
 	si parte sani
 	si possono avere al massimo 4 ferite
-	ogni ferita é causata da un livello di danni che si deve subire
+	ogni ferita ï¿½ causata da un livello di danni che si deve subire
 		es. prima ferita 10 danni
 			seconda ferita 15 danni
-			e così via
+			e cosï¿½ via
 			
 secret area 
-	ovvero zone normali, ma con muri che "scompaiono" quando il giocatore vi é accanto
+	ovvero zone normali, ma con muri che "scompaiono" quando il giocatore vi ï¿½ accanto
 		
 		
 ragionare: 

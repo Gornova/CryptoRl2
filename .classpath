@@ -22,7 +22,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
@@ -32,14 +32,5 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="lib/marteEngine.jar" sourcepath="/MarteEngine"/>
-	<classpathentry kind="lib" path="lib/slick.jar" sourcepath="lib/slick-sources.jar"/>
-	<classpathentry kind="lib" path="lib/lwjgl.jar">
-		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="crypto-rl-2/lib/native"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry combineaccessrules="false" kind="src" path="/MarteEngine"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/Wargame"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

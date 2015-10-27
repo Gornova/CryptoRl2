@@ -38,7 +38,9 @@ public class MenuWorld extends World {
 		g.draw(exit);
 		g.drawString("EXIT", exit.getX() + 50, exit.getY());
 
-		g.drawString("Random tower of games - 2015 - http://randomtower.blogspot.it", 250, 730);
+		g.drawString("Use WASD or arrows key and SPACE to control your character", 260, 650);
+
+		g.drawString("Random tower of games - 2015 - http://randomtower.blogspot.it", 250, 740);
 	}
 
 	@Override

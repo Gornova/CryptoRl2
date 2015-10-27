@@ -5,6 +5,7 @@ import java.util.Random;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.StateBasedGame;
@@ -75,7 +76,7 @@ public class GameWorld extends World implements TileBasedMap {
 			// win!
 			game.enterState(Launcher.WIN_STATE);
 			win = false;
-			G.currentLevel = 0;
+			G.currentLevel = 1;
 			G.turn = 1;
 			return;
 		}
@@ -85,16 +86,21 @@ public class GameWorld extends World implements TileBasedMap {
 			initWorld(widthInTiles, heightInTiles);
 			return;
 		}
-		super.update(container, game, delta);
+		if (G.BLOCK_TIMER > 0) {
+			if (container.getInput().isKeyPressed(Input.KEY_SPACE)) {
+				G.BLOCK_TIMER--;
+			}
+			return;
+		} else {
+			super.update(container, game, delta);
+		}
 		if (G.PLAYER_MOVED) {
 			if (G.playerEntity.invisible) {
 				if (G.INVISIBILITY_TIMER > 0) {
 					G.INVISIBILITY_TIMER -= 1;
 				} else {
 					G.playerEntity.invisible = false;
-					System.out.println("player is now visible!");
 				}
-
 			}
 			G.turn++;
 			gui.update(container, game, delta);
@@ -207,6 +213,30 @@ public class GameWorld extends World implements TileBasedMap {
 		} else {
 			nextLevel = true;
 		}
+	}
+
+	public int getSawTiles() {
+		int t = 0;
+		for (int i = 0; i < widthInTiles; i++) {
+			for (int j = 0; j < heightInTiles; j++) {
+				if (saw[i][j] && floor[i][j]) {
+					t++;
+				}
+			}
+		}
+		return t;
+	}
+
+	public int getTileNumber() {
+		int t = 0;
+		for (int i = 0; i < widthInTiles; i++) {
+			for (int j = 0; j < heightInTiles; j++) {
+				if (floor[i][j]) {
+					t++;
+				}
+			}
+		}
+		return t;
 	}
 
 }

@@ -21,7 +21,10 @@ public class PlayerController extends AbstractController {
 	}
 
 	private void updateMovements() {
-
+		if (c.pressed(G.WAIT)) {
+			G.PLAYER_MOVED = true;
+			return;
+		}
 		if (c.pressed(ME.WALK_UP)) {
 			moveUp();
 

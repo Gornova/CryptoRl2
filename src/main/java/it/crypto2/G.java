@@ -71,8 +71,16 @@ public final class G {
 
 	public static final String SHADOW = "shadow";
 
+	public static final String WAIT = "wait";
+
+	public static final String BLOOD = "blood";
+
+	public static final String TRAP = "trap";
+
 	public static int INVISIBILITY_TIMER = 0;
 
 	public static int turn = 1;
+
+	public static int BLOCK_TIMER = 0;
 
 }

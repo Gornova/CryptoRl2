@@ -66,4 +66,9 @@ public class EnemyEntity extends GameEntity {
 		}
 	}
 
+	@Override
+	public void removedFromWorld() {
+		G.world.add(new StaticEntity(x, y, ResourceManager.getImage(G.BLOOD), world));
+	}
+
 }

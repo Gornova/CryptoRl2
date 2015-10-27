@@ -43,13 +43,17 @@ public class Gui {
 		if (fh == -1) {
 			fh = g.getFont().getHeight("hi");
 		}
-		g.drawString("Turn : " + G.turn, container.getHeight() - 10, 10);
+		g.drawString("Turn  " + G.turn, container.getHeight() - 10, 10);
+		int expl = world.getSawTiles() * 100 / world.getTileNumber();
+		g.drawString("Level " + G.currentLevel, container.getHeight() - 10, 30);
+		g.drawString("Exploration  " + expl + "%", container.getHeight() - 10, 50);
 
 		drawHP(g, container.getHeight());
 
 		drawMessages(container, g);
 
 		drawMouse(container, g);
+
 	}
 
 	private void drawMouse(GameContainer container, Graphics g) {
@@ -61,9 +65,9 @@ public class Gui {
 		if (e != null && e.canSeePlayer()) {
 
 			// move info box
-			float ix = e.x + e.width;
-			float iy = e.y + e.height;
-			info.setLocation(ix, iy);
+			float ix = mx;
+			float iy = my;
+			info.setLocation(mx, my);
 			info.setWidth(400);
 			info.setHeight(100);
 			g.setColor(infoDark);

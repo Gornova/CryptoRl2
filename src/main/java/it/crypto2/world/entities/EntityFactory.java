@@ -106,16 +106,24 @@ public class EntityFactory {
 
 	public static Entity buildRandomItem(World world, int x, int y) {
 		Random rnd = new Random();
-		switch (rnd.nextInt(3)) {
+		switch (rnd.nextInt(4)) {
 		case 0:
 			return buildPotion(world, x, y);
 		case 1:
 			return buildTorch(world, x, y);
 		case 2:
 			return buildInvisibilityScroll(world, x, y);
+		case 3:
+			return buildTrap(world, x, y);
+
 		default:
-			return buildPotion(world, x, y);
+			return buildTrap(world, x, y);
 		}
+	}
+
+	private static Entity buildTrap(World world, int x, int y) {
+		Trap e = new Trap(x * G.TILE_SIZE, y * G.TILE_SIZE, ResourceManager.getImage(G.TRAP), G.TRAP);
+		return e;
 	}
 
 	public static Entity buildExit(GameWorld world, int x, int y) {

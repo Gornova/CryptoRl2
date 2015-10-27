@@ -19,6 +19,8 @@
 	<image key="hpbar" file="hpbar.png" />
 	<image key="invisibility scroll" file="invisibilityScroll.png" />
 	<image key="shadow" file="shadow.png" />
+	<image key="blood" file="blood.png" />
+	<image key="trap" file="trap.png" />
 	<!-- sheets -->
 	<!-- fonts -->
 </resources>

@@ -65,23 +65,24 @@ DONE	improved messages
 DONE	added a shadow for monsters and player
 DONE	version 0.5
 ---------------------------------------------
+DONE	put controls schema in main menu
+DONE	exploration percentuage label on top right
+DONE	current level on top right
+DONE	add space as wait command for player
+DONE 	small blood pool when killed enemy ? => persistent game element, like "dead body"
+DONE	traps for player: damage only
+DONE	trap for player: block for x turns
+DONE	BUG		fix display bos info position
+DONE	version 0.6
+---------------------------------------------
 
-exploration percentuage label on top right
-	= (sawTiles *100 / total floor tiles)
-current level on top right
 
-add space as wait command for player
-small skull when killed enemy ? => persistent game element, like "dead body"
-put controls schema in main menu
-balance enemies and encounters
 water and lava tiles
 	lava => damage on passage
 	water => aberration cannot pass it
-traps for monsters and player ?
-	damage only
-	block for x turns
-	
+balance enemies and encounters	
 
+fare un refactor utilizzando un paradigma a comandi: i controller decidono i comandi, le creature li eseguono
 
 ----------
 guardare

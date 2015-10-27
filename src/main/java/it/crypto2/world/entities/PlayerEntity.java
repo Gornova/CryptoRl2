@@ -52,6 +52,7 @@ public class PlayerEntity extends GameEntity {
 		define(ME.WALK_DOWN, Input.KEY_DOWN, Input.KEY_S);
 		define(ME.WALK_LEFT, Input.KEY_LEFT, Input.KEY_A);
 		define(ME.WALK_RIGHT, Input.KEY_RIGHT, Input.KEY_D);
+		define(G.WAIT, Input.KEY_SPACE);
 	}
 
 	@Override
@@ -94,6 +95,10 @@ public class PlayerEntity extends GameEntity {
 		if (other instanceof Torch) {
 			G.world.remove(other);
 			((Torch) other).extend(this);
+		}
+		if (other instanceof Trap) {
+			Trap t = (Trap) other;
+			t.execute(this);
 		}
 	}
 

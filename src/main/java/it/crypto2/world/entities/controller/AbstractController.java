@@ -54,7 +54,7 @@ public abstract class AbstractController implements Controller {
 			return;
 		}
 		// check collision
-		if (c.collide(c.SOLID, tx, ty) == null) {
+		if (c.collide(c.SOLID, tx, ty) == null || c.collide(G.TRAP, tx, ty) == null) {
 			c.x = tx;
 			c.y = ty;
 		}
@@ -84,7 +84,8 @@ public abstract class AbstractController implements Controller {
 		if (tx < 0 || tx >= world.getWidth() || ty < 0 || ty >= world.getHeight()) {
 			return false;
 		}
-		return c.collide(Entity.SOLID, tx, ty) == null && c.collideWith(G.playerEntity, tx, ty) == null ? true : false;
+		return c.collide(Entity.SOLID, tx, ty) == null && c.collide(G.TRAP, tx, ty) == null
+				&& c.collideWith(G.playerEntity, tx, ty) == null ? true : false;
 	}
 
 	protected void makeMove(DIR dir) {

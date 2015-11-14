@@ -55,7 +55,7 @@ public final class G {
 
 	public static final String EXIT = "exit";
 
-	public static final int MAX_LEVEL = 2;
+	public static final int MAX_LEVEL = 5;
 
 	public static int sight = 5;
 

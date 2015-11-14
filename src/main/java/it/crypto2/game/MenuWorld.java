@@ -60,7 +60,13 @@ public class MenuWorld extends World {
 				System.exit(0);
 				return;
 			}
-
+		}
+		if (input.isKeyPressed(Input.KEY_F2)) {
+			if (container.isFullscreen()) {
+				container.setFullscreen(false);
+			} else {
+				container.setFullscreen(true);
+			}
 		}
 	}
 

@@ -110,6 +110,13 @@ public class GameWorld extends World implements TileBasedMap {
 			System.out.println("player dead, game over");
 			game.enterState(Launcher.GAME_OVER_STATE);
 		}
+		if (container.getInput().isKeyPressed(Input.KEY_F2)) {
+			if (container.isFullscreen()) {
+				container.setFullscreen(false);
+			} else {
+				container.setFullscreen(true);
+			}
+		}
 	}
 
 	@Override

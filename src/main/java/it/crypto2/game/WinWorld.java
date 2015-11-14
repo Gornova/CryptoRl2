@@ -32,6 +32,14 @@ public class WinWorld extends World {
 			game.enterState(Launcher.MENU_STATE);
 			return;
 		}
+		if (container.getInput().isKeyPressed(Input.KEY_F2)) {
+			if (container.isFullscreen()) {
+				container.setFullscreen(false);
+			} else {
+				container.setFullscreen(true);
+			}
+		}
+
 	}
 
 }

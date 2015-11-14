@@ -4,69 +4,96 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.KeyListener;
+import org.newdawn.slick.MouseListener;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 
 import it.crypto2.G;
 import it.crypto2.Launcher;
+import it.crypto2.gui.Button;
 import it.marteEngine.ResourceManager;
 import it.marteEngine.World;
 
-public class MenuWorld extends World {
+public class MenuWorld extends World implements MouseListener, KeyListener {
 
 	private int sx = 450;
 	private int sy = 500;
-	private Rectangle start;
-	private Rectangle exit;
 	private Image logo;
+	private Button startButton;
+	private Button exitButton;
+	private StateBasedGame game;
 
 	public MenuWorld(int id, GameContainer container) {
 		super(id, container);
-		start = new Rectangle(sx, sy, 150, 25);
-		sy += 50;
-		exit = new Rectangle(sx, sy, 150, 25);
 		logo = ResourceManager.getImage(G.LOGO);
+		// start button
+		startButton = new Button(ResourceManager.getImage(G.MENU_START), ResourceManager.getImage(G.MENU_START_OVER),
+				sx, sy, 133, 51);
+		// exit button
+		exitButton = new Button(ResourceManager.getImage(G.MENU_EXIT), ResourceManager.getImage(G.MENU_EXIT_OVER),
+				sx + 20, sy + 70, 92, 49);
+		container.getInput().addMouseListener(this);
 	}
 
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException {
+
 		super.render(container, game, g);
-		g.drawImage(logo, 335, 150);
-		g.draw(start);
-		g.drawString("START", start.getX() + 50, start.getY());
-		g.draw(exit);
-		g.drawString("EXIT", exit.getX() + 50, exit.getY());
+		g.drawImage(logo, 262, 150);
+		startButton.render(container, game, g);
+		exitButton.render(container, game, g);
 
 		g.drawString("Use WASD or arrows key and SPACE to control your character", 260, 650);
-
 		g.drawString("Random tower of games - 2015 - http://randomtower.blogspot.it", 250, 740);
 	}
 
 	@Override
 	public void update(GameContainer container, StateBasedGame game, int delta) throws SlickException {
-		super.update(container, game, delta);
-
-		Input input = container.getInput();
-
-		if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
-			int mx = input.getAbsoluteMouseX();
-			int my = input.getAbsoluteMouseY();
-			if (start.contains(mx, my)) {
-				game.enterState(Launcher.GAME_STATE);
-				return;
-			}
-			if (exit.contains(mx, my)) {
-				System.exit(0);
-				return;
-			}
+		if (this.game == null) {
+			this.game = game;
 		}
-		if (input.isKeyPressed(Input.KEY_F2)) {
-			if (container.isFullscreen()) {
-				container.setFullscreen(false);
-			} else {
-				container.setFullscreen(true);
+		super.update(container, game, delta);
+	}
+
+	@Override
+	public void mouseClicked(int button, int x, int y, int clickCount) {
+		if (startButton.contains(x, y)) {
+			game.enterState(Launcher.GAME_STATE);
+		}
+		if (exitButton.contains(x, y)) {
+			System.exit(0);
+		}
+	}
+
+	@Override
+	public void mouseMoved(int oldx, int oldy, int newx, int newy) {
+		if (startButton.contains(newx, newy)) {
+			startButton.setOnOver();
+		} else {
+			startButton.setNormal();
+		}
+		if (exitButton.contains(newx, newy)) {
+			exitButton.setOnOver();
+		} else {
+			exitButton.setNormal();
+		}
+	}
+
+	@Override
+	public void keyPressed(int key, char c) {
+		try {
+			if (key == Input.KEY_F2) {
+				if (container.isFullscreen()) {
+					container.setFullscreen(false);
+					G.fullScreen = false;
+				} else {
+					container.setFullscreen(true);
+					G.fullScreen = true;
+				}
 			}
+		} catch (SlickException e) {
+			e.printStackTrace();
 		}
 	}
 

@@ -72,20 +72,107 @@ DONE	add space as wait command for player
 DONE 	small blood pool when killed enemy ? => persistent game element, like "dead body"
 DONE	traps for player: damage only
 DONE	trap for player: block for x turns
-DONE	BUG		fix display bos info position
+DONE	BUG		fix display box info position
 DONE	version 0.6
 ---------------------------------------------
 DONE	add	README
 DONE	first public release
 DONE	version 0.7
 ---------------------------------------------
+DONE	added fullscreen option
+DONE	add logo in main page, add images for buttons
+
+add icon for executable
+improved user interface
+emit damage indication on combat
+sound effects
+	attack
+	step
+add random blood pool around level (from 1 to 10)
+add inventory, like in cryptoRL1
+	basic inventory with sword: so user can attack automatically
+	use item using digit from 1 to 10
+vedi per immagini
+		http://keeperrl.com/smf/index.php?topic=93.0
+add new enemies
+	giant rat, random wander around, weak
+	large ant, random wander around, weak
+	snake, random wander, weak, poison attack (X damage for Y turns)
+	grave worm, wander, attack on sight, strong, weak defense
+	dwarf, attack on sight, strong defense, great attack, weak hp
+add ranged attack (bow)
+	when user select bow from inventory, see area of use highlighted (see Wargame for his!) and then select enemy and add damage
+version 0.8	
+---------------------------------------------
+add enemies that attack from distance ?
+	
+health bar for enemies ?	
+menu opzioni per la difficoltà - prima di ogni partita, default in mezzo - da mettere nel dungeon generation per fare test
+	dimensioni dungeon (small, mediu, large, enormous)
+	item density (nothing, small, medium, high)
+	monsters number (low, medium, high)
+guardare immagine
+	vlcsnap-2014-04-23-18h50m32s53.png
+		credits http://opengameart.org/content/loveable-rogue
+	mostri da aggiungerE?
+		zombie: lento, tanti hp, fa pochi danni
+		serpente: normale, pochi danni, alta difesa
+spada che ti aumenta atk ?
+scudo che ti aumenta dfk ?
+aggiungere il denaro da collezionare ?
+aggiungere porte ?
+	chiavi le aprono ?
+
+suggerimento da un blog:
+	manca un wiki
+	bestiario
+	mostri che lanciano magie
+	per eroe => 10% di rigenerazione ogni 10 turni di attesa ?
+	spellbook dai quali imparare magie?
+	level up
+		aumentano le stats
+	skill
+		sword combat
+		disarm traps
+		hiding
+			quando sei fermo possibilià nemico non ti veda
+	oggetti
+		anelli
+		chiavi
+		orb
+		hammer
+		dagger
+		rune stone
+	nemici
+		ancient guardian
+		beholder
+		cave troll
+		colossus
+		cyclop
+		elf
+		fire elemental
+		water elemental
+		earth elemental
+		wind elemental
+		giant frog
+		hydra
+		naga
+	per creare i nemici
+		http://www.gamedev.net/page/resources/_/creative/game-design/the-art-of-enemy-design-in-zelda-a-link-to-the-past-r4147
+	mouse movements ?
+		tile highlight ?
+	inventario
+
+	usare l'idea di nemici che si possono distruggere solo con certe armi, alrimenti sono invincibili, oppure un nemico che risorge dopo to
 
 water and lava tiles
 	lava => damage on passage
 	water => aberration cannot pass it
 balance enemies and encounters	
 
-fare un refactor utilizzando un paradigma a comandi: i controller decidono i comandi, le creature li eseguono
+
+
+
 
 ----------
 guardare
@@ -291,6 +378,3 @@ add a small box when mouse is on over a monster / item, not only name,
 but with some info: http://weirdfellows.com/wp-content/uploads/2014/10/possessionshot3.png
 	
 ranged combat with bow ?
-
-
-

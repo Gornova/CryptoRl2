@@ -14,6 +14,10 @@
 	<image key="potion" file="potion.png" />
 	<image key="torch" file="torch.png" />
 	<image key="logo" file="logo.png" />
+	<image key="menu_start" file="menu_start.png" />
+	<image key="menu_start_over" file="menu_start_over.png" />
+	<image key="menu_exit" file="menu_exit.png" />
+	<image key="menu_exit_over" file="menu_exit_over.png" />
 	<image key="gray" file="gray.png" />
 	<image key="exit" file="exit.png" />
 	<image key="hpbar" file="hpbar.png" />

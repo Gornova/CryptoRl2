@@ -77,10 +77,20 @@ public final class G {
 
 	public static final String TRAP = "trap";
 
+	public static final String MENU_START = "menu_start";
+
+	public static final String MENU_EXIT = "menu_exit";
+
+	public static final String MENU_START_OVER = "menu_start_over";
+
+	public static final String MENU_EXIT_OVER = "menu_exit_over";
+
 	public static int INVISIBILITY_TIMER = 0;
 
 	public static int turn = 1;
 
 	public static int BLOCK_TIMER = 0;
+
+	public static boolean fullScreen;
 
 }

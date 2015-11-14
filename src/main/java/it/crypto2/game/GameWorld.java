@@ -129,8 +129,12 @@ public class GameWorld extends World implements TileBasedMap {
 	@Override
 	public void enter(GameContainer container, StateBasedGame game) throws SlickException {
 		super.enter(container, game);
-
 		initWorld(widthInTiles, heightInTiles);
+		if (G.fullScreen) {
+			container.setFullscreen(true);
+		} else {
+			container.setFullscreen(false);
+		}
 	}
 
 	public void setFloor(int i, int j) {

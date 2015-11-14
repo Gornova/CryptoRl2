@@ -1,1 +1,0 @@
-java -jar cryptorl2.jar

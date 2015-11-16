@@ -1,4 +1,4 @@
-package it.crypto2.game;
+package it.crypto2.gui;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +12,7 @@ import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 
 import it.crypto2.G;
+import it.crypto2.game.GameWorld;
 import it.crypto2.world.entities.EnemyEntity;
 import it.crypto2.world.entities.GameEntity;
 import it.marteEngine.Camera;
@@ -29,10 +30,18 @@ public class Gui {
 	private Color infoDark;
 
 	private int fh = -1;
+	private Image lifeImg;
+	private Image turnImg;
+	private Image levelImg;
+	private Image explorationImg;
 
 	public Gui(GameWorld gameWorld) {
 		this.world = gameWorld;
 		this.barImg = ResourceManager.getImage(G.HPBAR);
+		this.lifeImg = ResourceManager.getImage(G.GUI_LIFE);
+		this.turnImg = ResourceManager.getImage(G.GUI_TURN);
+		this.levelImg = ResourceManager.getImage(G.GUI_LEVEL);
+		this.explorationImg = ResourceManager.getImage(G.GUI_EXPLORATION);
 		this.info = new Rectangle(0, 0, 0, 0);
 
 		this.infoDark = Color.darkGray;
@@ -43,10 +52,16 @@ public class Gui {
 		if (fh == -1) {
 			fh = g.getFont().getHeight("hi");
 		}
-		g.drawString("Turn  " + G.turn, container.getHeight() - 10, 10);
+		// turn image
+		g.drawImage(turnImg, 200, container.getHeight() - 37);
+		g.drawString("" + G.turn, 290, container.getHeight() - 35);
+		// level image
+		g.drawImage(levelImg, 400, container.getHeight() - 37);
+		g.drawString("" + G.currentLevel, 495, container.getHeight() - 35);
+		// exploration
 		int expl = world.getSawTiles() * 100 / world.getTileNumber();
-		g.drawString("Level " + G.currentLevel, container.getHeight() - 10, 30);
-		g.drawString("Exploration  " + expl + "%", container.getHeight() - 10, 50);
+		g.drawImage(explorationImg, 600, container.getHeight() - 35);
+		g.drawString("" + expl + "%", 790, container.getHeight() - 35);
 
 		drawHP(g, container.getHeight());
 
@@ -119,9 +134,10 @@ public class Gui {
 	}
 
 	private void drawHP(Graphics g, int cheight) {
+		g.drawImage(lifeImg, 10, cheight - 40);
 		// every bar is 10 hp
-		int bx = 10;
-		int by = cheight - 20;
+		int bx = 75;
+		int by = cheight - 35;
 		if (G.playerEntity.hp > 0) {
 			int v = G.playerEntity.hp / 10;
 			if (v == 0) {

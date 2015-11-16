@@ -81,29 +81,30 @@ DONE	version 0.7
 ---------------------------------------------
 DONE	added fullscreen option
 DONE	add logo in main page, add images for buttons
+DONE	add random blood pool around level (1%, from 1 to 10)
+DONE	add monster rat, random wander around, weak
+DONE	add monster snake, random wander around, weak
+DONE	improved interface
 
-add icon for executable
-improved user interface
+
 emit damage indication on combat
 sound effects
 	attack
 	step
-add random blood pool around level (from 1 to 10)
 add inventory, like in cryptoRL1
 	basic inventory with sword: so user can attack automatically
 	use item using digit from 1 to 10
 vedi per immagini
 		http://keeperrl.com/smf/index.php?topic=93.0
 add new enemies
-	giant rat, random wander around, weak
 	large ant, random wander around, weak
-	snake, random wander, weak, poison attack (X damage for Y turns)
 	grave worm, wander, attack on sight, strong, weak defense
 	dwarf, attack on sight, strong defense, great attack, weak hp
 add ranged attack (bow)
 	when user select bow from inventory, see area of use highlighted (see Wargame for his!) and then select enemy and add damage
 version 0.8	
 ---------------------------------------------
+add poison attack (X damage for Y turns) for snake
 add enemies that attack from distance ?
 	
 health bar for enemies ?	

@@ -10,6 +10,8 @@ import it.crypto2.G;
 import it.crypto2.game.GameWorld;
 import it.crypto2.world.entities.EntityFactory;
 import it.crypto2.world.entities.PlayerEntity;
+import it.crypto2.world.entities.StaticEntity;
+import it.marteEngine.ResourceManager;
 import it.marteEngine.World;
 import it.marteEngine.entity.Entity;
 
@@ -252,8 +254,9 @@ public class Generator {
 		int items = 0;
 		int maximumItems = 8;
 		double cper = 0.15;
-		double pper = 0.05;
-		// TODO: add random
+		double pper = 0.05; // TODO: add random
+		double bper = 0.01;
+		int bloodNumber = 0;
 		generate(w, h, percentage);
 		int c = 0;
 		for (int i = 0; i < w; i++) {
@@ -280,6 +283,9 @@ public class Generator {
 							world.add(EntityFactory.buildRandomItem(world, i, j));
 							world.setItem(i, j);
 							item[i][j] = true;
+						} else if (rnd.nextDouble() < bper && bloodNumber < 10) {
+							bloodNumber++;
+							world.add(new StaticEntity(i * 32, j * 32, ResourceManager.getImage(G.BLOOD), world));
 						}
 
 					} else if (map.get(i, j) == G.W) {

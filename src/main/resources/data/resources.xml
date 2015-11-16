@@ -25,6 +25,12 @@
 	<image key="shadow" file="shadow.png" />
 	<image key="blood" file="blood.png" />
 	<image key="trap" file="trap.png" />
+	<image key="rat" file="rat.png" />
+	<image key="snake" file="snake.png" />
+	<image key="gui_life" file="gui_life.png" />
+	<image key="gui_turn" file="gui_turn.png" />
+	<image key="gui_level" file="gui_level.png" />
+	<image key="gui_exploration" file="gui_exploration.png" />
 	<!-- sheets -->
 	<!-- fonts -->
 </resources>

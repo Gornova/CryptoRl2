@@ -85,6 +85,18 @@ public final class G {
 
 	public static final String MENU_EXIT_OVER = "menu_exit_over";
 
+	public static final String RAT = "rat";
+
+	public static final String SNAKE = "snake";
+
+	public static final String GUI_LIFE = "gui_life";
+
+	public static final String GUI_TURN = "gui_turn";
+
+	public static final String GUI_LEVEL = "gui_level";
+
+	public static final String GUI_EXPLORATION = "gui_exploration";
+
 	public static int INVISIBILITY_TIMER = 0;
 
 	public static int turn = 1;

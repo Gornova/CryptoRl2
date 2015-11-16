@@ -67,18 +67,47 @@ public class EntityFactory {
 		return e;
 	}
 
+	public static Entity buildRat(World world, int x, int y) {
+		EnemyEntity e = new EnemyEntity(x * G.TILE_SIZE, y * G.TILE_SIZE, ResourceManager.getImage(G.RAT), G.RAT);
+		e.description = "rat is fast and always try to eat everything";
+		e.hp = 10;
+		e.maxHp = 10;
+		e.atk = 5;
+
+		Controller c = new WanderController(e);
+		c.setWorld(world);
+		e.setController(c);
+		return e;
+	}
+
+	public static Entity buildSnake(World world, int x, int y) {
+		EnemyEntity e = new EnemyEntity(x * G.TILE_SIZE, y * G.TILE_SIZE, ResourceManager.getImage(G.SNAKE), G.SNAKE);
+		e.description = "snake is a dangerouse animal in any situation";
+		e.hp = 15;
+		e.maxHp = 15;
+		e.atk = 10;
+
+		Controller c = new WanderController(e);
+		c.setWorld(world);
+		e.setController(c);
+		return e;
+	}
+
 	public static Entity buildRandomMonster(World world, int x, int y) {
 		Random rnd = new Random();
-		switch (rnd.nextInt(3)) {
+		switch (rnd.nextInt(5)) {
 		case 0:
 			return buildSpider(world, x, y);
 		case 1:
 			return buildStygianBird(world, x, y);
 		case 2:
 			return buildAberration(world, x, y);
-
+		case 3:
+			return buildRat(world, x, y);
+		case 4:
+			return buildSnake(world, x, y);
 		default:
-			return buildStygianBird(world, x, y);
+			return buildSnake(world, x, y);
 		}
 	}
 

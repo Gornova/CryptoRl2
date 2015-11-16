@@ -18,6 +18,7 @@ import org.newdawn.slick.util.pathfinding.TileBasedMap;
 
 import it.crypto2.G;
 import it.crypto2.Launcher;
+import it.crypto2.gui.Gui;
 import it.crypto2.world.map.Generator;
 import it.marteEngine.Camera;
 import it.marteEngine.World;

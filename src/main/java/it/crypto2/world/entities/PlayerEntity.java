@@ -13,6 +13,7 @@ import org.newdawn.slick.geom.Circle;
 import it.crypto2.G;
 import it.marteEngine.ME;
 import it.marteEngine.ResourceManager;
+import it.marteEngine.SFX;
 import it.marteEngine.entity.Entity;
 
 public class PlayerEntity extends GameEntity {
@@ -103,6 +104,7 @@ public class PlayerEntity extends GameEntity {
 	}
 
 	public Pair<GameEntity, GameEntity> combat(Pair<GameEntity, GameEntity> input) {
+		SFX.playSound(G.HIT_SOUND);
 		G.world.addMessage(input.getLeft().name + " attack " + input.getRight().name);
 
 		input.getLeft()

@@ -3,6 +3,7 @@ package it.crypto2.world.entities;
 import org.newdawn.slick.Image;
 
 import it.crypto2.G;
+import it.marteEngine.SFX;
 
 public class Torch extends GameEntity {
 
@@ -29,7 +30,7 @@ public class Torch extends GameEntity {
 			G.sight = G.MAX_SIGHT;
 		}
 		G.world.addMessage("Player take a torch and darkness fade away (+3 sight) ");
-
+		SFX.playSound(G.ITEM_SOUND);
 	}
 
 }

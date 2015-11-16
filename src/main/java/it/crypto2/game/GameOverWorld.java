@@ -2,28 +2,36 @@ package it.crypto2.game;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
+import it.crypto2.G;
 import it.crypto2.Launcher;
+import it.marteEngine.ResourceManager;
 import it.marteEngine.World;
 
 public class GameOverWorld extends World {
 
+	private Image img;
+
 	public GameOverWorld(int id, GameContainer container) {
 		super(id, container);
+		this.img = ResourceManager.getImage(G.GUI_GAME_OVER);
 	}
 
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException {
 		super.render(container, game, g);
 
-		int sx = 400;
-		int sy = 400;
-		g.drawString("GAME OVER", sx + 50, sy);
+		g.drawImage(img, 250, 200);
 
-		g.drawString("Press SPACE to continue", sx, sy + 200);
+		// INT SX = 400;
+		// INT SY = 400;
+		// G.DRAWSTRING("GAME OVER", SX + 50, SY);
+		//
+		// G.DRAWSTRING("PRESS SPACE TO CONTINUE", SX, SY + 200);
 	}
 
 	@Override

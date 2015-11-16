@@ -13,6 +13,7 @@ import it.crypto2.G;
 import it.crypto2.Launcher;
 import it.crypto2.gui.Button;
 import it.marteEngine.ResourceManager;
+import it.marteEngine.SFX;
 import it.marteEngine.World;
 
 public class MenuWorld extends World implements MouseListener, KeyListener {
@@ -44,6 +45,7 @@ public class MenuWorld extends World implements MouseListener, KeyListener {
 		startButton.render(container, game, g);
 		exitButton.render(container, game, g);
 
+		g.drawString("Kill enemies and find exit from labirynth", 330, 630);
 		g.drawString("Use WASD or arrows key and SPACE to control your character", 260, 650);
 		g.drawString("Random tower of games - 2015 - http://randomtower.blogspot.it", 250, 740);
 	}
@@ -59,9 +61,11 @@ public class MenuWorld extends World implements MouseListener, KeyListener {
 	@Override
 	public void mouseClicked(int button, int x, int y, int clickCount) {
 		if (startButton.contains(x, y)) {
+			SFX.playSound(G.SELECT_SOUND);
 			game.enterState(Launcher.GAME_STATE);
 		}
 		if (exitButton.contains(x, y)) {
+			SFX.playSound(G.SELECT_SOUND);
 			System.exit(0);
 		}
 	}

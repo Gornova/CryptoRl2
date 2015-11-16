@@ -3,6 +3,11 @@
 	<!-- basedir -->
 	<basedir path="data" />
 	<!-- sounds -->
+	<sound key="step" file="step.wav" />
+	<sound key="hit" file="hit.wav" />
+	<sound key="select" file="select.wav" />
+	<sound key="item" file="item.wav" />
+	<sound key="exitSound" file="exitSound.wav" />
 	<!-- songs -->
 	<!-- images -->
 	<image key="elf" file="elf.png" />
@@ -31,6 +36,8 @@
 	<image key="gui_turn" file="gui_turn.png" />
 	<image key="gui_level" file="gui_level.png" />
 	<image key="gui_exploration" file="gui_exploration.png" />
+	<image key="gui_win" file="gui_win.png" />
+	<image key="gui_game_over" file="gui_game_over.png" />
 	<!-- sheets -->
 	<!-- fonts -->
 </resources>

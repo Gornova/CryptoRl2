@@ -3,6 +3,7 @@ package it.crypto2.world.entities;
 import org.newdawn.slick.Image;
 
 import it.crypto2.G;
+import it.marteEngine.SFX;
 
 public class Potion extends GameEntity {
 
@@ -31,7 +32,7 @@ public class Potion extends GameEntity {
 			ge.hp = ge.maxHp;
 		}
 		G.world.addMessage("Player drink potion and feel a lot better (+" + CURE_HP + " hp)");
-
+		SFX.playSound(G.ITEM_SOUND);
 	}
 
 }

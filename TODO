@@ -85,12 +85,12 @@ DONE	add random blood pool around level (1%, from 1 to 10)
 DONE	add monster rat, random wander around, weak
 DONE	add monster snake, random wander around, weak
 DONE	improved interface
+DONE	improved instructions
+DONE	added basic sound effects
+
 
 
 emit damage indication on combat
-sound effects
-	attack
-	step
 add inventory, like in cryptoRL1
 	basic inventory with sword: so user can attack automatically
 	use item using digit from 1 to 10

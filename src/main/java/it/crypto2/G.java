@@ -97,6 +97,20 @@ public final class G {
 
 	public static final String GUI_EXPLORATION = "gui_exploration";
 
+	public static final String STEP_SOUND = "step";
+
+	public static final String HIT_SOUND = "hit";
+
+	public static final String SELECT_SOUND = "select";
+
+	public static final String ITEM_SOUND = "item";
+
+	public static final String EXIT_SOUND = "exitSound";
+
+	public static final String GUI_WIN = "gui_win";
+
+	public static final String GUI_GAME_OVER = "gui_game_over";
+
 	public static int INVISIBILITY_TIMER = 0;
 
 	public static int turn = 1;

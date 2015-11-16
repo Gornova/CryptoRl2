@@ -21,6 +21,7 @@ import it.crypto2.Launcher;
 import it.crypto2.gui.Gui;
 import it.crypto2.world.map.Generator;
 import it.marteEngine.Camera;
+import it.marteEngine.SFX;
 import it.marteEngine.World;
 
 public class GameWorld extends World implements TileBasedMap {
@@ -96,6 +97,7 @@ public class GameWorld extends World implements TileBasedMap {
 			super.update(container, game, delta);
 		}
 		if (G.PLAYER_MOVED) {
+			SFX.playSound(G.STEP_SOUND);
 			if (G.playerEntity.invisible) {
 				if (G.INVISIBILITY_TIMER > 0) {
 					G.INVISIBILITY_TIMER -= 1;

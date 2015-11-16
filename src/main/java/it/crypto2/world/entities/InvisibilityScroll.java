@@ -3,6 +3,7 @@ package it.crypto2.world.entities;
 import org.newdawn.slick.Image;
 
 import it.crypto2.G;
+import it.marteEngine.SFX;
 import it.marteEngine.entity.Entity;
 
 public class InvisibilityScroll extends GameEntity {
@@ -31,6 +32,7 @@ public class InvisibilityScroll extends GameEntity {
 			G.INVISIBILITY_TIMER = G.INVISIBILITY_TIME;
 			G.world.remove(this);
 			G.world.addMessage("Player fades away (invisible for 10 turns)");
+			SFX.playSound(G.ITEM_SOUND);
 		}
 	}
 

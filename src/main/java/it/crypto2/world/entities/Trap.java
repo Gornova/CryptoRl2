@@ -7,6 +7,7 @@ import org.newdawn.slick.SlickException;
 
 import it.crypto2.G;
 import it.marteEngine.ME;
+import it.marteEngine.SFX;
 
 public class Trap extends GameEntity {
 
@@ -62,7 +63,7 @@ public class Trap extends GameEntity {
 				G.BLOCK_TIMER = BLOCK_TIMER;
 			}
 			activated = true;
-
+			SFX.playSound(G.HIT_SOUND);
 		}
 	}
 

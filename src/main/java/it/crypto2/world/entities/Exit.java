@@ -3,6 +3,7 @@ package it.crypto2.world.entities;
 import org.newdawn.slick.Image;
 
 import it.crypto2.G;
+import it.marteEngine.SFX;
 import it.marteEngine.entity.Entity;
 
 public class Exit extends GameEntity {
@@ -26,6 +27,7 @@ public class Exit extends GameEntity {
 	@Override
 	public void collisionResponse(Entity other) {
 		if (other instanceof PlayerEntity) {
+			SFX.playSound(G.EXIT_SOUND);
 			G.world.nextLevel();
 		}
 	}

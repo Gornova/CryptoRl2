@@ -2,26 +2,30 @@ package it.crypto2.game;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
+import it.crypto2.G;
 import it.crypto2.Launcher;
+import it.marteEngine.ResourceManager;
 import it.marteEngine.World;
 
 public class WinWorld extends World {
 
+	private Image winImg;
+
 	public WinWorld(int id, GameContainer container) {
 		super(id, container);
+		this.winImg = ResourceManager.getImage(G.GUI_WIN);
 	}
 
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException {
 		super.render(container, game, g);
 
-		g.drawString("YOU WIN", container.getWidth() / 2, container.getHeight() / 2);
-
-		g.drawString("Press SPACE to continue", 450, 600);
+		g.drawImage(winImg, 250, 300);
 	}
 
 	@Override

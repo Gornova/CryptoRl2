@@ -87,9 +87,21 @@ DONE	add monster snake, random wander around, weak
 DONE	improved interface
 DONE	improved instructions
 DONE	added basic sound effects
+DONE	added music by jonhillman
+DONE	version 0.8
+---------------------------------------------
 
 
 
+grafica UI => http://opengameart.org/content/moderna-graphical-interface
+
+
+aggiungere in fase di generazione dei modificatori per ogni creatura
+	codarda => controller wander
+	coraggiosa => attack on sight
+	ed usarli nella descrizione ?
+
+ladro invisibile? lo vedi solo quando ti é ad una casella di distanza?
 emit damage indication on combat
 add inventory, like in cryptoRL1
 	basic inventory with sword: so user can attack automatically

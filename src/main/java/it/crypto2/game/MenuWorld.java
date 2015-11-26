@@ -35,6 +35,8 @@ public class MenuWorld extends World implements MouseListener, KeyListener {
 		exitButton = new Button(ResourceManager.getImage(G.MENU_EXIT), ResourceManager.getImage(G.MENU_EXIT_OVER),
 				sx + 20, sy + 70, 92, 49);
 		container.getInput().addMouseListener(this);
+
+		SFX.playMusic(G.MUSIC1);
 	}
 
 	@Override

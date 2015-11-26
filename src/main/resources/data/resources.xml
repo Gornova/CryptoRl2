@@ -9,6 +9,7 @@
 	<sound key="item" file="item.wav" />
 	<sound key="exitSound" file="exitSound.wav" />
 	<!-- songs -->
+	<music key="music1" file="IntoTheFire.ogg" />
 	<!-- images -->
 	<image key="elf" file="elf.png" />
 	<image key="floor" file="floor.png" />

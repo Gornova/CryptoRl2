@@ -111,6 +111,8 @@ public final class G {
 
 	public static final String GUI_GAME_OVER = "gui_game_over";
 
+	public static final String MUSIC1 = "music1";
+
 	public static int INVISIBILITY_TIMER = 0;
 
 	public static int turn = 1;

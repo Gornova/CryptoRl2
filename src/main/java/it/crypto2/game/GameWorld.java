@@ -138,6 +138,7 @@ public class GameWorld extends World implements TileBasedMap {
 		} else {
 			container.setFullscreen(false);
 		}
+		SFX.playMusic(G.MUSIC1);
 	}
 
 	public void setFloor(int i, int j) {

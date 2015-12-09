@@ -11,13 +11,13 @@ DONE 	add wandering enemy
 DONE	stats turn passed
 DONE	show player health
 DONE	face left/right
-DONE	working camera 
+DONE	working camera
 DONE	tween for moving
 DONE	display only tiles and enemy near player
 DONE	first commit with git, version 0.1
 ---------------------------------------------
 DONE	add stygian bird, first implementation of attackOnSightController
-DONE	line of sight 
+DONE	line of sight
 DONE	light effect using line of sight (only on near in sight tiles)
 DONE	add Aberration
 DONE 	combat
@@ -90,7 +90,27 @@ DONE	added basic sound effects
 DONE	added music by jonhillman
 DONE	version 0.8
 ---------------------------------------------
+DONE	added darker effect for already seen tiles
 
+
+esc da gioco => ripartire dall'inizio
+trappola impassabile dopo che é scattata ?
+
+//TODO AAA
+emit damage indication on combat
+health bar for enemies ?
+	=> se il giocatore prendo un bonus, "Narveen eyes", può vedere la vita dei nemici
+xp, livelli, armature e armi per upgrade ?
+damage sound => improve
+hit sound => "ouch"
+dark grey line dominant?
+	analizzare https://pbs.twimg.com/media/CUzFD9QUkAIXhiw.png:large
+un insieme di pozioni, che se combinate, permettono effetti multipli
+	es. io uso 2 pozioni lo stesso turno
+		pozione1 => aumenta forza +1
+		pozione2 => aumenta mana +1
+		nello stesso turno aumenta campo visivo
+	lo stesso concetto con tutti gli oggetti, se combinati
 
 
 grafica UI => http://opengameart.org/content/moderna-graphical-interface
@@ -102,7 +122,7 @@ aggiungere in fase di generazione dei modificatori per ogni creatura
 	ed usarli nella descrizione ?
 
 ladro invisibile? lo vedi solo quando ti é ad una casella di distanza?
-emit damage indication on combat
+
 add inventory, like in cryptoRL1
 	basic inventory with sword: so user can attack automatically
 	use item using digit from 1 to 10
@@ -114,12 +134,10 @@ add new enemies
 	dwarf, attack on sight, strong defense, great attack, weak hp
 add ranged attack (bow)
 	when user select bow from inventory, see area of use highlighted (see Wargame for his!) and then select enemy and add damage
-version 0.8	
----------------------------------------------
 add poison attack (X damage for Y turns) for snake
 add enemies that attack from distance ?
-	
-health bar for enemies ?	
+
+
 menu opzioni per la difficoltà - prima di ogni partita, default in mezzo - da mettere nel dungeon generation per fare test
 	dimensioni dungeon (small, mediu, large, enormous)
 	item density (nothing, small, medium, high)
@@ -181,7 +199,7 @@ suggerimento da un blog:
 water and lava tiles
 	lava => damage on passage
 	water => aberration cannot pass it
-balance enemies and encounters	
+balance enemies and encounters
 
 
 
@@ -190,9 +208,9 @@ balance enemies and encounters
 ----------
 guardare
 	http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-825-techniques-in-artificial-intelligence-sma-5504-fall-2002/lecture-notes/Lecture1Final.pdf
-	
+
 	e
-	
+
 	http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-034-artificial-intelligence-fall-2010/
 per i behaviour system
 	http://www.java-gaming.org/topics/decision-making-in-strategy-game/36378/view.html
@@ -231,16 +249,16 @@ better messages http://agingminotaur.blogspot.de/2014/11/thinking-out-loud.html
 lighting
 	http://www.alcove-games.com/opengl-es-2-tutorials/lightmap-shader-fire-effect-glsl/
 	http://www.java-gaming.org/topics/efficient-terraria-like-2d-lighting/36668/view/topicseen.html
-	
+
 appiccare il fuoco!
 tematizzare i livelli
 boss fight?
 introdurre una memoria per i posti che i mostri hanno già visitato (vedi esempio heatmap), così da avere un comportamento semi-random
-	usare inoltre una sorta di "detect" del rumore che fanno le altre creature ? 
+	usare inoltre una sorta di "detect" del rumore che fanno le altre creature ?
 dungeon generation
 	nest:
 		https://groups.google.com/forum/#!topic/rec.games.roguelike.development/TFYnGXDCU78
-		
+
 Idea per stile:
 	http://zimra.fr/wp-content/gallery/fanart-commission/testchrome.jpg
 		fonte: http://forums.tigsource.com/index.php?topic=44518.0
@@ -248,14 +266,14 @@ Idea per stile:
 luci dinamiche
 i vari personaggi proiettano un'ombra
 	http://www.rockpapershotgun.com/images/15/mar/villhead.jpg
-	
-	
+
+
 -----------------------------------------------
 --------------------	da vecchio TODO cryptoRL:
 
 
-	
-add pathfinding => ready, but who will use it ? 
+
+add pathfinding => ready, but who will use it ?
 
 ranged combat with bow ?
 
@@ -277,7 +295,7 @@ goblin: attack player
 Il concept:
 	il giocatore � un elfo, della casa Tulje, perso in una gigantesca caverna.
 	gli elfi adorano Veon
-	deve trovare la strada per ritornare a Kelmera, la sua casa => per fare questo deve attraversare 
+	deve trovare la strada per ritornare a Kelmera, la sua casa => per fare questo deve attraversare
 		la caverna
 	la societ� elfica � divisa in pi� casati, spesso in lotta tra di loro
 		SPUNTO: altri elfi che vagano e attaccano il pg ?
@@ -288,9 +306,9 @@ Il concept:
 	alcuni enormi funghi emettono luce e cristalli
 		SPUNTO: rendono visibile sempre alle altre creature i loro dintorni
 		SPUNTO: giocatore pu� raccogliore i cristalli per avere una luce che poi riesce a droppare?
-	
-		 
-	 
+
+
+
 
 
 
@@ -319,7 +337,7 @@ dungeon generation traits
 
 add gravedigger with following behaviour: wander, search for dead body, avoid contact with player
 
-add stamina to every creature. With stamina 0 creature must stop and wait. 
+add stamina to every creature. With stamina 0 creature must stop and wait.
 	Stamina regenerate 10 stamina for turn
 	Player have on start 40 stamina
 add items to enhance stamina (fungus)
@@ -336,7 +354,7 @@ add abilities. Each of them have a cost in stamina see (). Abilities are in thre
 	TIER 2:
 		story of blades (40): attack in any tile around every enemy
 		invulnerability (40): creature become invulnerable for 10 turns, cannot move or attack
-		
+
 	TIER 3:
 		mirror images (40): creature create duplicate of itself (fake creatures with 1 hp, no special
 			abilities) that behave like creature
@@ -351,17 +369,17 @@ mostro che pu� diventare un'alleato perch� capisce quanto ilgiocatore � fo
 assolutamente aggiungere mostro che attacca dalla distanza
 assicurarsi che le item che usa il giocatore non si sovrappongano come glyphs o come effetto => una item, un effetto unico
 aggiungere con una partecenuale casuale mosri leggermente pi� forti o pi� deboli di quelli presenti
-	estensione: aggiungerli con tratti particolari. Es. rissoso => attacca a vista, pauroso => cerca la fuga prima, 
+	estensione: aggiungerli con tratti particolari. Es. rissoso => attacca a vista, pauroso => cerca la fuga prima,
 aggiungere le fazioni per i mostri
 	aggiungere la scelta del bersaglio in base alla propria fazione
 		il giocatore non � sempre l'unico ad essere attaccato
 		beneficio: si trovano cadaveri, item, il tutto sembra pi� dinamico
 potion of confusion: mette i bersagli nella modali� "wander" per X turni
-utilizzare il potenziale tattico del terreno: es. mostro che si muove solo nell'acqua ? 
+utilizzare il potenziale tattico del terreno: es. mostro che si muove solo nell'acqua ?
 boss monster: sorveglia l'uscita, non si allontana, manda in giro i suoi sgherri per cercare il giocatore (a caso, sarebbe figo con quadtree!) e quando uno sgherro vede il giocatore
 	dice "it's here boss!" ed il boss si muove verso quel punto!
 un mostro che ti spara dalla distanza con unraggio che ti blocca? tipo beholder ?
-aggiungere mostri che rigenerano 
+aggiungere mostri che rigenerano
 
 pensare ad un sistema di ferite:
 	si parte sani
@@ -370,12 +388,12 @@ pensare ad un sistema di ferite:
 		es. prima ferita 10 danni
 			seconda ferita 15 danni
 			e cos� via
-			
-secret area 
+
+secret area
 	ovvero zone normali, ma con muri che "scompaiono" quando il giocatore vi � accanto
-		
-		
-ragionare: 
+
+
+ragionare:
 	-i mostri sono diversi ad ogni giro, generati casualmente pure loro basandosi
 		su template ?
 
@@ -387,7 +405,7 @@ attacco di di un mostro ragno che lancia una ragnatela e ti blocca sul posto per
 
 
 
-add a small box when mouse is on over a monster / item, not only name, 
+add a small box when mouse is on over a monster / item, not only name,
 but with some info: http://weirdfellows.com/wp-content/uploads/2014/10/possessionshot3.png
-	
+
 ranged combat with bow ?

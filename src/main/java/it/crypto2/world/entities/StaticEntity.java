@@ -7,14 +7,19 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
 import it.crypto2.G;
-import it.marteEngine.ResourceManager;
 import it.marteEngine.World;
 
 public class StaticEntity extends GameEntity {
 
 	public boolean attacking = false;
 
-	private Image gray;
+	// private Image gray;
+
+	private int timer = 0;
+
+	private boolean fadeOut;
+
+	private Color black = new Color(Color.darkGray);
 
 	public StaticEntity(float x, float y, Image img, World world) {
 		super(x, y);
@@ -27,7 +32,7 @@ public class StaticEntity extends GameEntity {
 		this.world = world;
 		depth = 0;
 
-		gray = ResourceManager.getImage(G.gray);
+		// gray = ResourceManager.getImage(G.gray);
 	}
 
 	@Override
@@ -35,10 +40,32 @@ public class StaticEntity extends GameEntity {
 		// render entity only near player
 		if (canSeePlayer()) {
 			super.render(container, g);
+			fadeOut = false;
 		} else if (alreadySeenByPlayer((int) x / G.TILE_SIZE, (int) y / G.TILE_SIZE)) {
 			// super.render(container, g);
-			currentImage.drawFlash(x, y, currentImage.getWidth(), currentImage.getHeight(), Color.darkGray);
+			// currentImage.drawFlash(x, y, currentImage.getWidth(),
+			// currentImage.getHeight(), Color.darkGray);
 			// g.drawImage(gray, x, y);
+			fadeOut = true;
+		} else {
+			fadeOut = false;
+		}
+		if (fadeOut) {
+			currentImage.drawFlash(x, y, currentImage.getWidth(), currentImage.getHeight(), black);
+		}
+	}
+
+	@Override
+	public void update(GameContainer container, int delta) throws SlickException {
+		super.update(container, delta);
+		if (fadeOut) {
+			timer += delta;
+			black.darker(0.05f);
+			if (timer > 1000) {
+				fadeOut = false;
+				timer = 0;
+				black = new Color(Color.darkGray);
+			}
 		}
 	}
 

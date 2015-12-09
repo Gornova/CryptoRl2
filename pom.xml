@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>it.randomtower</groupId>
 	<artifactId>crypto-rl-2</artifactId>
-	<version>0.8</version>
+	<version>0.9</version>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

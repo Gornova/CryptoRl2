@@ -21,6 +21,7 @@ import it.crypto2.Launcher;
 import it.crypto2.gui.Gui;
 import it.crypto2.world.map.Generator;
 import it.marteEngine.Camera;
+import it.marteEngine.ResourceManager;
 import it.marteEngine.SFX;
 import it.marteEngine.World;
 
@@ -39,6 +40,10 @@ public class GameWorld extends World implements TileBasedMap {
 	private boolean[][] saw;
 	private boolean win;
 	private boolean nextLevel;
+
+	private StateBasedGame game;
+
+	private boolean pressEscapeState;
 
 	public GameWorld(int id, GameContainer container) {
 		super(id, container);
@@ -74,6 +79,9 @@ public class GameWorld extends World implements TileBasedMap {
 
 	@Override
 	public void update(GameContainer container, StateBasedGame game, int delta) throws SlickException {
+		if (this.game == null) {
+			this.game = game;
+		}
 		if (win) {
 			// win!
 			game.enterState(Launcher.WIN_STATE);
@@ -127,6 +135,11 @@ public class GameWorld extends World implements TileBasedMap {
 		super.render(container, stateBasedGame, g);
 		// render gui
 		gui.render(container, stateBasedGame, g);
+
+		if (pressEscapeState) {
+			g.drawImage(ResourceManager.getImage("escConfirm"), container.getWidth() / 2 - 120,
+					container.getHeight() / 2);
+		}
 	}
 
 	@Override
@@ -139,6 +152,7 @@ public class GameWorld extends World implements TileBasedMap {
 			container.setFullscreen(false);
 		}
 		SFX.playMusic(G.MUSIC1);
+		pressEscapeState = false;
 	}
 
 	public void setFloor(int i, int j) {
@@ -252,6 +266,19 @@ public class GameWorld extends World implements TileBasedMap {
 			}
 		}
 		return t;
+	}
+
+	@Override
+	public void keyPressed(int key, char c) {
+		if (key == Input.KEY_ESCAPE) {
+			if (!pressEscapeState) {
+				pressEscapeState = true;
+			} else {
+				game.enterState(Launcher.MENU_STATE);
+			}
+		} else {
+			pressEscapeState = false;
+		}
 	}
 
 }

@@ -39,6 +39,7 @@
 	<image key="gui_exploration" file="gui_exploration.png" />
 	<image key="gui_win" file="gui_win.png" />
 	<image key="gui_game_over" file="gui_game_over.png" />
+	<image key="escConfirm" file="escConfirm.png" />
 	<!-- sheets -->
 	<!-- fonts -->
 </resources>

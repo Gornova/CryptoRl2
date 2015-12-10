@@ -12,12 +12,14 @@ public class TileFactory {
 		StaticEntity ge = new StaticEntity(x * G.TILE_SIZE, y * G.TILE_SIZE, ResourceManager.getImage(G.FLOOR), world);
 		ge.addType(G.FLOOR);
 		ge.collidable = false;
+		ge.depth = 1;
 		return ge;
 	}
 
 	public static StaticEntity buildWall(int x, int y, World world) {
 		StaticEntity ge = new StaticEntity(x * G.TILE_SIZE, y * G.TILE_SIZE, ResourceManager.getImage(G.WALL), world);
 		ge.addType(G.WALL, Entity.SOLID);
+		ge.depth = 1;
 		return ge;
 
 	}

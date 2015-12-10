@@ -150,8 +150,9 @@ public class EntityFactory {
 		}
 	}
 
-	private static Entity buildTrap(World world, int x, int y) {
+	public static Entity buildTrap(World world, int x, int y) {
 		Trap e = new Trap(x * G.TILE_SIZE, y * G.TILE_SIZE, ResourceManager.getImage(G.TRAP), G.TRAP);
+		e.depth = 4;
 		return e;
 	}
 

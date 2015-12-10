@@ -10,8 +10,6 @@ import it.crypto2.G;
 import it.crypto2.game.GameWorld;
 import it.crypto2.world.entities.EntityFactory;
 import it.crypto2.world.entities.PlayerEntity;
-import it.crypto2.world.entities.StaticEntity;
-import it.marteEngine.ResourceManager;
 import it.marteEngine.World;
 import it.marteEngine.entity.Entity;
 
@@ -280,12 +278,14 @@ public class Generator {
 							// world.set(i, j, TileFactory.buildFloor(i, j));
 						} else if (rnd.nextDouble() < pper && items < maximumItems && !nearItem(world, i, j)) {
 							items++;
-							world.add(EntityFactory.buildRandomItem(world, i, j));
+							world.add(EntityFactory.buildRandomItem(world, i, j), World.BELOW);
 							world.setItem(i, j);
 							item[i][j] = true;
 						} else if (rnd.nextDouble() < bper && bloodNumber < 10) {
 							bloodNumber++;
-							world.add(new StaticEntity(i * 32, j * 32, ResourceManager.getImage(G.BLOOD), world));
+							// world.add(new StaticEntity(i * 32, j * 32,
+							// ResourceManager.getImage(G.BLOOD), world));
+							world.add(EntityFactory.buildTrap(world, i, j));
 						}
 
 					} else if (map.get(i, j) == G.W) {
@@ -318,6 +318,9 @@ public class Generator {
 		//
 		// // remove player
 		// world.getElements().remove(player);
+		// int tx = getPlayerStartingPoint().x + 1;
+		// int ty = getPlayerStartingPoint().y;
+		// world.add(EntityFactory.buildTrap(world, tx, ty));
 
 		return world;
 	}

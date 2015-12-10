@@ -64,6 +64,7 @@ public class Trap extends GameEntity {
 			}
 			activated = true;
 			SFX.playSound(G.HIT_SOUND);
+			collidable = false;
 		}
 	}
 

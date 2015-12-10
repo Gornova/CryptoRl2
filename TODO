@@ -92,9 +92,11 @@ DONE	version 0.8
 ---------------------------------------------
 DONE	added darker effect for already seen tiles
 DONE	in game now it's possibile to exit using ESC
+DONE	BUG solved impassable trap after activating it
 
 
-trappola impassabile dopo che é scattata ?
+aggiungere un effetto per il quale quando colpite le entità vengono "shakerate"
+
 
 //TODO AAA
 emit damage indication on combat

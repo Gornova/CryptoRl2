@@ -12,7 +12,19 @@
 	<music key="music1" file="IntoTheFire.ogg" />
 	<!-- images -->
 	<image key="elf" file="elf.png" />
-	<image key="floor" file="floor.png" />
+	<image key="floor0" file="floor0.png" />
+	<image key="floor1" file="floor1.png" />
+	<image key="floor2" file="floor2.png" />
+	<image key="floor3" file="floor3.png" />
+	<image key="floor4" file="floor4.png" />
+	<image key="floor5" file="floor5.png" />
+	<image key="floor6" file="floor6.png" />
+	<image key="floor7" file="floor7.png" />
+	<image key="floor8" file="floor8.png" />
+	<image key="floor9" file="floor9.png" />
+	<image key="floor10" file="floor10.png" />
+	<image key="floor11" file="floor11.png" />
+	<image key="floor12" file="floor12.png" />
 	<image key="wall" file="wall.png" />
 	<image key="spider" file="spider.png" />
 	<image key="stygianBird" file="stygian-bird.png" />

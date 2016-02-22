@@ -269,8 +269,8 @@ public class Generator {
 							playerStartingPoint = new Point(i, j);
 							G.playerEntity = (PlayerEntity) EntityFactory.buildPlayer(world, i, j);
 							world.add(G.playerEntity);
-						} else
-							if (rnd.nextDouble() < cper && creatures < maximumCreatures && !nearCreature(world, i, j)) {
+						} else if (rnd.nextDouble() < cper && creatures < maximumCreatures
+								&& !nearCreature(world, i, j)) {
 							creatures++;
 							Entity monster = EntityFactory.buildRandomMonster(world, i, j);
 							world.add(monster);
@@ -289,7 +289,7 @@ public class Generator {
 						}
 
 					} else if (map.get(i, j) == G.W) {
-						world.add(TileFactory.buildWall(i, j, world));
+						world.add(TileFactory.buildWall(i, j, world, map));
 						world.setWall(i, j);
 						floor[i][j] = false;
 					}

@@ -93,10 +93,19 @@ DONE	version 0.8
 DONE	added darker effect for already seen tiles
 DONE	in game now it's possibile to exit using ESC
 DONE	BUG solved impassable trap after activating it
+DONE	first hand made tileset and automatic tileset handling
+DONE	added transitions between states
+
+aggiungere transizioni tra i livelli e menu
+
+BUG	pozze di sangue che non appaiono se non nella fog of war
+
 nel menu principale far fare capolino a random a qualche mostro e farlo andare in giro ?
 
+
+
 inventory  descriptions: http://images.8bitbeard.de/tigame/ti_inventory.gif 
-aggiungere transizioni tra i livelli e menu
+
 
 aggiungere un effetto per il quale quando colpite le entità vengono "shakerate"
 indicatore minimale sulla mappa di dove ci si può muovere => una sorta di quadrato coi punti dove posso muovermi, magari evidenziato leggermente quello verso il quale sono rivolto

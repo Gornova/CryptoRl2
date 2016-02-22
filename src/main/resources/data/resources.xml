@@ -25,7 +25,7 @@
 	<image key="floor10" file="floor10.png" />
 	<image key="floor11" file="floor11.png" />
 	<image key="floor12" file="floor12.png" />
-	<image key="wall" file="wall.png" />
+	<image key="wall0" file="wall0.png" />
 	<image key="spider" file="spider.png" />
 	<image key="stygianBird" file="stygian-bird.png" />
 	<image key="aberration" file="aberration.png" />
@@ -53,5 +53,6 @@
 	<image key="gui_game_over" file="gui_game_over.png" />
 	<image key="escConfirm" file="escConfirm.png" />
 	<!-- sheets -->
+	<sheet key="walls" file="testSet.png" width="32" height="32"/>
 	<!-- fonts -->
 </resources>

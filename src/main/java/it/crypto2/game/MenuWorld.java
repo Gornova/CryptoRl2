@@ -27,6 +27,7 @@ public class MenuWorld extends World implements MouseListener, KeyListener {
 	private Button startButton;
 	private Button exitButton;
 	private StateBasedGame game;
+	private boolean clicked;
 
 	public MenuWorld(int id, GameContainer container) {
 		super(id, container);
@@ -65,11 +66,13 @@ public class MenuWorld extends World implements MouseListener, KeyListener {
 
 	@Override
 	public void mouseClicked(int button, int x, int y, int clickCount) {
-		if (startButton.contains(x, y)) {
+		if (startButton.contains(x, y) && !clicked) {
+			clicked = true;
 			SFX.playSound(G.SELECT_SOUND);
 			game.enterState(Launcher.GAME_STATE, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
 		}
-		if (exitButton.contains(x, y)) {
+		if (exitButton.contains(x, y) && !clicked) {
+			clicked = true;
 			SFX.playSound(G.SELECT_SOUND);
 			System.exit(0);
 		}

@@ -96,7 +96,6 @@ DONE	BUG solved impassable trap after activating it
 DONE	first hand made tileset and automatic tileset handling
 DONE	added transitions between states
 
-aggiungere transizioni tra i livelli e menu
 
 BUG	pozze di sangue che non appaiono se non nella fog of war
 

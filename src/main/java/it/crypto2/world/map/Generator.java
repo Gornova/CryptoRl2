@@ -254,7 +254,7 @@ public class Generator {
 		double cper = 0.15;
 		double pper = 0.05; // TODO: add random
 		double bper = 0.01;
-		int bloodNumber = 0;
+		int trapnumber = 0;
 		generate(w, h, percentage);
 		int c = 0;
 		for (int i = 0; i < w; i++) {
@@ -281,10 +281,8 @@ public class Generator {
 							world.add(EntityFactory.buildRandomItem(world, i, j), World.BELOW);
 							world.setItem(i, j);
 							item[i][j] = true;
-						} else if (rnd.nextDouble() < bper && bloodNumber < 10) {
-							bloodNumber++;
-							// world.add(new StaticEntity(i * 32, j * 32,
-							// ResourceManager.getImage(G.BLOOD), world));
+						} else if (rnd.nextDouble() < bper && trapnumber < 10) {
+							trapnumber++;
 							world.add(EntityFactory.buildTrap(world, i, j));
 						}
 

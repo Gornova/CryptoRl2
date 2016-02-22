@@ -77,7 +77,9 @@ public class GameWorld extends World implements TileBasedMap {
 		G.world = this;
 		pathFinder = new AStarPathFinder(this, 100, false);
 
-		gui.addMessage("Welcome to CryptoRl 2 !");
+		if (G.currentLevel == 1) {
+			gui.addMessage("Welcome to CryptoRl 2 !");
+		}
 	}
 
 	@Override

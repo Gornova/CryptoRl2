@@ -95,9 +95,13 @@ DONE	in game now it's possibile to exit using ESC
 DONE	BUG solved impassable trap after activating it
 DONE	first hand made tileset and automatic tileset handling
 DONE	added transitions between states
+DONE	BUG	hide welcome message after first level
+DONE	BUG	fix blood pool rendering	
 
 
-BUG	pozze di sangue che non appaiono se non nella fog of war
+
+TODO	tileset, ringraziare http://www.saltgames.com/article/awareTiles/ e http://www.saltgames.com/article/dungeonTiles/ e https://forums.tigsource.com/index.php?topic=14166.0
+
 
 nel menu principale far fare capolino a random a qualche mostro e farlo andare in giro ?
 

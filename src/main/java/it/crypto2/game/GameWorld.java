@@ -3,12 +3,15 @@ package it.crypto2.game;
 import java.awt.Point;
 import java.util.Random;
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.FadeOutTransition;
 import org.newdawn.slick.util.pathfinding.AStarPathFinder;
 import org.newdawn.slick.util.pathfinding.Mover;
 import org.newdawn.slick.util.pathfinding.Path;
@@ -84,7 +87,7 @@ public class GameWorld extends World implements TileBasedMap {
 		}
 		if (win) {
 			// win!
-			game.enterState(Launcher.WIN_STATE);
+			game.enterState(Launcher.WIN_STATE, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
 			win = false;
 			G.currentLevel = 1;
 			G.turn = 1;
@@ -119,7 +122,8 @@ public class GameWorld extends World implements TileBasedMap {
 		G.PLAYER_MOVED = false;
 		if (find(G.PLAYER) == null) {
 			System.out.println("player dead, game over");
-			game.enterState(Launcher.GAME_OVER_STATE);
+			game.enterState(Launcher.GAME_OVER_STATE, new FadeOutTransition(Color.black),
+					new FadeInTransition(Color.black));
 		}
 		if (container.getInput().isKeyPressed(Input.KEY_F2)) {
 			if (container.isFullscreen()) {
@@ -274,7 +278,8 @@ public class GameWorld extends World implements TileBasedMap {
 			if (!pressEscapeState) {
 				pressEscapeState = true;
 			} else {
-				game.enterState(Launcher.MENU_STATE);
+				game.enterState(Launcher.MENU_STATE, new FadeOutTransition(Color.black),
+						new FadeInTransition(Color.black));
 			}
 		} else {
 			pressEscapeState = false;

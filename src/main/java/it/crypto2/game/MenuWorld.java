@@ -1,5 +1,6 @@
 package it.crypto2.game;
 
+import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
@@ -8,6 +9,8 @@ import org.newdawn.slick.KeyListener;
 import org.newdawn.slick.MouseListener;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
+import org.newdawn.slick.state.transition.FadeInTransition;
+import org.newdawn.slick.state.transition.FadeOutTransition;
 
 import it.crypto2.G;
 import it.crypto2.Launcher;
@@ -64,7 +67,7 @@ public class MenuWorld extends World implements MouseListener, KeyListener {
 	public void mouseClicked(int button, int x, int y, int clickCount) {
 		if (startButton.contains(x, y)) {
 			SFX.playSound(G.SELECT_SOUND);
-			game.enterState(Launcher.GAME_STATE);
+			game.enterState(Launcher.GAME_STATE, new FadeOutTransition(Color.black), new FadeInTransition(Color.black));
 		}
 		if (exitButton.contains(x, y)) {
 			SFX.playSound(G.SELECT_SOUND);

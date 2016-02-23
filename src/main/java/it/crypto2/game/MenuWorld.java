@@ -109,4 +109,10 @@ public class MenuWorld extends World implements MouseListener, KeyListener {
 		}
 	}
 
+	@Override
+	public void enter(GameContainer container, StateBasedGame game) throws SlickException {
+		super.enter(container, game);
+		clicked = false;
+	}
+
 }

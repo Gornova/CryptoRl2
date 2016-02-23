@@ -3,9 +3,11 @@ package it.crypto2.game;
 import java.awt.Point;
 import java.util.Random;
 
+import org.lwjgl.opengl.GL11;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Vector2f;
@@ -22,20 +24,20 @@ import org.newdawn.slick.util.pathfinding.TileBasedMap;
 import it.crypto2.G;
 import it.crypto2.Launcher;
 import it.crypto2.gui.Gui;
+import it.crypto2.world.entities.StaticEntity;
 import it.crypto2.world.map.Generator;
 import it.marteEngine.Camera;
 import it.marteEngine.ResourceManager;
 import it.marteEngine.SFX;
 import it.marteEngine.World;
+import it.marteEngine.entity.Entity;
 
 public class GameWorld extends World implements TileBasedMap {
 
 	private Gui gui;
-
 	// is floor array for quick check
 	boolean floor[][];
 	private boolean[][] walls;
-
 	private PathFinder pathFinder;
 	private int widthInTiles;
 	private int heightInTiles;
@@ -43,16 +45,24 @@ public class GameWorld extends World implements TileBasedMap {
 	private boolean[][] saw;
 	private boolean win;
 	private boolean nextLevel;
-
 	private StateBasedGame game;
-
 	private boolean pressEscapeState;
+	// private LightMap lightMap;
+	private Image[][] tiles;
+	private Image alphaMap;
+	private Image screen;
 
 	public GameWorld(int id, GameContainer container) {
 		super(id, container);
 		// init world
 		widthInTiles = container.getWidth() / G.TILE_SIZE;
 		heightInTiles = container.getHeight() / G.TILE_SIZE;
+		try {
+			screen = new Image(container.getWidth() * 2, container.getHeight() * 2);
+		} catch (SlickException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	private void initWorld(int w, int h) {
@@ -60,6 +70,7 @@ public class GameWorld extends World implements TileBasedMap {
 		walls = new boolean[w][h];
 		item = new boolean[w][h];
 		saw = new boolean[w][h];
+		tiles = new Image[w][h];
 		clear();
 		Generator g = new Generator(w, h);
 		g.generate(this);
@@ -80,6 +91,14 @@ public class GameWorld extends World implements TileBasedMap {
 		if (G.currentLevel == 1) {
 			gui.addMessage("Welcome to CryptoRl 2 !");
 		}
+
+		// add light at player position
+		// lighting.addLight(new Light(G.playerEntity.x, G.playerEntity.y,
+		// 0.5f));
+		// lightMap = new LightMap(0, 0, 32);
+		// lightMap.addLight(new Light(G.playerEntity.x, G.playerEntity.y, 200,
+		// Color.white));
+		alphaMap = ResourceManager.getImage("light");
 	}
 
 	@Override
@@ -134,11 +153,29 @@ public class GameWorld extends World implements TileBasedMap {
 				container.setFullscreen(true);
 			}
 		}
+		// lightMap.update(container, delta);
 	}
 
 	@Override
 	public void render(GameContainer container, StateBasedGame stateBasedGame, Graphics g) throws SlickException {
-		super.render(container, stateBasedGame, g);
+		// TODO render lights http://www.java-gaming.org/index.php?topic=26729.0
+		Graphics g2 = screen.getGraphics();
+
+		// normal rendering
+		super.render(container, stateBasedGame, g2);
+
+		g2.resetTransform();
+		g2.clearAlphaMap();
+		GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
+		g2.setDrawMode(Graphics.MODE_ALPHA_MAP);
+		alphaMap.drawCentered(G.playerEntity.x, G.playerEntity.y);
+		GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
+		g2.setDrawMode(Graphics.MODE_ALPHA_BLEND);
+
+		// g.translate(-camera.cameraX, -camera.cameraY);
+		g.drawImage(screen, 0, 0);
+		g.resetTransform();
+
 		// render gui
 		gui.render(container, stateBasedGame, g);
 
@@ -146,6 +183,10 @@ public class GameWorld extends World implements TileBasedMap {
 			g.drawImage(ResourceManager.getImage("escConfirm"), container.getWidth() / 2 - 120,
 					container.getHeight() / 2);
 		}
+		// lightMap.render(container, g);
+		// g.drawImage(lights, 0, 0);
+		// RENDERING EVERITHING
+
 	}
 
 	@Override
@@ -159,6 +200,7 @@ public class GameWorld extends World implements TileBasedMap {
 		}
 		SFX.playMusic(G.MUSIC1);
 		pressEscapeState = false;
+
 	}
 
 	public void setFloor(int i, int j) {
@@ -285,6 +327,14 @@ public class GameWorld extends World implements TileBasedMap {
 			}
 		} else {
 			pressEscapeState = false;
+		}
+	}
+
+	@Override
+	public void add(Entity e, int... flags) {
+		super.add(e, flags);
+		if (e instanceof StaticEntity) {
+			tiles[(int) (e.x / 32)][(int) (e.y / 32)] = e.currentImage;
 		}
 	}
 

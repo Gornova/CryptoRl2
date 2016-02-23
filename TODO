@@ -97,15 +97,31 @@ DONE	first hand made tileset and automatic tileset handling
 DONE	added transitions between states
 DONE	BUG	hide welcome message after first level
 DONE	BUG	fix blood pool rendering
-DONE	BUG fix double click on menu buttons	
+DONE	BUG fix double click on menu buttons
+DONE	BUG fixed bug on start button
+DONE	BUG fix objects layer (now same as entities)
 
 
+avoid traps too near during generation	
 
+luci
+http://techblog.orangepixel.net/2015/07/shine-a-light-on-it/
+http://www.java-gaming.org/topics/dynamic-tile-map-lighting/26305/view.html
+http://www.java-gaming.org/?action=pastebin&id=76
+http://www.java-gaming.org/topics/dynamic-tile-map-lighting/26305/view.html
+http://www.java-gaming.org/topics/2d-dynamic-lighting/27012/view.html
+
+tilest https://twitter.com/Namatnieks/status/702060495256289282
 TODO	tileset, ringraziare http://www.saltgames.com/article/awareTiles/ e http://www.saltgames.com/article/dungeonTiles/ e https://forums.tigsource.com/index.php?topic=14166.0
 
+light ringraziare: http://www.java-gaming.org/topics/dynamic-tile-map-lighting/26305/view.html
+
+todo tileset spaceship: http://lvetoretiart.tumblr.com/post/101718568086/ba4-spaceship-design-research-and-color-palette
 
 nel menu principale far fare capolino a random a qualche mostro e farlo andare in giro ?
 
+
+test lighting system, see here: https://gist.github.com/liamzebedee/2376047
 
 
 inventory  descriptions: http://images.8bitbeard.de/tigame/ti_inventory.gif 

@@ -38,21 +38,24 @@ public class StaticEntity extends GameEntity {
 	@Override
 	public void render(GameContainer container, Graphics g) throws SlickException {
 		// render entity only near player
-		if (canSeePlayer()) {
-			super.render(container, g);
-			fadeOut = false;
-		} else if (alreadySeenByPlayer((int) x / G.TILE_SIZE, (int) y / G.TILE_SIZE)) {
-			// super.render(container, g);
-			// currentImage.drawFlash(x, y, currentImage.getWidth(),
-			// currentImage.getHeight(), Color.darkGray);
-			// g.drawImage(gray, x, y);
-			fadeOut = true;
-		} else {
-			fadeOut = false;
-		}
-		if (fadeOut) {
-			currentImage.drawFlash(x, y, currentImage.getWidth(), currentImage.getHeight(), black);
-		}
+		// if (canSeePlayer()) {
+		super.render(container, g);
+		fadeOut = false;
+		// }
+		// else if (alreadySeenByPlayer((int) x / G.TILE_SIZE, (int) y /
+		// G.TILE_SIZE)) {
+		// // super.render(container, g);
+		// // currentImage.drawFlash(x, y, currentImage.getWidth(),
+		// // currentImage.getHeight(), Color.darkGray);
+		// // g.drawImage(gray, x, y);
+		// fadeOut = true;
+		// } else {
+		// fadeOut = false;
+		// }
+		// if (fadeOut) {
+		// currentImage.drawFlash(x, y, currentImage.getWidth(),
+		// currentImage.getHeight(), black);
+		// }
 	}
 
 	@Override

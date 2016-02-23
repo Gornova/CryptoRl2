@@ -36,10 +36,10 @@ public class EnemyEntity extends GameEntity {
 
 	@Override
 	public void render(GameContainer container, Graphics g) throws SlickException {
-		if (canSeePlayer()) {
-			g.drawImage(ResourceManager.getImage(G.SHADOW), x, y);
-			super.render(container, g);
-		}
+		// if (canSeePlayer()) {
+		g.drawImage(ResourceManager.getImage(G.SHADOW), x, y);
+		super.render(container, g);
+		// }
 	}
 
 	public void moveLeft() {

@@ -46,7 +46,7 @@ public class Launcher extends StateBasedGame {
 			AppGameContainer container = new AppGameContainer(new Launcher("CryptoRl 2"));
 			ME.keyToggleDebug = Input.KEY_1;
 			container.setDisplayMode(1024, 768, false);
-			container.setTargetFrameRate(20);
+			container.setTargetFrameRate(60);
 			container.start();
 		} catch (SlickException e) {
 			e.printStackTrace();

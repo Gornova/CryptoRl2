@@ -58,7 +58,9 @@ public class GameWorld extends World implements TileBasedMap {
 		widthInTiles = container.getWidth() / G.TILE_SIZE;
 		heightInTiles = container.getHeight() / G.TILE_SIZE;
 		try {
-			screen = new Image(container.getWidth() * 2, container.getHeight() * 2);
+			screen = new Image(container.getWidth(), container.getHeight());
+			screen.setImageColor(128, 172, 174, 255);
+			screen.setFilter(Image.FILTER_NEAREST);
 		} catch (SlickException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -160,7 +162,9 @@ public class GameWorld extends World implements TileBasedMap {
 	public void render(GameContainer container, StateBasedGame stateBasedGame, Graphics g) throws SlickException {
 		// TODO render lights http://www.java-gaming.org/index.php?topic=26729.0
 		Graphics g2 = screen.getGraphics();
+		g2.clear();
 
+		// g2.translate(-camera.cameraX, -camera.cameraY);
 		// normal rendering
 		super.render(container, stateBasedGame, g2);
 
@@ -168,13 +172,13 @@ public class GameWorld extends World implements TileBasedMap {
 		g2.clearAlphaMap();
 		GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE);
 		g2.setDrawMode(Graphics.MODE_ALPHA_MAP);
-		alphaMap.drawCentered(G.playerEntity.x, G.playerEntity.y);
+
+		alphaMap.drawCentered(G.playerEntity.x - camera.cameraX + 16, G.playerEntity.y + 16 - camera.cameraY);
 		GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 		g2.setDrawMode(Graphics.MODE_ALPHA_BLEND);
+		// g2.resetTransform();
 
-		// g.translate(-camera.cameraX, -camera.cameraY);
 		g.drawImage(screen, 0, 0);
-		g.resetTransform();
 
 		// render gui
 		gui.render(container, stateBasedGame, g);
@@ -183,10 +187,6 @@ public class GameWorld extends World implements TileBasedMap {
 			g.drawImage(ResourceManager.getImage("escConfirm"), container.getWidth() / 2 - 120,
 					container.getHeight() / 2);
 		}
-		// lightMap.render(container, g);
-		// g.drawImage(lights, 0, 0);
-		// RENDERING EVERITHING
-
 	}
 
 	@Override

@@ -100,9 +100,17 @@ DONE	BUG	fix blood pool rendering
 DONE	BUG fix double click on menu buttons
 DONE	BUG fixed bug on start button
 DONE	BUG fix objects layer (now same as entities)
+DONE	first draft of lighting system
+DONE	added squared alpha blend
+DONE	BUG fix camera bug
 
 
-avoid traps too near during generation	
+BUG	avoid traps too near during generation
+BUG	avoid monsters next to the player
+
+
+giocare screen.setImageColor(0, 255, 255, 255); !!
+	
 
 luci
 http://techblog.orangepixel.net/2015/07/shine-a-light-on-it/

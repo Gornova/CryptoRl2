@@ -117,13 +117,13 @@ public class GameEntity extends Entity {
 
 	@Override
 	public void render(GameContainer container, Graphics g) throws SlickException {
-		// if (canSeePlayer()) {
-		super.render(container, g);
-		if (damageTimer > 0) {
-			Image flash = currentImage.copy();
-			flash.drawFlash(x, y, currentImage.getWidth(), currentImage.getHeight(), damageColor);
+		if (canSeePlayer()) {
+			super.render(container, g);
+			if (damageTimer > 0) {
+				Image flash = currentImage.copy();
+				flash.drawFlash(x, y, currentImage.getWidth(), currentImage.getHeight(), damageColor);
+			}
 		}
-		// }
 	}
 
 	protected boolean alreadySeenByPlayer(int tx, int ty) {

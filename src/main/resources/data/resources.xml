@@ -52,7 +52,7 @@
 	<image key="gui_win" file="gui_win.png" />
 	<image key="gui_game_over" file="gui_game_over.png" />
 	<image key="escConfirm" file="escConfirm.png" />
-	<image key="light" file="light.png" />
+	<image key="light" file="alphaMapSquare.png" />
 	<!-- sheets -->
 	<sheet key="walls" file="testSet.png" width="32" height="32"/>
 	<!-- fonts -->

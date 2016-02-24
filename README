@@ -1,5 +1,5 @@
 CryptoRl 2
-0.8
+0.9
 http://randomtower.blogspot.it/
 
 CryptoRl 2 is a cave-dungeon roguelike based on Crypto setting [1], setting in a dark underterrain 
@@ -45,6 +45,21 @@ Items
 
 
 ==History==
+version 0.9
+	added darker effect for already seen tiles
+	in game now it's possibile to exit using ESC
+	BUG solved impassable trap after activating it
+	first hand made tileset and automatic tileset handling
+	added transitions between states
+	BUG	hide welcome message after first level
+	BUG	fix blood pool rendering
+	BUG fix double click on menu buttons
+	BUG fixed bug on start button
+	BUG fix objects layer (now same as entities)
+	first draft of lighting system
+	added squared alpha blend
+	BUG fix camera bug
+	BUG	avoid traps too near during generation
 version 0.8
 	added fullscreen option (F2)
 	add logo in main page, add images for buttons

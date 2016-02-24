@@ -103,9 +103,11 @@ DONE	BUG fix objects layer (now same as entities)
 DONE	first draft of lighting system
 DONE	added squared alpha blend
 DONE	BUG fix camera bug
+DONE	BUG	avoid traps too near during generation
+DONE	version 0.9
+---------------------------------------------
 
 
-BUG	avoid traps too near during generation
 BUG	avoid monsters next to the player
 
 

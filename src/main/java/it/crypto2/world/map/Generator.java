@@ -29,6 +29,7 @@ public class Generator {
 	private boolean[][] monsters;
 	private boolean[][] item;
 	private boolean[][] floor;
+	private boolean[][] trap;
 
 	public Point getPlayerStartingPoint() {
 		return playerStartingPoint;
@@ -41,7 +42,7 @@ public class Generator {
 		floor = new boolean[w][h];
 		monsters = new boolean[w][h];
 		item = new boolean[w][h];
-
+		trap = new boolean[w][h];
 	}
 
 	public void set(Point location, int t) {
@@ -281,7 +282,8 @@ public class Generator {
 							world.add(EntityFactory.buildRandomItem(world, i, j), World.GAME);
 							world.setItem(i, j);
 							item[i][j] = true;
-						} else if (rnd.nextDouble() < bper && trapnumber < 10) {
+						} else if (rnd.nextDouble() < bper && trapnumber < 10 && !nearTrap(world, i, j)) {
+							trap[i][j] = true;
 							trapnumber++;
 							world.add(EntityFactory.buildTrap(world, i, j));
 						}
@@ -321,6 +323,19 @@ public class Generator {
 		// world.add(EntityFactory.buildTrap(world, tx, ty));
 
 		return world;
+	}
+
+	private boolean nearTrap(GameWorld world, int i, int j) {
+		for (int x = 0; x < w; x++) {
+			for (int y = 0; y < h; y++) {
+				if (trap[x][y]) {
+					if (near(i, j, x, y, 10)) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;
 	}
 
 	private boolean nearPlayer(int x, int y) {

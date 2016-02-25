@@ -1,5 +1,5 @@
 CryptoRl 2
-0.9
+0.10
 http://randomtower.blogspot.it/
 
 CryptoRl 2 is a cave-dungeon roguelike based on Crypto setting [1], setting in a dark underterrain 
@@ -39,9 +39,10 @@ Items
 
 
 ==Credits==
-- http://crypto-gdr.wikidot.com/ description of Crypto setting in italian
-- AsciiPanel, https://github.com/trystan/AsciiPanel
-- Slick pathfinding, https://bitbucket.org/kevglass/slick/src
+[1] http://crypto-gdr.wikidot.com/ description of Crypto setting in italian
+AsciiPanel, https://github.com/trystan/AsciiPanel
+Slick pathfinding, https://bitbucket.org/kevglass/slick/src
+MarteEngine, https://github.com/Gornova/MarteEngine
 
 
 ==History==

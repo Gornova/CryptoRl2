@@ -27,6 +27,14 @@ public class PlayerEntity extends GameEntity {
 
 	public boolean invisible = false;
 
+	private boolean rightFree;
+
+	private boolean leftFree;
+
+	private boolean downFree;
+
+	private boolean upFree;
+
 	public PlayerEntity(float x, float y, Image img) {
 		super(x, y);
 
@@ -60,6 +68,18 @@ public class PlayerEntity extends GameEntity {
 	public void update(GameContainer container, int delta) throws SlickException {
 		super.update(container, delta);
 		controller.update(delta);
+		if (!isCollide(x + 32, y)) {
+			rightFree = true;
+		}
+		if (!isCollide(x - 32, y)) {
+			leftFree = true;
+		}
+		if (!isCollide(x, y + 32)) {
+			downFree = true;
+		}
+		if (!isCollide(x, y - 32)) {
+			upFree = true;
+		}
 	}
 
 	@Override
@@ -69,10 +89,24 @@ public class PlayerEntity extends GameEntity {
 		} else {
 			setGraphic(imgLeft);
 		}
+		//
 		g.drawImage(ResourceManager.getImage(G.SHADOW), x, y);
 		super.render(container, g);
 		if (invisible) {
 			currentImage.drawFlash(x, y, currentImage.getWidth(), currentImage.getHeight(), Color.gray);
+		}
+		// steps
+		if (!isCollide(x + 32, y)) {
+			g.drawImage(ResourceManager.getImage("step"), x + 32, y);
+		}
+		if (!isCollide(x - 32, y)) {
+			g.drawImage(ResourceManager.getImage("step"), x - 32, y);
+		}
+		if (!isCollide(x, y + 32)) {
+			g.drawImage(ResourceManager.getImage("step"), x, y + 32);
+		}
+		if (!isCollide(x, y - 32)) {
+			g.drawImage(ResourceManager.getImage("step"), x, y - 32);
 		}
 
 		if (ME.debugEnabled) {
@@ -82,6 +116,10 @@ public class PlayerEntity extends GameEntity {
 			Circle circle = new Circle(tx, ty, G.sight * G.TILE_SIZE);
 			g.draw(circle);
 		}
+	}
+
+	private boolean isCollide(float tx, float ty) {
+		return G.world.isWall((int) tx / 32, (int) ty / 32);
 	}
 
 	@Override
@@ -94,7 +132,7 @@ public class PlayerEntity extends GameEntity {
 				((Potion) other).cure(this);
 				G.world.remove(other);
 			} else {
-				G.world.addMessage("Player is already at full heath");
+				G.world.addMessage("Player is already at full health");
 			}
 		}
 		if (other instanceof Torch) {

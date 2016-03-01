@@ -54,6 +54,7 @@
 	<image key="escConfirm" file="escConfirm.png" />
 	<image key="light" file="alphaMapSquare.png" />
 	<image key="light2" file="alphaMapSquareBig.png" />
+	<image key="step" file="step.png" />
 	<!-- sheets -->
 	<sheet key="walls" file="testSet.png" width="32" height="32"/>
 	<!-- fonts -->

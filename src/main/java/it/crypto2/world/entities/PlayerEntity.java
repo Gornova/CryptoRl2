@@ -90,8 +90,12 @@ public class PlayerEntity extends GameEntity {
 			combat(new MutablePair<GameEntity, GameEntity>(this, (GameEntity) other));
 		}
 		if (other instanceof Potion) {
-			((Potion) other).cure(this);
-			G.world.remove(other);
+			if (hp < maxHp) {
+				((Potion) other).cure(this);
+				G.world.remove(other);
+			} else {
+				G.world.addMessage("Player is already at full heath");
+			}
 		}
 		if (other instanceof Torch) {
 			G.world.remove(other);

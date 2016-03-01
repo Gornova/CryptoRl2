@@ -106,10 +106,34 @@ DONE	BUG fix camera bug
 DONE	BUG	avoid traps too near during generation
 DONE	version 0.9
 ---------------------------------------------
+DONE	BUG	avoid monsters next to the player on dungeon generation
+DONE	BUG	by Archifenix: "Players pick up and feels a lot better (+10 HP)" does not actually [i]give[/i] you the 10 HP. There was not even a visual health bar change.
+DONE	BUG		Found a bug by Archifenix: Finally, the README is incomplete. "CryptoRl 2 is a cave-dungeon roguelike based on Crypto setting [1], setting in a dark underterrain world full of monsters." Footnote [1] is never provided. And the word "setting" appears twice in a row.
+DONE	added efffect support and shake effect suggested by ArchRylen
+
+TODO	 tileset for dungeon
+TODO	better traps => block is not understandable
+TODO	spada che ti aumenta atk ?
+TODO	scudo che ti aumenta dfk ?
+TODO	remove block trap
+TODO	add light effect on torch
+TODO	aggiungere cavalieri/nuovi mostri spunto da qui : https://raw.githubusercontent.com/DaanVanYperen/underkeep/master/android/assets/tiles-raw6.png
 
 
-BUG	avoid monsters next to the player
 
+
+
+TODO	tileset for dungeon
+TODO	aggiungere un effetto per il quale quando colpite le entità vengono "shakerate", richiesto da ArchRylen
+TODO	better traps => block is not understandable
+TODO	spada che ti aumenta atk ?
+TODO	scudo che ti aumenta dfk ?
+TODO	remove block trap
+TODO	add light effect on torch
+TODO	aggiungere cavalieri/nuovi mostri spunto da qui : https://raw.githubusercontent.com/DaanVanYperen/underkeep/master/android/assets/tiles-raw6.png
+tipo su forum di roguetemple dice che nelle stanze ci mette "tall grass" ovvero erba alta, così le stanze sono aperte, ma la visibilità é ridotta e puoi capitare nei mostri
+come aggiungere delle skill: http://codereview.stackexchange.com/questions/121083/skill-creation-in-a-python-text-based-rpg
+TODO	rimuovere da marte engine branch maven i rimasugli di ant
 
 giocare screen.setImageColor(0, 255, 255, 255); !!
 	
@@ -137,7 +161,7 @@ test lighting system, see here: https://gist.github.com/liamzebedee/2376047
 inventory  descriptions: http://images.8bitbeard.de/tigame/ti_inventory.gif 
 
 
-aggiungere un effetto per il quale quando colpite le entità vengono "shakerate"
+
 indicatore minimale sulla mappa di dove ci si può muovere => una sorta di quadrato coi punti dove posso muovermi, magari evidenziato leggermente quello verso il quale sono rivolto
 impostare le luci: http://slick.ninjacave.com/forum/viewtopic.php?f=3&t=5545
 

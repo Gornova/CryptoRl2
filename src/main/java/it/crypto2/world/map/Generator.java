@@ -398,6 +398,9 @@ public class Generator {
 	// }
 	//
 	private boolean nearCreature(World world, int i, int j) {
+		if (playerStartingPoint != null && near(i, j, playerStartingPoint.x, playerStartingPoint.y, 10)) {
+			return true;
+		}
 		for (int x = 0; x < w; x++) {
 			for (int y = 0; y < h; y++) {
 				if (monsters[x][y]) {

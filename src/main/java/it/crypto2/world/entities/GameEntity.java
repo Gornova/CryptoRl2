@@ -1,44 +1,35 @@
 package it.crypto2.world.entities;
 
 import java.awt.Point;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
-import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Circle;
 import org.newdawn.slick.geom.Vector2f;
 
 import it.crypto2.G;
+import it.crypto2.effect.Effect;
+import it.crypto2.effect.Shake;
 import it.crypto2.util.Line;
 import it.crypto2.world.entities.controller.Controller;
 import it.marteEngine.entity.Entity;
 
 public class GameEntity extends Entity {
 
-	private static final String DAMAGE_EFFECT = "damageEffect";
-
 	protected Controller controller;
-
 	private Circle c;
-
 	public int hp = 0;
 	public int maxHp = 0;
 	public int atk = 5;
 	public int dfk = 0;
-
 	private boolean dead;
-
 	public String description = "";
-
 	public boolean item;
-
-	private boolean damageEffect;
-
-	private int damageTimer;
-
-	private Color damageColor;
+	private List<Effect> effects = new ArrayList<Effect>();
 
 	public boolean isDead() {
 		return dead;
@@ -46,7 +37,6 @@ public class GameEntity extends Entity {
 
 	public GameEntity(float x, float y) {
 		super(x, y);
-		this.damageColor = new Color(250, 0, 0, 0.2f);
 	}
 
 	public void setController(Controller c) {
@@ -89,8 +79,13 @@ public class GameEntity extends Entity {
 			setDead(true);
 		}
 		// apply visual damage status
-		damageEffect = true;
+		// addEffect(new Damage(this));
+		addEffect(new Shake(this));
 		return this;
+	}
+
+	private void addEffect(Effect effect) {
+		effects.add(effect);
 	}
 
 	public void setDead(boolean v) {
@@ -99,17 +94,18 @@ public class GameEntity extends Entity {
 
 	@Override
 	public void update(GameContainer container, int delta) throws SlickException {
-		super.update(container, delta);
-		if (damageEffect) {
-			damageEffect = false;
-			damageTimer = 250;
-		}
-		if (damageTimer > 0) {
-			damageTimer -= delta;
-			if (damageTimer <= 0) {
-				damageTimer = 0;
+		if (!effects.isEmpty()) {
+			Iterator<Effect> iter = effects.iterator();
+			while (iter.hasNext()) {
+				Effect effect = iter.next();
+				effect.update(container, delta);
+				if (effect.completed) {
+					iter.remove();
+				}
 			}
+			return;
 		}
+		super.update(container, delta);
 		if (isDead()) {
 			G.world.remove(this);
 		}
@@ -118,11 +114,13 @@ public class GameEntity extends Entity {
 	@Override
 	public void render(GameContainer container, Graphics g) throws SlickException {
 		if (canSeePlayer()) {
-			super.render(container, g);
-			if (damageTimer > 0) {
-				Image flash = currentImage.copy();
-				flash.drawFlash(x, y, currentImage.getWidth(), currentImage.getHeight(), damageColor);
+			if (!effects.isEmpty()) {
+				for (Effect effect : effects) {
+					effect.render(container, g);
+				}
+				return;
 			}
+			super.render(container, g);
 		}
 	}
 

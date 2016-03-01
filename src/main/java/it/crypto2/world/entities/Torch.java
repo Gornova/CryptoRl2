@@ -3,6 +3,7 @@ package it.crypto2.world.entities;
 import org.newdawn.slick.Image;
 
 import it.crypto2.G;
+import it.marteEngine.ResourceManager;
 import it.marteEngine.SFX;
 
 public class Torch extends GameEntity {
@@ -26,6 +27,7 @@ public class Torch extends GameEntity {
 	public void extend(GameEntity ge) {
 		if (G.sight + 3 < G.MAX_SIGHT) {
 			G.sight += 3;
+			G.world.alphaMap = ResourceManager.getImage("light2");
 		} else {
 			G.sight = G.MAX_SIGHT;
 		}

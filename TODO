@@ -110,13 +110,15 @@ DONE	BUG	avoid monsters next to the player on dungeon generation
 DONE	BUG	by Archifenix: "Players pick up and feels a lot better (+10 HP)" does not actually [i]give[/i] you the 10 HP. There was not even a visual health bar change.
 DONE	BUG		Found a bug by Archifenix: Finally, the README is incomplete. "CryptoRl 2 is a cave-dungeon roguelike based on Crypto setting [1], setting in a dark underterrain world full of monsters." Footnote [1] is never provided. And the word "setting" appears twice in a row.
 DONE	added efffect support and shake effect suggested by ArchRylen
+DONE 	when torch is used, updated alphamap
+
 
 TODO	 tileset for dungeon
 TODO	better traps => block is not understandable
 TODO	spada che ti aumenta atk ?
 TODO	scudo che ti aumenta dfk ?
 TODO	remove block trap
-TODO	add light effect on torch
+
 TODO	aggiungere cavalieri/nuovi mostri spunto da qui : https://raw.githubusercontent.com/DaanVanYperen/underkeep/master/android/assets/tiles-raw6.png
 
 

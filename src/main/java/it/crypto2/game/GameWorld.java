@@ -49,7 +49,7 @@ public class GameWorld extends World implements TileBasedMap {
 	private boolean pressEscapeState;
 	// private LightMap lightMap;
 	private Image[][] tiles;
-	private Image alphaMap;
+	public Image alphaMap;
 	private Image screen;
 
 	public GameWorld(int id, GameContainer container) {

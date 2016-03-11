@@ -46,46 +46,12 @@ public class TileFactory {
 			tile = sheet.getSprite(index - 10, 1);
 		}
 		return tile;
-
-		// // left wall standard
-		// if (!isWall(map, x - 1, y) && !isWall(map, x + 1, y) && isWall(map,
-		// x, y - 1) && isWall(map, x, y + 1)
-		// && isFloor(map, x - 1, y)) {
-		// return sheet.getSprite(0, 1);
-		// }
-		// // right wall standard
-		// if (!isWall(map, x - 1, y) && !isWall(map, x + 1, y) && isWall(map,
-		// x, y - 1) && isWall(map, x, y + 1)
-		// && isFloor(map, x + 1, y)) {
-		// return sheet.getSprite(2, 1);
-		// }
-		// // angle |-
-		// if (isWall(map, x + 1, y) && isWall(map, x, y + 1)) {
-		// return sheet.getSprite(0, 0);
-		// }
-		// // angle -|
-		// if (isWall(map, x - 1, y) && isWall(map, x, y + 1)) {
-		// return sheet.getSprite(2, 0);
-		// }
-		// // angle |_
-		// if (isWall(map, x + 1, y) && isWall(map, x, y - 1)) {
-		// return sheet.getSprite(0, 2);
-		// }
-		// // angle _|
-		// if (isWall(map, x - 1, y) && isWall(map, x, y - 1)) {
-		// return sheet.getSprite(2, 2);
-		// }
-		// // island
-		// if (!isWall(map, x - 1, y) && !isWall(map, x + 1, y) && !isWall(map,
-		// x, y - 1) && !isWall(map, x, y + 1)) {
-		// return sheet.getSprite(1, 1);
-		// }
-
 	}
 
+	// TODO: random floors
 	private static Image getRandomFloor() {
-		int n = rnd.nextInt(13);
-		return ResourceManager.getImage(G.FLOOR + n);
+		int n = rnd.nextInt(6);
+		return ResourceManager.getSpriteSheet("walls").getSprite(n, 2);
 	}
 
 	private static boolean isWall(GameMap map, int x, int y) {

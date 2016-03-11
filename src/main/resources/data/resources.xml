@@ -56,6 +56,6 @@
 	<image key="light2" file="alphaMapSquareBig.png" />
 	<image key="step" file="step.png" />
 	<!-- sheets -->
-	<sheet key="walls" file="testSet.png" width="32" height="32"/>
+	<sheet key="walls" file="crpytoRl2spritesheet.png" width="32" height="32"/>
 	<!-- fonts -->
 </resources>

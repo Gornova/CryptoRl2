@@ -39,6 +39,11 @@ public class TileFactory {
 		boolean right = isWall(map, x + 1, y);
 		boolean below = isWall(map, x, y + 1);
 
+		// boolean topLeft = isWall(map, x - 1, y - 1);
+		// boolean topRight = isWall(map, x + 1, y - 1);
+		// boolean bottomLeft = isWall(map, x - 1, y + 1);
+		// boolean bottomRight = isWall(map, x + 1, y + 1);
+
 		int index = calculateTileIndex(above, below, left, right);
 		if (index < 10) {
 			tile = sheet.getSprite(index, 0);

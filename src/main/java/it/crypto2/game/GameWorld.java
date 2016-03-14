@@ -160,11 +160,9 @@ public class GameWorld extends World implements TileBasedMap {
 
 	@Override
 	public void render(GameContainer container, StateBasedGame stateBasedGame, Graphics g) throws SlickException {
-		// TODO render lights http://www.java-gaming.org/index.php?topic=26729.0
 		Graphics g2 = screen.getGraphics();
 		g2.clear();
 
-		// g2.translate(-camera.cameraX, -camera.cameraY);
 		// normal rendering
 		super.render(container, stateBasedGame, g2);
 
@@ -176,7 +174,6 @@ public class GameWorld extends World implements TileBasedMap {
 		alphaMap.drawCentered(G.playerEntity.x - camera.cameraX + 16, G.playerEntity.y + 16 - camera.cameraY);
 		GL11.glBlendFunc(GL11.GL_SRC_ALPHA, GL11.GL_ONE_MINUS_SRC_ALPHA);
 		g2.setDrawMode(Graphics.MODE_ALPHA_BLEND);
-		// g2.resetTransform();
 
 		g.drawImage(screen, 0, 0);
 

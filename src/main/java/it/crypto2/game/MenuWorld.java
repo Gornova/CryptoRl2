@@ -52,7 +52,7 @@ public class MenuWorld extends World implements MouseListener, KeyListener {
 		exitButton.render(container, game, g);
 
 		g.drawString("Kill enemies and find exit from labirynth", 330, 630);
-		g.drawString("Use WASD or arrows key and SPACE to control your character", 260, 650);
+		g.drawString("Use WASD or arrows key and SPACE to control your character, F2 for fullscreen", 180, 650);
 		g.drawString("Random tower of games - 2015 - http://randomtower.blogspot.it", 250, 740);
 	}
 

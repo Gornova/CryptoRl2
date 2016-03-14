@@ -125,7 +125,7 @@ public class Gui {
 		int mx = 250;
 		int my = 0;
 		int dy = 20;
-		for (int i = 0; i < 3; i++) {
+		for (int i = 0; i < 5; i++) {
 			if (i < messages.size()) {
 				g.drawString(messages.get(i), mx, my);
 				my += dy;

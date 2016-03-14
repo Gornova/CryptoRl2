@@ -119,6 +119,8 @@ public final class G {
 
 	public static final String FUNGUS = "fungus";
 
+	public static final String SHADE = "shade";
+
 	public static int INVISIBILITY_TIMER = 0;
 
 	public static int turn = 1;

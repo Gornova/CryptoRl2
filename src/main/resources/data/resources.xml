@@ -58,6 +58,7 @@
 	<image key="sword" file="sword.png" />
 	<image key="shield" file="shield.png" />
 	<image key="fungus" file="fungus.png" />
+	<image key="shade" file="shade.png" />
 	<!-- sheets -->
 	<sheet key="walls" file="crpytoRl2spritesheet.png" width="32" height="32"/>
 	<!-- fonts -->

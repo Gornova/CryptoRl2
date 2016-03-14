@@ -107,9 +107,22 @@ public class EntityFactory {
 		return e;
 	}
 
+	public static Entity buildShade(World world, int x, int y) {
+		EnemyEntity e = new EnemyEntity(x * G.TILE_SIZE, y * G.TILE_SIZE, ResourceManager.getImage(G.SHADE), G.SHADE);
+		e.description = "shade are made of darkness and mistery, don't provoke a Shade!";
+		e.hp = 100;
+		e.maxHp = 100;
+		e.atk = 10;
+
+		Controller c = new WanderController(e);
+		c.setWorld(world);
+		e.setController(c);
+		return e;
+	}
+
 	public static Entity buildRandomMonster(World world, int x, int y) {
 		Random rnd = new Random();
-		switch (rnd.nextInt(6)) {
+		switch (rnd.nextInt(7)) {
 		case 0:
 			return buildSpider(world, x, y);
 		case 1:
@@ -122,6 +135,8 @@ public class EntityFactory {
 			return buildSnake(world, x, y);
 		case 5:
 			return buildFungus(world, x, y);
+		case 6:
+			return buildShade(world, x, y);
 
 		default:
 			return buildSnake(world, x, y);

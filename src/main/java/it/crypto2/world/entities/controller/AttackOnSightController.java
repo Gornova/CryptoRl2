@@ -22,7 +22,9 @@ public class AttackOnSightController extends WanderController {
 	public void update(int delta) {
 		if (G.PLAYER_MOVED) {
 			if (canSee(c.x, c.y) && !G.playerEntity.invisible) {
-				G.world.addMessage(c.name + " roars towards player");
+				if (c.name.equals(G.ABERRATION)) {
+					G.world.addMessage(c.name + " roars towards player");
+				}
 				Line l = new Line((int) G.playerEntity.x / 32, (int) G.playerEntity.y / 32, (int) c.x / 32,
 						(int) c.y / 32);
 				Iterator<Point> iter = l.getPoints().iterator();

@@ -60,6 +60,7 @@ public class EntityFactory {
 		e.hp = 50;
 		e.maxHp = 50;
 		e.atk = 5;
+		e.dfk = 5;
 
 		Controller c = new AttackOnSightController(e);
 		c.setWorld(world);
@@ -93,9 +94,22 @@ public class EntityFactory {
 		return e;
 	}
 
+	public static Entity buildFungus(World world, int x, int y) {
+		EnemyEntity e = new EnemyEntity(x * G.TILE_SIZE, y * G.TILE_SIZE, ResourceManager.getImage(G.FUNGUS), G.FUNGUS);
+		e.description = "fungus are maleodorante creatures with low defense, but very dungerous";
+		e.hp = 25;
+		e.maxHp = 25;
+		e.atk = 5;
+
+		Controller c = new AttackOnSightController(e);
+		c.setWorld(world);
+		e.setController(c);
+		return e;
+	}
+
 	public static Entity buildRandomMonster(World world, int x, int y) {
 		Random rnd = new Random();
-		switch (rnd.nextInt(5)) {
+		switch (rnd.nextInt(6)) {
 		case 0:
 			return buildSpider(world, x, y);
 		case 1:
@@ -106,6 +120,9 @@ public class EntityFactory {
 			return buildRat(world, x, y);
 		case 4:
 			return buildSnake(world, x, y);
+		case 5:
+			return buildFungus(world, x, y);
+
 		default:
 			return buildSnake(world, x, y);
 		}
@@ -133,9 +150,23 @@ public class EntityFactory {
 		return e;
 	}
 
+	public static Entity buildSword(World world, int x, int y) {
+		Sword e = new Sword(x * G.TILE_SIZE, y * G.TILE_SIZE, ResourceManager.getImage(G.SWORD), G.SWORD);
+		e.item = true;
+		e.description = "a better sword.. to survive a little more!";
+		return e;
+	}
+
+	public static Entity buildShield(World world, int x, int y) {
+		Shield e = new Shield(x * G.TILE_SIZE, y * G.TILE_SIZE, ResourceManager.getImage(G.SHIELD), G.SHIELD);
+		e.item = true;
+		e.description = "a good shield is always useful!";
+		return e;
+	}
+
 	public static Entity buildRandomItem(World world, int x, int y) {
 		Random rnd = new Random();
-		switch (rnd.nextInt(4)) {
+		switch (rnd.nextInt(6)) {
 		case 0:
 			return buildPotion(world, x, y);
 		case 1:
@@ -144,6 +175,10 @@ public class EntityFactory {
 			return buildInvisibilityScroll(world, x, y);
 		case 3:
 			return buildTrap(world, x, y);
+		case 4:
+			return buildSword(world, x, y);
+		case 5:
+			return buildShield(world, x, y);
 
 		default:
 			return buildTrap(world, x, y);

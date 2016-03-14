@@ -113,6 +113,12 @@ public final class G {
 
 	public static final String MUSIC1 = "music1";
 
+	public static final String SWORD = "sword";
+
+	public static final String SHIELD = "shield";
+
+	public static final String FUNGUS = "fungus";
+
 	public static int INVISIBILITY_TIMER = 0;
 
 	public static int turn = 1;
@@ -120,5 +126,9 @@ public final class G {
 	public static int BLOCK_TIMER = 0;
 
 	public static boolean fullScreen;
+
+	public static int MAX_ATTACK = 10;
+
+	public static int MAX_DEFENSE = 10;
 
 }

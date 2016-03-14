@@ -274,12 +274,12 @@ public class Generator {
 								&& !nearCreature(world, i, j)) {
 							creatures++;
 							Entity monster = EntityFactory.buildRandomMonster(world, i, j);
-							world.add(monster, World.GAME);
+							world.add(monster);
 							monsters[i][j] = true;
 							// world.set(i, j, TileFactory.buildFloor(i, j));
 						} else if (rnd.nextDouble() < pper && items < maximumItems && !nearItem(world, i, j)) {
 							items++;
-							world.add(EntityFactory.buildRandomItem(world, i, j), World.GAME);
+							world.add(EntityFactory.buildRandomItem(world, i, j));
 							world.setItem(i, j);
 							item[i][j] = true;
 						} else if (rnd.nextDouble() < bper && trapnumber < 10 && !nearTrap(world, i, j)) {

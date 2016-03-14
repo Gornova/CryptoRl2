@@ -143,6 +143,25 @@ public class PlayerEntity extends GameEntity {
 			Trap t = (Trap) other;
 			t.execute(this);
 		}
+		if (other instanceof Sword) {
+			if (atk < G.MAX_ATTACK) {
+				Sword s = (Sword) other;
+				G.world.remove(other);
+				s.execute(this);
+			} else {
+				G.world.addMessage("Player have already best possible sword");
+			}
+		}
+		if (other instanceof Shield) {
+			if (dfk < G.MAX_DEFENSE) {
+				Shield s = (Shield) other;
+				G.world.remove(other);
+				s.execute(this);
+			} else {
+				G.world.addMessage("Player have already best possible shield!");
+			}
+		}
+
 	}
 
 	public Pair<GameEntity, GameEntity> combat(Pair<GameEntity, GameEntity> input) {

@@ -1,5 +1,5 @@
 CryptoRl 2
-0.10
+0.11
 http://randomtower.blogspot.it/
 
 CryptoRl 2 is a cave-dungeon roguelike based on Crypto setting [1], setting in a dark underterrain 
@@ -46,6 +46,15 @@ MarteEngine, https://github.com/Gornova/MarteEngine
 
 
 ==History==
+version 0.10
+	BUG	avoid monsters next to the player on dungeon generation
+	BUG	by Archifenix: "Players pick up and feels a lot better (+10 HP)" does not actually [i]give[/i] you the 10 HP. There was not even a visual health bar change.
+	BUG		Found a bug by Archifenix: Finally, the README is incomplete. "CryptoRl 2 is a cave-dungeon roguelike based on Crypto setting [1], setting in a dark underterrain world full of monsters." Footnote [1] is never provided. And the word "setting" appears twice in a row.
+	added efffect support and shake effect suggested by ArchRylen
+	when torch is used, updated alphamap
+	removed block trap
+	added step indicator
+	updated tileset following Saltgames tutorial: http://www.saltgames.com/article/awareTiles/
 version 0.9
 	added darker effect for already seen tiles
 	in game now it's possibile to exit using ESC

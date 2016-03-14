@@ -114,26 +114,41 @@ DONE 	when torch is used, updated alphamap
 DONE	removed block trap
 DONE	added step indicator
 DONE	updated tileset following Saltgames tutorial: http://www.saltgames.com/article/awareTiles/
-
-
-new monster: gray man
-
-
+DONE	version 0.10
+---------------------------------------------
+- add more type of monsters
+- some objects to "level up" your attack and defence values
+- make some order on enemy creation. Right now is all random: for example you can encounter Aberration at level 1. I'd like to have some control on this generation and add monsters type using level as reference and make it more and more difficult	
 TODO	spada che ti aumenta atk ?
 TODO	scudo che ti aumenta dfk ?
 
+from Pavel Provotorov:
+	- Adding health bars to mosters. The combat is hard without those
+	- Sounds when the player/monster recieves damage
+	- More items and monsters
+From Archifenix:
+	- put in menu screen that using F2 you can go fullscreen
+	- the text at the top is blocked from view until you repeat the same action a few times (fighting an aberration for example resulted in health being lost but the text only scrolling into view after the third or so hit)
 
+TODO	gestire gli angoli degli spritesheet, usando le informazioni di vicinanza del tile in diagonale
+
+new monster: gray man
+
+spunto tileset: https://forums.tigsource.com/index.php?topic=49336.0;topicseen
+per tileset&company : http://peterangstadt.blogspot.it/2015/03/are-your-values-mess.html
+
+
+TODO	tileset for dungeon
+TODO	aggiungere un effetto per il quale quando colpite le entità vengono "shakerate", richiesto da ArchRylen
+TODO	better traps => block is not understandable
+TODO	add light effect on torch
 TODO	aggiungere cavalieri/nuovi mostri spunto da qui : https://raw.githubusercontent.com/DaanVanYperen/underkeep/master/android/assets/tiles-raw6.png
-
-
-
-
-
 tipo su forum di roguetemple dice che nelle stanze ci mette "tall grass" ovvero erba alta, così le stanze sono aperte, ma la visibilità é ridotta e puoi capitare nei mostri
 come aggiungere delle skill: http://codereview.stackexchange.com/questions/121083/skill-creation-in-a-python-text-based-rpg
 TODO	rimuovere da marte engine branch maven i rimasugli di ant
 
-
+giocare screen.setImageColor(0, 255, 255, 255); !!
+	
 
 luci
 http://techblog.orangepixel.net/2015/07/shine-a-light-on-it/
@@ -159,6 +174,7 @@ inventory  descriptions: http://images.8bitbeard.de/tigame/ti_inventory.gif
 
 
 
+indicatore minimale sulla mappa di dove ci si può muovere => una sorta di quadrato coi punti dove posso muovermi, magari evidenziato leggermente quello verso il quale sono rivolto
 impostare le luci: http://slick.ninjacave.com/forum/viewtopic.php?f=3&t=5545
 
 

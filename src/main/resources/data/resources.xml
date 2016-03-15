@@ -59,6 +59,10 @@
 	<image key="shield" file="shield.png" />
 	<image key="fungus" file="fungus.png" />
 	<image key="shade" file="shade.png" />
+	<image key="ring" file="ring.png" />
+	<image key="formian" file="formian.png" />
+	<image key="redFlame" file="redFlame.png" />
+	<image key="blueFlame" file="BlueFlame.png" />
 	<!-- sheets -->
 	<sheet key="walls" file="crpytoRl2spritesheet.png" width="32" height="32"/>
 	<!-- fonts -->

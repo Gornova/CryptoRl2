@@ -121,6 +121,14 @@ public final class G {
 
 	public static final String SHADE = "shade";
 
+	public static final String RING = "ring";
+
+	public static final String FORMIAN = "formian";
+
+	public static final String REDFLAME = "redFlame";
+
+	public static final String BLUEFLAME = "blueFlame";
+
 	public static int INVISIBILITY_TIMER = 0;
 
 	public static int turn = 1;

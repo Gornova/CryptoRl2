@@ -120,9 +120,64 @@ public class EntityFactory {
 		return e;
 	}
 
+	public static Entity buildRing(World world, int x, int y) {
+		EnemyEntity e = new EnemyEntity(x * G.TILE_SIZE, y * G.TILE_SIZE, ResourceManager.getImage(G.RING), G.RING);
+		e.description = "more a magical trap than a living thing...";
+		e.hp = 25;
+		e.maxHp = 25;
+		e.atk = 15;
+
+		Controller c = new AttackOnSightController(e);
+		c.setWorld(world);
+		e.setController(c);
+		return e;
+	}
+
+	public static Entity buildFormian(World world, int x, int y) {
+		EnemyEntity e = new EnemyEntity(x * G.TILE_SIZE, y * G.TILE_SIZE, ResourceManager.getImage(G.FORMIAN),
+				G.FORMIAN);
+		e.description = "a formian is an intelligent and dungerous ant like creature";
+		e.hp = 125;
+		e.maxHp = 125;
+		e.atk = 20;
+
+		Controller c = new WanderController(e);
+		c.setWorld(world);
+		e.setController(c);
+		return e;
+	}
+
+	public static Entity buildRedFlame(World world, int x, int y) {
+		EnemyEntity e = new EnemyEntity(x * G.TILE_SIZE, y * G.TILE_SIZE, ResourceManager.getImage(G.REDFLAME),
+				G.REDFLAME);
+		e.description = "a red cold flame that consumes everything";
+		e.hp = 25;
+		e.maxHp = 25;
+		e.atk = 20;
+
+		Controller c = new WanderController(e);
+		c.setWorld(world);
+		e.setController(c);
+		return e;
+	}
+
+	public static Entity buildBlueFlame(World world, int x, int y) {
+		EnemyEntity e = new EnemyEntity(x * G.TILE_SIZE, y * G.TILE_SIZE, ResourceManager.getImage(G.BLUEFLAME),
+				G.BLUEFLAME);
+		e.description = "an impossible blue flame, impossible to extinguish";
+		e.hp = 200;
+		e.maxHp = 200;
+		e.atk = 15;
+
+		Controller c = new WanderController(e);
+		c.setWorld(world);
+		e.setController(c);
+		return e;
+	}
+
 	public static Entity buildRandomMonster(World world, int x, int y) {
 		Random rnd = new Random();
-		switch (rnd.nextInt(7)) {
+		switch (rnd.nextInt(11)) {
 		case 0:
 			return buildSpider(world, x, y);
 		case 1:
@@ -137,6 +192,14 @@ public class EntityFactory {
 			return buildFungus(world, x, y);
 		case 6:
 			return buildShade(world, x, y);
+		case 7:
+			return buildRing(world, x, y);
+		case 8:
+			return buildFormian(world, x, y);
+		case 9:
+			return buildRedFlame(world, x, y);
+		case 10:
+			return buildBlueFlame(world, x, y);
 
 		default:
 			return buildSnake(world, x, y);

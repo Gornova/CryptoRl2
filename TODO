@@ -122,6 +122,13 @@ DONE	From Archifenix: the text at the top is blocked from view until you repeat 
 DONE	from Pavel Provotorov: Sounds when the player/monster recieves damage	
 DONE	from Pavel Provotorov: Adding health bars to mosters. The combat is hard without those
 DONE	added new monsters: Fungus, Shade, Ring, Formian, RedFlame, BlueFlame
+DONE	level balancing for new monsters
+DONE	version 0.11
+---------------------------------------------
+
+
+BUG	scrolling? 
+
 
 - make some order on enemy creation. Right now is all random: for example you can encounter Aberration at level 1. I'd like to have some control on this generation and add monsters type using level as reference and make it more and more difficult	
 

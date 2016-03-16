@@ -273,7 +273,7 @@ public class Generator {
 						} else if (rnd.nextDouble() < cper && creatures < maximumCreatures
 								&& !nearCreature(world, i, j)) {
 							creatures++;
-							Entity monster = EntityFactory.buildRandomMonster(world, i, j);
+							Entity monster = EntityFactory.buildRandomMonster(world, i, j, G.currentLevel);
 							world.add(monster);
 							monsters[i][j] = true;
 							// world.set(i, j, TileFactory.buildFloor(i, j));

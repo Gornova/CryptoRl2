@@ -175,35 +175,108 @@ public class EntityFactory {
 		return e;
 	}
 
-	public static Entity buildRandomMonster(World world, int x, int y) {
+	public static Entity buildRandomMonster(World world, int x, int y, int level) {
 		Random rnd = new Random();
-		switch (rnd.nextInt(11)) {
-		case 0:
-			return buildSpider(world, x, y);
-		case 1:
-			return buildStygianBird(world, x, y);
-		case 2:
-			return buildAberration(world, x, y);
-		case 3:
-			return buildRat(world, x, y);
-		case 4:
-			return buildSnake(world, x, y);
-		case 5:
-			return buildFungus(world, x, y);
-		case 6:
-			return buildShade(world, x, y);
-		case 7:
-			return buildRing(world, x, y);
-		case 8:
-			return buildFormian(world, x, y);
-		case 9:
-			return buildRedFlame(world, x, y);
-		case 10:
-			return buildBlueFlame(world, x, y);
+		int n = 0;
+		if (level == 1) {
+			n = 2;
+			switch (rnd.nextInt(n)) {
+			case 0:
+				return buildSpider(world, x, y);
+			case 1:
+				return buildStygianBird(world, x, y);
+			default:
+				return buildSnake(world, x, y);
+			}
+		} else if (level == 2) {
+			n = 4;
+			switch (rnd.nextInt(n)) {
+			case 0:
+				return buildSpider(world, x, y);
+			case 1:
+				return buildStygianBird(world, x, y);
+			case 2:
+				return buildRat(world, x, y);
+			case 3:
+				return buildSnake(world, x, y);
+			default:
+				return buildSnake(world, x, y);
+			}
+		} else if (level == 3) {
+			n = 7;
+			switch (rnd.nextInt(n)) {
+			case 0:
+				return buildSpider(world, x, y);
+			case 1:
+				return buildStygianBird(world, x, y);
+			case 2:
+				return buildAberration(world, x, y);
+			case 3:
+				return buildRat(world, x, y);
+			case 4:
+				return buildSnake(world, x, y);
+			case 5:
+				return buildFungus(world, x, y);
+			case 6:
+				return buildShade(world, x, y);
+			default:
+				return buildSnake(world, x, y);
+			}
+		} else if (level == 4) {
+			n = 9;
+			switch (rnd.nextInt(n)) {
+			case 0:
+				return buildSpider(world, x, y);
+			case 1:
+				return buildStygianBird(world, x, y);
+			case 2:
+				return buildAberration(world, x, y);
+			case 3:
+				return buildRat(world, x, y);
+			case 4:
+				return buildSnake(world, x, y);
+			case 5:
+				return buildFungus(world, x, y);
+			case 6:
+				return buildShade(world, x, y);
+			case 7:
+				return buildRing(world, x, y);
+			case 8:
+				return buildFormian(world, x, y);
+			default:
+				return buildSnake(world, x, y);
+			}
+		} else if (level == 5) {
+			n = 11;
+			switch (rnd.nextInt(n)) {
+			case 0:
+				return buildSpider(world, x, y);
+			case 1:
+				return buildStygianBird(world, x, y);
+			case 2:
+				return buildAberration(world, x, y);
+			case 3:
+				return buildRat(world, x, y);
+			case 4:
+				return buildSnake(world, x, y);
+			case 5:
+				return buildFungus(world, x, y);
+			case 6:
+				return buildShade(world, x, y);
+			case 7:
+				return buildRing(world, x, y);
+			case 8:
+				return buildFormian(world, x, y);
+			case 9:
+				return buildRedFlame(world, x, y);
+			case 10:
+				return buildBlueFlame(world, x, y);
 
-		default:
-			return buildSnake(world, x, y);
+			default:
+				return buildSnake(world, x, y);
+			}
 		}
+		return buildSnake(world, x, y);
 	}
 
 	public static Entity buildPotion(World world, int x, int y) {

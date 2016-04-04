@@ -1,5 +1,5 @@
 CryptoRl 2
-0.11
+1.0
 http://randomtower.blogspot.it/
 
 CryptoRl 2 is a cave-dungeon roguelike based on Crypto setting [1], setting in a dark underterrain 
@@ -46,6 +46,14 @@ MarteEngine, https://github.com/Gornova/MarteEngine
 
 
 ==History==
+version 1.0
+	add new items: sword (+1 attack) and shield (+1 defense)
+	From Archifenix: put in menu screen that using F2 you can go fullscreen
+	BUG From Archifenix: the text at the top is blocked from view until you repeat the same action a few times (fighting an aberration for example resulted in health being lost but the text only scrolling into view after the third or so hit)
+	BUG from Pavel Provotorov: Sounds when the player/monster recieves damage	
+	BUG from Pavel Provotorov: Adding health bars to mosters. The combat is hard without those
+	added new monsters: Fungus, Shade, Ring, Formian, RedFlame, BlueFlame
+	level balancing for new monsters
 version 0.10
 	BUG	avoid monsters next to the player on dungeon generation
 	BUG	by Archifenix: "Players pick up and feels a lot better (+10 HP)" does not actually [i]give[/i] you the 10 HP. There was not even a visual health bar change.

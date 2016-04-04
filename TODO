@@ -116,15 +116,25 @@ DONE	added step indicator
 DONE	updated tileset following Saltgames tutorial: http://www.saltgames.com/article/awareTiles/
 DONE	version 0.10
 ---------------------------------------------
-TODO	add new items: sword (+1 attack) and shield (+1 defense)
+DONE	add new items: sword (+1 attack) and shield (+1 defense)
 DONE	From Archifenix: put in menu screen that using F2 you can go fullscreen
 DONE	From Archifenix: the text at the top is blocked from view until you repeat the same action a few times (fighting an aberration for example resulted in health being lost but the text only scrolling into view after the third or so hit)
 DONE	from Pavel Provotorov: Sounds when the player/monster recieves damage	
 DONE	from Pavel Provotorov: Adding health bars to mosters. The combat is hard without those
 DONE	added new monsters: Fungus, Shade, Ring, Formian, RedFlame, BlueFlame
 DONE	level balancing for new monsters
-DONE	version 0.11
+DONE	versioN 1.0
 ---------------------------------------------
+
+
+TODO	una tipologia di mostri che si odia: quando ne incontra un altro, si attaccano. Es. redFlame vs BlueFlame oppure Fungus vs Fungus
+TODO	tipologia di floor che blocca la visuale (es. grass), ma non il movimento
+
+usare le interazioni dei mostri con l'ambiente: es. mettono a fuoco qualcosa!
+	http://www.gridsagegames.com/blog/2014/07/dungeon-prefabs/
+
+TODO	mostro che crea trappole da nascondere in giro ogni 10 turni ?	
+
 
 
 BUG	scrolling? 

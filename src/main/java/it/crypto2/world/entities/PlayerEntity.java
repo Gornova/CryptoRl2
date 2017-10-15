@@ -27,14 +27,6 @@ public class PlayerEntity extends GameEntity {
 
 	public boolean invisible = false;
 
-	private boolean rightFree;
-
-	private boolean leftFree;
-
-	private boolean downFree;
-
-	private boolean upFree;
-
 	public PlayerEntity(float x, float y, Image img) {
 		super(x, y);
 
@@ -68,18 +60,6 @@ public class PlayerEntity extends GameEntity {
 	public void update(GameContainer container, int delta) throws SlickException {
 		super.update(container, delta);
 		controller.update(delta);
-		if (!isCollide(x + 32, y)) {
-			rightFree = true;
-		}
-		if (!isCollide(x - 32, y)) {
-			leftFree = true;
-		}
-		if (!isCollide(x, y + 32)) {
-			downFree = true;
-		}
-		if (!isCollide(x, y - 32)) {
-			upFree = true;
-		}
 	}
 
 	@Override

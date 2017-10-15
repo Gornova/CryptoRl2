@@ -1,9 +1,7 @@
 package it.crypto2.effect;
 
-/*  www.  jav a 2s  .  c om*/
 import java.awt.BorderLayout;
 import java.awt.Insets;
-import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -37,7 +35,6 @@ public class Main implements Runnable {
 	}
 
 	private void shakeButton() {
-		final Point point = button.getLocation();
 		final Insets margin = button.getMargin();
 		final int delay = 75;
 		Runnable r = new Runnable() {

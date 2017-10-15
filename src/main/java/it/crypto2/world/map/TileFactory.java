@@ -66,13 +66,6 @@ public class TileFactory {
 		return false;
 	}
 
-	private static boolean isFloor(GameMap map, int x, int y) {
-		if (x >= 0 && y >= 0 && x < map.getWidth() && y < map.getHeight()) {
-			return map.get(x, y) == G.F;
-		}
-		return false;
-	}
-
 	private static int calculateTileIndex(boolean above, boolean below, boolean left, boolean right) {
 		int sum = 0;
 		if (above)

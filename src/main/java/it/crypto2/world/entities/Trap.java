@@ -12,10 +12,8 @@ import it.marteEngine.SFX;
 public class Trap extends GameEntity {
 
 	public static final int TRAP_DAMAGE = 10;
-	private static final String DAMAGE = "damage";
 	private boolean visible = false;
 	private boolean activated = false;
-	private String type;
 
 	public Trap(int x, int y, Image img, String name) {
 		super(x, y);
@@ -31,8 +29,6 @@ public class Trap extends GameEntity {
 
 		addType(name, G.TRAP);
 		depth = 20;
-
-		type = DAMAGE;
 	}
 
 	@Override

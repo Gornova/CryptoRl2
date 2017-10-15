@@ -54,7 +54,7 @@ public abstract class AbstractController implements Controller {
 			return;
 		}
 		// check collision
-		if (c.collide(c.SOLID, tx, ty) == null || c.collide(G.TRAP, tx, ty) == null) {
+		if (c.collide(Entity.SOLID, tx, ty) == null || c.collide(G.TRAP, tx, ty) == null) {
 			c.x = tx;
 			c.y = ty;
 		}

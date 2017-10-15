@@ -25,7 +25,6 @@ public class Generator {
 	private int w;
 	private int h;
 	private Point playerStartingPoint = null;
-	private Point startLocation;
 	private boolean[][] monsters;
 	private boolean[][] item;
 	private boolean[][] floor;
@@ -76,7 +75,6 @@ public class Generator {
 
 	private GameMap generate(int w, int h, double percentage) {
 		location = randomStart(w, h, 5);
-		startLocation = new Point(location.x, location.y);
 		//// System.out.println("Start from: " + location);
 
 		int targetTiles = (int) (w * h * percentage);

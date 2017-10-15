@@ -13,8 +13,6 @@ public class StaticEntity extends GameEntity {
 
 	public boolean attacking = false;
 
-	// private Image gray;
-
 	private int timer = 0;
 
 	private boolean fadeOut;
@@ -42,10 +40,6 @@ public class StaticEntity extends GameEntity {
 			super.render(container, g);
 			fadeOut = false;
 		} else if (alreadySeenByPlayer((int) x / G.TILE_SIZE, (int) y / G.TILE_SIZE)) {
-			// super.render(container, g);
-			// currentImage.drawFlash(x, y, currentImage.getWidth(),
-			// currentImage.getHeight(), Color.darkGray);
-			// g.drawImage(gray, x, y);
 			fadeOut = true;
 		} else {
 			fadeOut = false;

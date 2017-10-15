@@ -70,7 +70,6 @@ public class Gui {
 		drawMessages(container, g);
 
 		drawMouse(container, g);
-
 	}
 
 	private void drawAttackAndDefense(Graphics g) {
@@ -78,7 +77,6 @@ public class Gui {
 		g.drawString("" + G.playerEntity.atk, 40, 5);
 		g.drawImage(ResourceManager.getImage(G.SHIELD), 5, 40);
 		g.drawString("" + G.playerEntity.dfk, 40, 40);
-
 	}
 
 	private void drawMouse(GameContainer container, Graphics g) {

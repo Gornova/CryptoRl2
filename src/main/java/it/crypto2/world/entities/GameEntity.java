@@ -79,7 +79,6 @@ public class GameEntity extends Entity {
 			setDead(true);
 		}
 		// apply visual damage status
-		// addEffect(new Damage(this));
 		addEffect(new Shake(this));
 		return this;
 	}

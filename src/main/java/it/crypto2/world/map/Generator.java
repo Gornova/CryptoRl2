@@ -20,7 +20,6 @@ public class Generator {
 	private int tiles = 0;
 	private char lastDir;
 
-	// public static final int FLOOR = 1;
 	private GameMap map;
 	private int w;
 	private int h;
@@ -50,35 +49,10 @@ public class Generator {
 		}
 	}
 
-	public boolean isFloor(int i, int j) {
-		// return map.get(i, j) != null && map.get(i, j).isGround();
-		return true;
-	}
-
-	/*
-	 * public static void main(String[] args) throws IOException { double
-	 * percentage = 0.75; int width = 90; int height = 35; int n = 1;
-	 * 
-	 * while (n < 100) { Generator generator = new Generator(width, height);
-	 * generator.generate(width, height, percentage);
-	 * 
-	 * // draw image BufferedImage image = new BufferedImage(width, height,
-	 * BufferedImage.TYPE_INT_RGB); image.createGraphics(); Graphics2D g =
-	 * (Graphics2D) image.getGraphics(); for (int i = 0; i < width; i++) { for
-	 * (int j = 0; j < height; j++) { if (generator.isFloor(i, j)) {
-	 * g.setColor(Color.white); g.drawLine(i, j, i, j); g.setColor(Color.black);
-	 * } } } image.flush(); ImageIO.write(image, "png", new File(n + ".png"));
-	 * n++; }
-	 * 
-	 * }
-	 */
-
 	private GameMap generate(int w, int h, double percentage) {
 		location = randomStart(w, h, 5);
-		//// System.out.println("Start from: " + location);
 
 		int targetTiles = (int) (w * h * percentage);
-		////// System.out.println("target tiles :" + targetTiles);
 
 		lastDir = getRandomDir(' ');
 		while (tiles < targetTiles) {
@@ -86,20 +60,9 @@ public class Generator {
 			set(location, G.F);
 			chooseLocation(w, h);
 		}
-		// removeIsland(w, h);
 
 		return map;
 	}
-
-	// remove blocks 1x1 alone
-	/*
-	 * private void removeIsland(int w, int h) { for (int i = 1; i < w - 1; i++)
-	 * { for (int j = 1; j - 1 < h; j++) { if (map[i - 1][j - 1] == FLOOR &&
-	 * map[i][j - 1] == FLOOR && map[i + 1][j - 1] == FLOOR && map[i - 1][j] ==
-	 * FLOOR && map[i + 1][j] == FLOOR && map[i - 1][j + 1] == FLOOR && map[i][j
-	 * + 1] == FLOOR && map[i][j + 1] == FLOOR) { //System.out.println(
-	 * "Island found"); map[i][j] = FLOOR; } } } }
-	 */
 
 	private void chooseLocation(int w, int h) {
 		char currentDir = getRandomDir(lastDir);
@@ -108,12 +71,8 @@ public class Generator {
 			currentDir = getRandomDir(lastDir);
 			test++;
 		}
-		// System.out.println("current " + currentDir);
-		// qui
 		location = apply(location, currentDir);
-		// ---
 		lastDir = currentDir;
-
 	}
 
 	private boolean isFloor(char d, int w, int h) {
@@ -138,8 +97,6 @@ public class Generator {
 			break;
 		}
 		return map.get(next.x, next.y) != null && map.get(next.x, next.y) == G.F;
-		// return map[next.x][next.y] == FLOOR;
-
 	}
 
 	private Point apply(Point l, char d) {
@@ -291,9 +248,7 @@ public class Generator {
 						world.setWall(i, j);
 						floor[i][j] = false;
 					}
-				} else {
-					// world.add(TileFactory.buildWall(i, j));
-				}
+				} 
 			}
 		}
 		// place player
@@ -308,18 +263,6 @@ public class Generator {
 			}
 		}
 		world.add(EntityFactory.buildExit(world, p.x, p.y));
-
-		// GameElement exit = TileFactory.buildExit((int) p.getX(), (int)
-		// p.getY());
-		// world.set((int) p.getX(), (int) p.getY(), exit);
-		// // System.out.println("Placed Exit");
-		//
-		// // remove player
-		// world.getElements().remove(player);
-		// int tx = getPlayerStartingPoint().x + 1;
-		// int ty = getPlayerStartingPoint().y;
-		// world.add(EntityFactory.buildTrap(world, tx, ty));
-
 		return world;
 	}
 
@@ -381,20 +324,6 @@ public class Generator {
 		return false;
 	}
 
-	// private boolean nearItem(WorldInterface world, int i, int j) {
-	// if (world.getElements() == null) {
-	// return false;
-	// }
-	// for (GameElement ge : world.getElements()) {
-	// if (ge instanceof Item) {
-	// if (near(i, j, ge, 50)) {
-	// return true;
-	// }
-	// }
-	// }
-	// return false;
-	// }
-	//
 	private boolean nearCreature(World world, int i, int j) {
 		if (playerStartingPoint != null && near(i, j, playerStartingPoint.x, playerStartingPoint.y, 10)) {
 			return true;

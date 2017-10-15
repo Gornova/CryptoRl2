@@ -39,11 +39,6 @@ public class TileFactory {
 		boolean right = isWall(map, x + 1, y);
 		boolean below = isWall(map, x, y + 1);
 
-		// boolean topLeft = isWall(map, x - 1, y - 1);
-		// boolean topRight = isWall(map, x + 1, y - 1);
-		// boolean bottomLeft = isWall(map, x - 1, y + 1);
-		// boolean bottomRight = isWall(map, x + 1, y + 1);
-
 		int index = calculateTileIndex(above, below, left, right);
 		if (index < 10) {
 			tile = sheet.getSprite(index, 0);
@@ -53,7 +48,6 @@ public class TileFactory {
 		return tile;
 	}
 
-	// TODO: random floors
 	private static Image getRandomFloor() {
 		int n = rnd.nextInt(6);
 		return ResourceManager.getSpriteSheet("walls").getSprite(n, 2);

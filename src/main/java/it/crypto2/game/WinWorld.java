@@ -43,7 +43,6 @@ public class WinWorld extends World {
 				container.setFullscreen(true);
 			}
 		}
-
 	}
 
 }

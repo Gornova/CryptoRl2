@@ -47,7 +47,6 @@ public class GameWorld extends World implements TileBasedMap {
 	private boolean nextLevel;
 	private StateBasedGame game;
 	private boolean pressEscapeState;
-	// private LightMap lightMap;
 	private Image[][] tiles;
 	public Image alphaMap;
 	private Image screen;
@@ -62,7 +61,6 @@ public class GameWorld extends World implements TileBasedMap {
 			screen.setImageColor(128, 172, 174, 255);
 			screen.setFilter(Image.FILTER_NEAREST);
 		} catch (SlickException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -83,7 +81,6 @@ public class GameWorld extends World implements TileBasedMap {
 		// init gui
 		gui = new Gui(this);
 		// set camera
-		// setCameraOn(G.playerEntity);
 		camera = new Camera(this, G.playerEntity, container.getWidth(), container.getHeight(), 400, 400,
 				new Vector2f(32, 32));
 		camera.setFollow(G.playerEntity);
@@ -94,12 +91,6 @@ public class GameWorld extends World implements TileBasedMap {
 			gui.addMessage("Welcome to CryptoRl 2 !");
 		}
 
-		// add light at player position
-		// lighting.addLight(new Light(G.playerEntity.x, G.playerEntity.y,
-		// 0.5f));
-		// lightMap = new LightMap(0, 0, 32);
-		// lightMap.addLight(new Light(G.playerEntity.x, G.playerEntity.y, 200,
-		// Color.white));
 		alphaMap = ResourceManager.getImage("light");
 	}
 
@@ -155,7 +146,6 @@ public class GameWorld extends World implements TileBasedMap {
 				container.setFullscreen(true);
 			}
 		}
-		// lightMap.update(container, delta);
 	}
 
 	@Override

@@ -28,7 +28,6 @@ public class Button {
 		if (ME.debugEnabled) {
 			g.draw(rect);
 		}
-
 	}
 
 	public void update(GameContainer container, StateBasedGame game, int delta) throws SlickException {

@@ -26,12 +26,6 @@ public class GameOverWorld extends World {
 		super.render(container, game, g);
 
 		g.drawImage(img, 250, 200);
-
-		// INT SX = 400;
-		// INT SY = 400;
-		// G.DRAWSTRING("GAME OVER", SX + 50, SY);
-		//
-		// G.DRAWSTRING("PRESS SPACE TO CONTINUE", SX, SY + 200);
 	}
 
 	@Override
@@ -49,7 +43,6 @@ public class GameOverWorld extends World {
 				container.setFullscreen(true);
 			}
 		}
-
 	}
 
 }

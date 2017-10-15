@@ -11,7 +11,6 @@ public abstract class AbstractController implements Controller {
 
 	protected GameEntity c;
 	protected World world;
-	// private Collider collider;
 
 	public LinearMotion motion;
 
@@ -35,7 +34,6 @@ public abstract class AbstractController implements Controller {
 
 	public void setWorld(World world) {
 		this.world = world;
-		// this.collider = new Collider(world);
 	}
 
 	public World getWorld() {
@@ -57,25 +55,6 @@ public abstract class AbstractController implements Controller {
 		if (c.collide(Entity.SOLID, tx, ty) == null || c.collide(G.TRAP, tx, ty) == null) {
 			c.x = tx;
 			c.y = ty;
-		}
-		// checkCollision(tx, ty);
-	}
-
-	protected void checkCollision(int tx, int ty) {
-		// check collision
-		if (canMove(tx, ty)) {
-			// check tile
-			/*
-			 * if (world.get(tx, ty).getGlyph() == Glyph.LAVA) { c.damage(10);
-			 * world.getGui().addMessage("damage from lava"); }
-			 */
-			// execute gameelement action
-			// world.find(tx, ty).update(c, world);
-			// update position
-			// c.setX(tx);
-			/// c.setY(ty);
-		} else {
-			// collider.collide(c, world, tx, ty);
 		}
 	}
 
@@ -111,16 +90,6 @@ public abstract class AbstractController implements Controller {
 			break;
 		}
 	}
-
-	// public boolean canSeePlayer(int x, int y) {
-	// return !getWorld().getPlayer().isInvisible() &&
-	// getWorld().playerCanSee(x, y);
-	// }
-
-	// public boolean canSeePlayer(float x, float y) {
-	// PlayerEntity player = G.playerEntity;
-	// return player.canSee((int) x, (int) y);
-	// }
 
 	public void updateTween(int delta) {
 		if (!moveRight && !moveLeft && !moveUp && !moveDown) {

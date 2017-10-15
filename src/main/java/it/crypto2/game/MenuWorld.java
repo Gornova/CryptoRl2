@@ -45,7 +45,6 @@ public class MenuWorld extends World implements MouseListener, KeyListener {
 
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException {
-
 		super.render(container, game, g);
 		g.drawImage(logo, 262, 150);
 		startButton.render(container, game, g);

@@ -137,8 +137,12 @@ public final class G {
 
 	public static boolean fullScreen;
 
-	public static int MAX_ATTACK = 10;
+	public static final int MAX_ATTACK = 10;
 
-	public static int MAX_DEFENSE = 10;
+	public static final int MAX_DEFENSE = 10;
+
+	public static void setFullScreen(boolean b) {
+		fullScreen = true;		
+	}
 
 }

@@ -10,7 +10,6 @@ import it.crypto2.G;
 import it.crypto2.game.GameWorld;
 import it.crypto2.world.entities.EntityFactory;
 import it.crypto2.world.entities.PlayerEntity;
-import it.marteEngine.World;
 import it.marteEngine.entity.Entity;
 
 public class Generator {
@@ -226,18 +225,18 @@ public class Generator {
 							G.playerEntity = (PlayerEntity) EntityFactory.buildPlayer(world, i, j);
 							world.add(G.playerEntity);
 						} else if (rnd.nextDouble() < cper && creatures < maximumCreatures
-								&& !nearCreature(world, i, j)) {
+								&& !nearCreature(i, j)) {
 							creatures++;
 							Entity monster = EntityFactory.buildRandomMonster(world, i, j, G.currentLevel);
 							world.add(monster);
 							monsters[i][j] = true;
 							// world.set(i, j, TileFactory.buildFloor(i, j));
-						} else if (rnd.nextDouble() < pper && items < maximumItems && !nearItem(world, i, j)) {
+						} else if (rnd.nextDouble() < pper && items < maximumItems && !nearItem(i, j)) {
 							items++;
 							world.add(EntityFactory.buildRandomItem(world, i, j));
 							world.setItem(i, j);
 							item[i][j] = true;
-						} else if (rnd.nextDouble() < bper && trapnumber < 10 && !nearTrap(world, i, j)) {
+						} else if (rnd.nextDouble() < bper && trapnumber < 10 && !nearTrap(i, j)) {
 							trap[i][j] = true;
 							trapnumber++;
 							world.add(EntityFactory.buildTrap(world, i, j));
@@ -266,13 +265,11 @@ public class Generator {
 		return world;
 	}
 
-	private boolean nearTrap(GameWorld world, int i, int j) {
+	private boolean nearTrap(int i, int j) {
 		for (int x = 0; x < w; x++) {
 			for (int y = 0; y < h; y++) {
-				if (trap[x][y]) {
-					if (near(i, j, x, y, 10)) {
+				if (trap[x][y] && near(i, j, x, y, 10)) {
 						return true;
-					}
 				}
 			}
 		}
@@ -311,29 +308,25 @@ public class Generator {
 		return null;
 	}
 
-	private boolean nearItem(GameWorld world, int i, int j) {
+	private boolean nearItem(int i, int j) {
 		for (int x = 0; x < w; x++) {
 			for (int y = 0; y < h; y++) {
-				if (item[x][y]) {
-					if (near(i, j, x, y, 10)) {
+				if (item[x][y] && near(i, j, x, y, 10)) {
 						return true;
-					}
 				}
 			}
 		}
 		return false;
 	}
 
-	private boolean nearCreature(World world, int i, int j) {
+	private boolean nearCreature(int i, int j) {
 		if (playerStartingPoint != null && near(i, j, playerStartingPoint.x, playerStartingPoint.y, 10)) {
 			return true;
 		}
 		for (int x = 0; x < w; x++) {
 			for (int y = 0; y < h; y++) {
-				if (monsters[x][y]) {
-					if (near(i, j, x, y, 10)) {
+				if (monsters[x][y] && near(i, j, x, y, 10)) {
 						return true;
-					}
 				}
 			}
 		}
@@ -343,9 +336,6 @@ public class Generator {
 	private boolean near(int i, int j, int x, int y, int v) {
 		Vector2f p = new Vector2f(i, j);
 		Vector2f o = new Vector2f(x, y);
-		if (Math.abs((p.distance(o))) < v) {
-			return true;
-		}
-		return false;
+		return Math.abs(p.distance(o)) < v ? true : false;
 	}
 }

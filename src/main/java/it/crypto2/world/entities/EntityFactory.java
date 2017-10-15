@@ -222,7 +222,7 @@ public class EntityFactory {
 			default:
 				return buildSnake(world, x, y);
 			}
-		} else if (level == 4) {
+		} else if (level == 4 || level == 5) {
 			n = 9;
 			switch (rnd.nextInt(n)) {
 			case 0:
@@ -246,35 +246,6 @@ public class EntityFactory {
 			default:
 				return buildSnake(world, x, y);
 			}
-		} else if (level == 5) {
-			n = 11;
-			switch (rnd.nextInt(n)) {
-			case 0:
-				return buildSpider(world, x, y);
-			case 1:
-				return buildStygianBird(world, x, y);
-			case 2:
-				return buildAberration(world, x, y);
-			case 3:
-				return buildRat(world, x, y);
-			case 4:
-				return buildSnake(world, x, y);
-			case 5:
-				return buildFungus(world, x, y);
-			case 6:
-				return buildShade(world, x, y);
-			case 7:
-				return buildRing(world, x, y);
-			case 8:
-				return buildFormian(world, x, y);
-			case 9:
-				return buildRedFlame(world, x, y);
-			case 10:
-				return buildBlueFlame(world, x, y);
-
-			default:
-				return buildSnake(world, x, y);
-			}
 		}
 		return buildSnake(world, x, y);
 	}
@@ -293,7 +264,7 @@ public class EntityFactory {
 		return e;
 	}
 
-	private static Entity buildInvisibilityScroll(World world, int x, int y) {
+	private static Entity buildInvisibilityScroll(int x, int y) {
 		InvisibilityScroll e = new InvisibilityScroll(x * G.TILE_SIZE, y * G.TILE_SIZE,
 				ResourceManager.getImage(G.INVISIBILITY_SCROLL), G.INVISIBILITY_SCROLL);
 		e.item = true;
@@ -323,7 +294,7 @@ public class EntityFactory {
 		case 1:
 			return buildTorch(world, x, y);
 		case 2:
-			return buildInvisibilityScroll(world, x, y);
+			return buildInvisibilityScroll(x, y);
 		case 3:
 			return buildTrap(world, x, y);
 		case 4:

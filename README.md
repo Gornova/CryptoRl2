@@ -5,7 +5,7 @@
 http://randomtower.blogspot.it/
 
 
-CryptoRl 2 is a cave-dungeon roguelike based on Crypto setting [1], setting in a dark underterrain 
+CryptoRl 2 is a cave-dungeon roguelike based on Crypto setting, setting in a dark underterrain 
 world full of monsters.
 You are an elf and you awake in an unknown cave and you have to return you your home, Kelmera.
 

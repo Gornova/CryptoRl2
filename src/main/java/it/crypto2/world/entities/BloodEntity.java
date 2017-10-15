@@ -3,11 +3,10 @@ package it.crypto2.world.entities;
 import org.newdawn.slick.Image;
 
 import it.crypto2.G;
-import it.marteEngine.World;
 
 public class BloodEntity extends GameEntity {
 
-	public BloodEntity(float x, float y, Image img, World world) {
+	public BloodEntity(float x, float y, Image img) {
 		super(x, y);
 
 		// set id

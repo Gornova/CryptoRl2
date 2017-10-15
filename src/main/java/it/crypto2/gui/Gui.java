@@ -67,7 +67,7 @@ public class Gui {
 
 		drawAttackAndDefense(g);
 
-		drawMessages(container, g);
+		drawMessages(g);
 
 		drawMouse(container, g);
 	}
@@ -119,17 +119,16 @@ public class Gui {
 	private GameEntity findEnemyOrItem(float f, float g) {
 		Rectangle rect;
 		for (Entity entity : world.getEntities()) {
-			if (entity instanceof EnemyEntity || (entity instanceof GameEntity && ((GameEntity) entity).item)) {
+			if (entity instanceof EnemyEntity || entity instanceof GameEntity && ((GameEntity) entity).item) {
 				rect = new Rectangle(entity.x, entity.y, entity.width, entity.height);
-				if (rect.contains(f, g)) {
+				if (rect.contains(f, g))
 					return (GameEntity) entity;
-				}
 			}
 		}
 		return null;
 	}
 
-	private void drawMessages(GameContainer container, Graphics g) {
+	private void drawMessages(Graphics g) {
 		int mx = 250;
 		int my = 0;
 		int dy = 20;

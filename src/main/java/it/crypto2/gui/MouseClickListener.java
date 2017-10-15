@@ -5,6 +5,6 @@ import org.newdawn.slick.state.StateBasedGame;
 
 public interface MouseClickListener {
 
-	public void onMouseClick(GameContainer container, StateBasedGame game, int delta);
+	void onMouseClick(GameContainer container, StateBasedGame game, int delta);
 
 }

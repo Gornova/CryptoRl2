@@ -1,10 +1,13 @@
 package it.crypto2.world.entities.controller;
 
+import java.awt.Point;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
 import it.crypto2.G;
+import it.crypto2.util.Line;
 import it.crypto2.world.entities.GameEntity;
 
 // just wandering around 
@@ -30,7 +33,7 @@ public class WanderController extends AbstractController {
 		makeMove(chooseMove());
 	}
 
-	private DIR chooseMove() {
+	protected DIR chooseMove() {
 		// get data from world using radius
 		// note: no diagonal movements!
 		// eliminate move that lead into a wall
@@ -46,6 +49,18 @@ public class WanderController extends AbstractController {
 		}
 
 		return DIR.NONE;
+	}
+
+	protected Point canSee(float x, float y) {
+		Line l = new Line((int) G.playerEntity.x / 32, (int) G.playerEntity.y / 32, (int) c.x / 32, (int) c.y / 32);
+		Iterator<Point> iter = l.getPoints().iterator();
+		while (iter.hasNext()) {
+			Point point = iter.next();
+			if (!G.world.isFloor(point.x, point.y)) {
+				iter.remove();
+			}
+		}
+		return l.getPoints().get(0);
 	}
 
 	private List<DIR> randomMove(List<DIR> values, int cx, int cy) {

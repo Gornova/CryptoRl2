@@ -97,10 +97,10 @@ public class MenuWorld extends World implements MouseListener, KeyListener {
 			if (key == Input.KEY_F2) {
 				if (container.isFullscreen()) {
 					container.setFullscreen(false);
-					G.fullScreen = false;
+					G.setFullScreen(false);
 				} else {
 					container.setFullscreen(true);
-					G.fullScreen = true;
+					G.setFullScreen(true);
 				}
 			}
 		} catch (SlickException e) {

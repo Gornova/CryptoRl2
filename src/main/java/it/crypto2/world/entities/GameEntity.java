@@ -57,8 +57,8 @@ public class GameEntity extends Entity {
 			if (actual.distance(current) > G.sight) {
 				return false;
 			}
-			if ((G.world.isFloor(point.x, point.y) || G.world.isItem(point.x, point.y))
-					|| (point.x == x / 32 && point.y == y / 32)) {
+			if (G.world.isFloor(point.x, point.y) || G.world.isItem(point.x, point.y)
+					|| point.x == x / 32 && point.y == y / 32) {
 				G.world.setSaw((int) point.x, (int) point.y);
 				continue;
 			}

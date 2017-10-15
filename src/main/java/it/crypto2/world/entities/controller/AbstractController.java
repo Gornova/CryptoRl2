@@ -147,7 +147,7 @@ public abstract class AbstractController implements Controller {
 
 	// under 25%
 	public boolean lowHealth() {
-		return (c.hp <= (c.maxHp * 25 / 100));
+		return c.hp <= (c.maxHp * 25 / 100);
 	}
 
 }

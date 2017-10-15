@@ -6,12 +6,12 @@ import it.marteEngine.entity.Entity;
 // handle creature controller logic
 public interface Controller {
 
-	public void setWorld(World world);
+	void setWorld(World world);
 
-	public World getWorld();
+	World getWorld();
 
-	public void update(int delta);
+	void update(int delta);
 
-	public Entity getEntity();
+	Entity getEntity();
 
 }
